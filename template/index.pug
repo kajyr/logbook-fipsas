@@ -1,0 +1,60 @@
+mixin field(label, value)
+  div(class="field field-" + label.toLowerCase().replace(/[\.°]/g, '').replace(/\s/g, '-'))
+    span.label= label
+    span.value= value
+
+doctype html
+meta(charset="utf-8")
+link(href="https://fonts.googleapis.com/css?family=Roboto:400,900" rel="stylesheet")
+link(rel="stylesheet" href="style.css")
+link(rel="stylesheet" media="print" href="print.css")
+
+body
+    .page
+        header
+            img(class="header-club" src="../loghi/club.png" alt="logo club" height="30px")
+            h1 Scheda Aria (didattica)
+            div F.I.P.S.A.S.
+            img(class="header-didattica-logo" src="../loghi/fipsas.png" alt="logo club" height="30px")
+        .panel
+            .intro
+                +field('Immersione n°', 3)
+                +field('Data', 3)
+            .place
+                .place-str
+                    +field('Luogo', 3)
+                    +field('Punto', 3)
+                .place-data
+                    +field('Lat.', 3)
+                    +field('Long.', 3)   
+
+        .panel
+            .panel
+                h2 Quadro 1 - Pianificazione dell'immersione in curva di sicurezza
+            .pianificazione
+                .programmazione
+                    .panel Immersione ripetitiva
+                    .panel Prof Tempi
+                    .panel.legend legend
+                .panel Riepilogo
+        .panel
+            .panel
+                h2 Quadro 2 - Descrizione dell'immersione
+        .panel scopo
+        
+        .panel
+            .panel
+                h3 Condizioni
+        
+        .panel
+            .panel
+                h3 Attrezzatura
+        
+        .panel
+            .panel
+                h3 Profilo dell'Immersione
+        
+        .panel
+            .panel
+                h3 Quadro riassuntivo dell'immersione
+    div(class="page")

@@ -1,0 +1,25 @@
+{
+  "name": "logbook-fipsas",
+  "version": "1.0.0",
+  "description": "Un template per [DivingLog][divinglog] per stampare i [logbook F.I.P.S.A.S.][fipsas] precompilati",
+  "main": "index.js",
+  "scripts": {
+    "start": "node build.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kajyr/logbook-fipsas.git"
+  },
+  "author": "Carlo 'kajyr' <carlo.panzi@gmail.com> (http://kajyr.github.io/)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kajyr/logbook-fipsas/issues"
+  },
+  "homepage": "https://github.com/kajyr/logbook-fipsas#readme",
+  "dependencies": {
+    "fs-extra": "^4.0.2",
+    "glob": "^7.1.2",
+    "pug": "^2.0.0-rc.4"
+  }
+}

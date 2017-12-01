@@ -1,0 +1,100 @@
+html {
+    /* off-white, so body edge is visible in browser */
+    background: #eee;
+    font-size: 10px;
+    font-family: 'Roboto', Arial, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    /* A5 dimensions */
+    height: 210mm;
+    width: 148.5mm;
+
+    margin: 0;
+    padding: 2em;
+    background: #fff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+    font-variant: small-caps;
+}
+
+/**
+    HEADER
+*/
+header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.2em;
+}
+
+.header-club {
+    margin-right: 1em;
+}
+
+.header-didattica-logo {
+    margin-left: 1em;
+}
+
+h1 {
+    flex: 1;
+    font-size: 1.3em;
+}
+
+h2 {
+    font-size: 1.1em;
+}
+
+h3 {
+    font-size: 1em;
+}
+
+.page {
+    border: 1px solid #e5e5e5
+}
+
+.panel {
+    border: 1px solid black;
+    background: #cccccc;
+    padding: 1px;
+    margin: 1px;
+}
+
+.field .value {
+    display: inline-block;
+    min-width: 70px;
+    background: white;
+    border-bottom: 0.1em solid black;
+}
+
+/* QUADRO 0 */
+.intro {
+    display: flex;
+}
+.intro .field { flex: 1; }
+.place {
+    display: flex;
+}
+
+.place-str {
+    flex: 1;
+}
+/* QUADRO 1 */
+.programmazione {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+}
+.pianificazione {
+    display: flex;
+}
+
+.legend {
+    width: 100%;
+}
