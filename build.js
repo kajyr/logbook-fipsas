@@ -1,10 +1,11 @@
 const fs = require('fs-extra');
 const glob = require('glob');
 const pug = require('pug');
-// Compile the source code
+const { parseString } = require('xml2js');
 
 const DEST = './dest/';
 const TEMPLATE = './template/';
+const INPUT_DATA = './data/data.xml';
 
 function mkdir(path, cb) {
     fs.mkdir(path, 0777, function(err) {
@@ -16,11 +17,10 @@ function mkdir(path, cb) {
     });
 }
 
-
-const build = () => {
+const build = (Logbook) => {
     const compiledFunction = pug.compileFile(`${TEMPLATE}index.pug`);
-    const html = compiledFunction({ name: 'Timothy' });
-    
+    const html = compiledFunction({ Logbook });
+
     fs.writeFile(`${DEST}index.html`, html, err => {
         if (err) throw err;
         console.log('The file has been saved!');
@@ -32,8 +32,18 @@ const build = () => {
     });
 };
 
-mkdir(DEST, err => {
-    build();
+const xml = fs.readFileSync(INPUT_DATA, 'utf8');
 
-    fs.watch(TEMPLATE, build);
+parseString(xml, function(err, { Divinglog }) {
+    
+    const {Logbook } = Divinglog
+    const [ {Dive} ] = Logbook
+
+    fs.writeFileSync(`${DEST}data.json`, JSON.stringify(Dive, null, 2))
+
+    mkdir(DEST, err => {
+        build(Dive);
+
+        fs.watch(TEMPLATE, () => build(Dive));
+    });
 });
