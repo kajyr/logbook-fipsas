@@ -19,7 +19,12 @@ body {
     background: #fff;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     margin: 0;
     padding: 0;
     font-variant: small-caps;
@@ -56,7 +61,7 @@ h3 {
 }
 
 .page {
-    border: 1px solid #e5e5e5
+    border: 1px solid #e5e5e5;
 }
 
 .panel {
@@ -64,35 +69,110 @@ h3 {
     background: #cccccc;
     padding: 1px;
     margin: 1px;
+
+    .panel {
+        padding: 2px;
+    }
 }
 
-.field .value {
-    display: inline-block;
-    min-width: 70px;
-    background: white;
-    border-bottom: 0.1em solid black;
+.field {
+    display: flex;
+    padding: 0.1em 0.5em;
+    justify-content: space-between;
+    .label {
+        margin-right: 1em;
+    }
+    .value {
+        display: inline-block;
+        min-width: 7em;
+        background: white;
+        border-bottom: 0.1em solid black;
+        padding: 0 0.2em;
+        margin: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    &-immersione-n,
+    &-data {
+        .value {
+            flex: 1;
+        }
+    }
 }
 
 /* QUADRO 0 */
 .intro {
     display: flex;
 }
-.intro .field { flex: 1; }
-.place {
-    display: flex;
+.intro .field {
+    flex: 1;
 }
 
-.place-str {
-    flex: 1;
+.place {
+    display: flex;
+
+    .label {
+        width: 4em;
+    }
+
+    .value {
+        flex: 1;
+    }
+    &-str {
+        flex: 1;
+    }
 }
+
 /* QUADRO 1 */
-.programmazione {
+
+.plan {
     display: flex;
-    flex-wrap: wrap;
-    flex: 1;
-}
-.pianificazione {
-    display: flex;
+
+    h3 {
+        font-size: 0.8em;
+    }
+
+    .field {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+    .value {
+        min-width: 2em;
+        width: 2em;
+    }
+
+    &-far {
+        h3 {
+            text-align: center;
+        }
+    }
+
+    &-programmazione {        
+        flex: 1;
+    }
+
+    &-tempi {
+        display: flex;
+    }
+
+    &-steps {
+        flex: 1;
+    }
+
+    &-legend {
+        display: flex;
+        justify-content: space-around;
+        font-size: 0.7em;
+        flex: 1;
+    }
+
+    &-recap {
+        h3 {
+            text-align: center;
+        }
+    }
 }
 
 .legend {

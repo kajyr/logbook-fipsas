@@ -20,3 +20,7 @@ html {
     page-break-after: always;
     border: 0;
 }
+
+.panel {
+    -webkit-print-color-adjust: exact;
+}

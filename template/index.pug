@@ -1,6 +1,13 @@
 mixin field(label, value)
-  div(class="field field-" + label.toLowerCase().replace(/[\.°]/g, '').replace(/\s/g, '-'))
+  div(class="field field-" + label.toLowerCase().replace(/[\.°]/, '').replace(/\s/g, '-'))
     span.label= label
+    span.value= value
+
+mixin multifield(label, value)
+  div(class="field field-" + label.toLowerCase().replace(/[\.°]/, '').replace(/\s/g, '-'))
+    span.label= label
+    span.value= value
+    span.value= value
     span.value= value
 
 doctype html
@@ -32,30 +39,57 @@ body
             .panel
                 .panel
                     h2 Quadro 1 - Pianificazione dell'immersione in curva di sicurezza
-                .pianificazione
-                    .programmazione
-                        .panel Immersione ripetitiva
-                        .panel Prof Tempi
-                        .panel.legend legend
-                    .panel Riepilogo
+                .plan
+                    .plan-programmazione
+                        .plan-tempi
+                            .panel.plan-far
+                                h3 Immersione ripetitiva
+                                +field('FAR imm. prec.')
+                                +field('intervallo di sup.')
+                                +field('FAR fine int.sup.')
+                                +field('penalità (a)')
+                            .panel.plan-steps
+                                h3
+                                    span PROF.
+                                    span TEMPI
+                                    span CONS.
+                                
+                                +multifield('fondo reale (b)')
+                                +multifield('sosta profonda (c)')
+                                +multifield('risalita (d)')
+                                +multifield('sosta sic.+emers.(f)')
+                        .panel.plan-legend
+                            div FAR = Fattore Azoto Residuo
+                            div tempo di tabella=a+b+c [+d (consigliato)]
+                            div durata=b+c+d+f
+                        
+                    .panel.plan-recap
+                        h3 Riepilogo
+                        +field('prof. tab.')
+                        +field('tempo tab.')
+                        +field('durata')
+                        +field('FAR')
+                        +field('consumo')
             .panel
                 .panel
                     h2 Quadro 2 - Descrizione dell'immersione
-            .panel scopo
-            
-            .panel
                 .panel
-                    h3 Condizioni
-            
-            .panel
+                    +field('scopo')
+                    +field('tipo')
+                
+                .panel
+                    header
+                        h3 Condizioni
+                        h4 Ambientali
+                        h4 Personali / Sintomi
+                
+                
                 .panel
                     h3 Attrezzatura
-            
-            .panel
+                
                 .panel
                     h3 Profilo dell'Immersione
-            
-            .panel
+                
                 .panel
                     h3 Quadro riassuntivo dell'immersione
         .page Page 2
