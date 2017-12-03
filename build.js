@@ -74,6 +74,6 @@ mkdir(DEST)
             .writeFile(`${DEST}data.json`, JSON.stringify(Dive, null, 2))
             .then(build)
             .then(() => {
-                fs.watch(TEMPLATE, build);
+                fs.watch(TEMPLATE, { recursive: true }, build);
             });
     });

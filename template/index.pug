@@ -1,5 +1,5 @@
-mixin page
-    .page
+mixin page(dir)
+    .page(class='page-'+dir)
         header
             img(class="header-club" src="../loghi/club.png" alt="logo club" height="30px")
             h1 Scheda Aria (didattica)
@@ -7,17 +7,30 @@ mixin page
             img(class="header-didattica-logo" src="../loghi/fipsas.png" alt="logo club" height="30px")
         block
 
-mixin field(label, value)
-  div(class="field field-" + label.toLowerCase().replace(/[\.°]/, '').replace(/\s/g, '-'))
-    span.label= label
-    span.value= value
+mixin field(label, info)
+  .field(class="field-" + label.toLowerCase().replace(/[\.°]/, '').replace(/\s/g, '-'))
+    span.field-label= label
+    if info
+        span.field-info= info
+    span.field-value
+        if block
+            block
+        else
+            |
 
-mixin multifield(label, value)
-  div(class="field field-" + label.toLowerCase().replace(/[\.°]/, '').replace(/\s/g, '-'))
-    span.label= label
-    span.value= value
-    span.value= value
-    span.value= value
+mixin multifield(label, info)
+  .field(class="field-" + label.toLowerCase().replace(/[\.°]/, '').replace(/\s/g, '-'))
+    span.field-label= label
+    if info
+        span.field-info= info
+    span.field-value
+    span.field-value
+    span.field-value
+
+mixin tipo(entry)
+    case entry
+        default
+            | no no
 
 doctype html
 meta(charset="utf-8")
@@ -27,18 +40,24 @@ link(rel="stylesheet" media="print" href="print.css")
 
 body
     each dive in Logbook
-        +page
+        +page('right')
             .panel
                 .intro
-                    +field('Immersione n°', dive.$.ID)
-                    +field('Data', dive.Divedate)
+                    +field('Immersione n°')
+                        | #{dive.$.ID}
+                    +field('Data')
+                        | #{dive.Divedate}
                 .place
                     .place-str
-                        +field('Luogo', dive.City[0].$.Name + ' - ' + dive.Country[0].$.Name)
-                        +field('Punto', dive.Place[0].$.Name)
+                        +field('Luogo')
+                            | #{dive.City[0].$.Name} - #{dive.Country[0].$.Name}
+                        +field('Punto')
+                            | #{dive.Place[0].$.Name}
                     .place-data
-                        +field('Lat.', dive.Place[0].Lat[0])
-                        +field('Long.', dive.Place[0].Lon[0])   
+                        +field('Lat.')
+                            | #{dive.Place[0].Lat[0]}
+                        +field('Long.')
+                            | #{dive.Place[0].Lon[0]}
             .panel
                 .panel
                     h2 Quadro 1 - Pianificazione dell'immersione in curva di sicurezza
@@ -46,46 +65,83 @@ body
                     .plan-programmazione
                         .plan-tempi
                             .panel.plan-far
-                                h3 Immersione ripetitiva
+                                h3 immersione ripetitiva
                                 +field('FAR imm. prec.')
                                 +field('intervallo di sup.')
                                 +field('FAR fine int.sup.')
-                                +field('penalità (a)')
+                                +field('penalità', '(a)')
                             .panel.plan-steps
                                 h3
-                                    span PROF.
-                                    span TEMPI
-                                    span CONS.
+                                    span prof.
+                                    span tempi
+                                    span cons.
                                 
-                                +multifield('fondo reale (b)')
-                                +multifield('sosta profonda (c)')
-                                +multifield('risalita (d)')
-                                +multifield('sosta sic.+emers.(f)')
+                                +multifield('fondo reale', '(b)')
+                                +multifield('sosta profonda', '(c)')
+                                +multifield('risalita', '(d)')
+                                +multifield('sosta sic.+emers.', '(f)')
                         .panel.plan-legend
                             div FAR = Fattore Azoto Residuo
                             div tempo di tabella=a+b+c [+d (consigliato)]
                             div durata=b+c+d+f
                         
                     .panel.plan-recap
-                        h3 Riepilogo
+                        h3 riepilogo
                         +field('prof. tab.')
                         +field('tempo tab.')
                         +field('durata')
                         +field('FAR')
                         +field('consumo')
+
             .panel
                 .panel
                     h2 Quadro 2 - Descrizione dell'immersione
+                .panel.descr
+                    +field('scopo', '(didattica, svago, esplorazione, foto, ...)')
+                        | #{dive.Divetype}
+                    +field('tipo', '(da riva, da barca, secca, notturna, relitto,...)')
+                        case dive.Entry.join('')
+                            when "Boat"
+                                | da barca
+                            default
+                                | #{dive.Entry.join('|')}
+                        | /
+                        case dive.Water.join('')
+                            when "Salt"
+                                | in mare
+                            default
+                                | #{dive.Water.join('|')}
                 .panel
-                    +field('scopo')
-                    +field('tipo')
-                
-                .panel
-                    header
-                        h3 Condizioni
-                        h4 Ambientali
-                        h4 Personali / Sintomi
-                
+                    h3 Condizioni
+                    .cond
+                        .cond-ambient
+                            h4 ambientali
+                            .row
+                                .label meteo:
+                                +field('sereno')
+                                +field('coperto')
+                                +field('pioggia')
+                            .row
+                                .label mare:
+                                +field('calmo')
+                                +field('poco mosso')
+                                +field('mosso')
+                            .row
+                                .label visibilità:
+                                +field('buona')
+                                +field('sufficiente')
+                                +field('scarsa')
+                            .row
+                                .label corrente:
+                                +field('assente')
+                                +field('debole')
+                                +field('forte')
+                        .cond-pers
+                            h4 personali / sintomi
+                            +field('prima')
+                            +field('')
+                            +field('dopo')
+                            +field('')
                 
                 .panel
                     h3 Attrezzatura
@@ -95,7 +151,7 @@ body
                 
                 .panel
                     h3 Quadro riassuntivo dell'immersione
-        +page
+        +page('left')
             h2 Annotazioni
             p.note (compagni d'immersione, indirizzi, numeri telefonici, punti di riferimento, piantina della zona, profili della costa e dei fondali, osservazioni naturalistiche o archeologiche, ecc.)
             .grid
