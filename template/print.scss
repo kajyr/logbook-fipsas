@@ -1,14 +1,13 @@
 @page {
-    /* dimensions for the whole page */
     size: A5;
     margin: 0.5cm;
 }
 
-@page :left {
+@page:left {
     margin-right: 2cm;
 }
 
-@page :right {
+@page:right {
     margin-left: 2cm;
 }
 

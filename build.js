@@ -30,13 +30,16 @@ const globp = pattern =>
 
 const sassp = file =>
     new Promise((resolve, reject) =>
-        sass.render({ file }, (err, data) => {
+        sass.render({ file, outputStyle: 'compact' }, (err, data) => {
             if (err) {
                 return reject(err);
             }
             return resolve(data);
         })
-    );
+    )
+.then(data => fs.writeFile(file.replace(TEMPLATE, DEST).replace(/\.s.ss/i, '.css'), data.css))
+        .catch(console.log);
+
 const parse = xml =>
     new Promise((resolve, reject) =>
         parseString(xml, function(err, data) {
@@ -50,35 +53,27 @@ const parse = xml =>
 /*
     Molecules
 */
-const build = Logbook => {
+const buildHtml = Logbook => {
     const compiledFunction = pug.compileFile(`${TEMPLATE}index.pug`);
     const html = compiledFunction({ Logbook });
-
-    return fs
-        .writeFile(`${DEST}index.html`, html)
-        .then(() => {
-            console.log('The file has been saved!');
-            return globp(`${TEMPLATE}*.css`);
-        })
-        .then(files => {
-            console.log('copying ', files);
-            return Promise.all(files.map(file => fs.copy(file, file.replace(TEMPLATE, DEST)))).then(files => {
-                console.log('CSS copied');
-            });
-        });
+    return fs.writeFile(`${DEST}index.html`, html);
 };
+
+const buildSass = () => globp(`${TEMPLATE}*.scss`).then(files => Promise.all(files.map(sassp)));
 
 const getData = data_file => fs.readFile(data_file, 'utf8').then(parse);
 
 mkdir(DEST)
-.then(() => getData(INPUT_DATA))
-.then(({ Divinglog }) => {
-    const { Logbook } = Divinglog;
-    const [{ Dive }] = Logbook;
-    fs.writeFile(`${DEST}data.json`, JSON.stringify(Dive, null, 2))
-    .then(() => build(Dive))
-    .then(() => {
-        fs.watch(TEMPLATE, () => build(Dive));
-    });
-});
+    .then(() => getData(INPUT_DATA))
+    .then(({ Divinglog }) => {
+        const { Logbook } = Divinglog;
+        const [{ Dive }] = Logbook;
+        const build = () => Promise.all([buildHtml(Dive), buildSass()]).then(() => console.log('-- Build ok'));
 
+        fs
+            .writeFile(`${DEST}data.json`, JSON.stringify(Dive, null, 2))
+            .then(build)
+            .then(() => {
+                fs.watch(TEMPLATE, build);
+            });
+    });
