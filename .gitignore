@@ -1,4 +1,4 @@
 *.~crd
 node_modules
-./dest
-./data/*.xml
+dest/*
+data/*.xml
