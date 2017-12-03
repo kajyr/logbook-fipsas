@@ -1,3 +1,12 @@
+mixin page
+    .page
+        header
+            img(class="header-club" src="../loghi/club.png" alt="logo club" height="30px")
+            h1 Scheda Aria (didattica)
+            div F.I.P.S.A.S.
+            img(class="header-didattica-logo" src="../loghi/fipsas.png" alt="logo club" height="30px")
+        block
+
 mixin field(label, value)
   div(class="field field-" + label.toLowerCase().replace(/[\.°]/, '').replace(/\s/g, '-'))
     span.label= label
@@ -12,18 +21,13 @@ mixin multifield(label, value)
 
 doctype html
 meta(charset="utf-8")
-link(href="https://fonts.googleapis.com/css?family=Roboto:400,900" rel="stylesheet")
+link(href="https://fonts.googleapis.com/css?family=Roboto:400,400i,900" rel="stylesheet")
 link(rel="stylesheet" href="style.css")
 link(rel="stylesheet" media="print" href="print.css")
 
 body
     each dive in Logbook
-        .page
-            header
-                img(class="header-club" src="../loghi/club.png" alt="logo club" height="30px")
-                h1 Scheda Aria (didattica)
-                div F.I.P.S.A.S.
-                img(class="header-didattica-logo" src="../loghi/fipsas.png" alt="logo club" height="30px")
+        +page
             .panel
                 .intro
                     +field('Immersione n°', dive.$.ID)
@@ -35,7 +39,6 @@ body
                     .place-data
                         +field('Lat.', dive.Place[0].Lat[0])
                         +field('Long.', dive.Place[0].Lon[0])   
-
             .panel
                 .panel
                     h2 Quadro 1 - Pianificazione dell'immersione in curva di sicurezza
@@ -92,4 +95,7 @@ body
                 
                 .panel
                     h3 Quadro riassuntivo dell'immersione
-        .page Page 2
+        +page
+            h2 Annotazioni
+            p.note (compagni d'immersione, indirizzi, numeri telefonici, punti di riferimento, piantina della zona, profili della costa e dei fondali, osservazioni naturalistiche o archeologiche, ecc.)
+            .grid
