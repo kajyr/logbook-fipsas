@@ -54,12 +54,19 @@ const parse = xml =>
     Molecules
 */
 const buildHtml = Logbook => {
-    const compiledFunction = pug.compileFile(`${TEMPLATE}index.pug`);
-    const html = compiledFunction({ Logbook });
-    return fs.writeFile(`${DEST}index.html`, html);
+    try {
+        const compiledFunction = pug.compileFile(`${TEMPLATE}index.pug`);
+        const html = compiledFunction({ Logbook });
+        return fs.writeFile(`${DEST}index.html`, html);
+    } catch (e) {
+        console.log(e)
+        return Promise.reject(e)
+    }
 };
 
 const buildSass = () => globp(`${TEMPLATE}*.scss`).then(files => Promise.all(files.map(sassp)));
+
+const img = () => fs.copy(`${TEMPLATE}/loghi`, `${DEST}/loghi`)
 
 const getData = data_file => fs.readFile(data_file, 'utf8').then(parse);
 
@@ -68,7 +75,7 @@ mkdir(DEST)
     .then(({ Divinglog }) => {
         const { Logbook } = Divinglog;
         const [{ Dive }] = Logbook;
-        const build = () => Promise.all([buildHtml(Dive), buildSass()]).then(() => console.log('-- Build ok'));
+        const build = () => Promise.all([buildHtml(Dive), buildSass(), img()]).then(() => console.log('-- Build ok'));
 
         fs
             .writeFile(`${DEST}data.json`, JSON.stringify(Dive, null, 2))
