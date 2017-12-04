@@ -1,15 +1,16 @@
 mixin page(dir)
     .page(class='page-'+dir)
         header
-            img(class="header-club" src="../loghi/club.png" alt="logo club" height="30px")
+            img(class="header-club" src="./loghi/club.png" alt="logo club" height="30px")
             h1 Scheda Aria (didattica)
             div F.I.P.S.A.S.
-            img(class="header-didattica-logo" src="../loghi/fipsas.png" alt="logo club" height="30px")
+            img(class="header-didattica-logo" src="./loghi/fipsas.png" alt="logo club" height="30px")
         block
 
 mixin field(label, info)
-  .field(class="field-" + label.toLowerCase().replace(/[\.°]/, '').replace(/\s/g, '-'))
-    span.field-label= label
+  .field(class="field-" + (label || 'empty').toLowerCase().replace(/[\.°]/, '').replace(/\s/g, '-'))
+    if label
+        span.field-label= label
     if info
         span.field-info= info
     span.field-value
@@ -26,6 +27,11 @@ mixin multifield(label, info)
     span.field-value
     span.field-value
     span.field-value
+
+mixin field-check(label, variants, field)
+    +field(label)
+        if variants.includes(field[0].toLowerCase().trim())
+            | ✔
 
 mixin tipo(entry)
     case entry
@@ -118,24 +124,24 @@ body
                             h4 ambientali
                             .row
                                 .label meteo:
-                                +field('sereno')
-                                +field('coperto')
-                                +field('pioggia')
+                                +field-check('sereno', ['sereno'], dive.Weather)
+                                +field-check('coperto', ['foschia', 'nuvoloso'], dive.Weather)
+                                +field-check('pioggia', ['pioggia', 'burrasca', 'neve'], dive.Weather)
                             .row
                                 .label mare:
-                                +field('calmo')
-                                +field('poco mosso')
-                                +field('mosso')
+                                +field-check('calmo', ['nessuno', 'normale', 'calmo'], dive.Surface)
+                                +field-check('poco mosso', ['poco mosso', 'leggero'], dive.Surface)
+                                +field-check('mosso', ['mosso'], dive.Surface)
                             .row
                                 .label visibilità:
-                                +field('buona')
-                                +field('sufficiente')
-                                +field('scarsa')
+                                +field-check('buona', ['good'], dive.Visibility)
+                                +field-check('sufficiente', ['average'], dive.Visibility)
+                                +field-check('scarsa', ['bad'], dive.Visibility)
                             .row
                                 .label corrente:
-                                +field('assente')
-                                +field('debole')
-                                +field('forte')
+                                +field-check('assente', [''], dive.UWCurrent)
+                                +field-check('debole', ['media'], dive.UWCurrent)
+                                +field-check('forte', ['TODO: find this'], dive.UWCurrent)
                         .cond-pers
                             h4 personali / sintomi
                             +field('prima')
@@ -145,6 +151,16 @@ body
                 
                 .panel
                     h3 Attrezzatura
+                    .attrezzatura
+                        +field('bombole', 'bombole (l)')
+                            | #{dive.Tanksize[0]}
+                        +field('muta', 'muta')
+                            | #{dive.Divesuit[0]}
+                        +field('zavorra', 'zavorra (kg)')
+                            | #{dive.Weight[0]}
+                        +field('tabelle', 'tabelle/computer')
+                            | #{dive.Computer[0]}
+                        +field('altro', 'altro')
                 
                 .panel
                     h3 Profilo dell'Immersione

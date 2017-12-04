@@ -50,6 +50,8 @@ const parse = xml =>
         })
     );
 
+const save = (file, data) => fs.writeFile(`${DEST}${file}.json`, JSON.stringify(data, null, 2))
+
 /*
     Molecules
 */
@@ -77,8 +79,8 @@ mkdir(DEST)
         const [{ Dive }] = Logbook;
         const build = () => Promise.all([buildHtml(Dive), buildSass(), img()]).then(() => console.log('-- Build ok'));
 
-        fs
-            .writeFile(`${DEST}data.json`, JSON.stringify(Dive, null, 2))
+        save('dive', Dive)
+            .then(() => save('logbook', Divinglog))
             .then(build)
             .then(() => {
                 fs.watch(TEMPLATE, { recursive: true }, build);

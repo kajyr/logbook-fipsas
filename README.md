@@ -10,3 +10,12 @@ Il font usato è il [Roboto][roboto], scaricatelo e installatelo sulla vostra ma
 [roboto]: https://fonts.google.com/specimen/Roboto?selection.family=Roboto
 
 
+## Elementi mancanti
+
++ Quadro 1
++ Corrente forte
++ Condizioni personali / sintomi
++ Attrezzatura: Altro
++ Profilo immersione
++ Quadro riassuntivo
++ Convalida
