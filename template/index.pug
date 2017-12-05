@@ -43,6 +43,7 @@ meta(charset="utf-8")
 link(href="https://fonts.googleapis.com/css?family=Roboto:400,400i,900" rel="stylesheet")
 link(rel="stylesheet" href="style.css")
 link(rel="stylesheet" media="print" href="print.css")
+script(src="https://code.highcharts.com/highcharts.js")
 
 body
     each dive in Logbook
@@ -164,6 +165,53 @@ body
                 
                 .panel
                     h3 Profilo dell'Immersione
+                    .chart(id="chart-" + dive.Number)
+                    script
+                        | var myChart = Highcharts.chart('chart-#{dive.Number}', {
+                        |   chart: {
+                        |       type: 'line'
+                        |   },
+                        |   title: {
+                        |       text: null
+                        |   },
+                        |   legend: {
+                        |       floating: true,
+                        |       align: 'right',
+                        |       verticalAlign: 'bottom',
+                        |       itemStyle: { fontSize: '8px', fontWeight:'normal' },
+                        |       symbolHeight: .001,
+                        |       y: -20
+                        |   },
+                        |   credits: { enabled: false },
+                        |   tooltip: { enabled: false },
+                        |   plotOptions: {line: {
+                        |       lineWidth: 1,
+                        |       states: {hover: { enabled: false }} }},
+                        |   xAxis: {
+                        |       labels: {
+                        |           style: { fontSize: '8px' },
+                        |           formatter: function() { return Math.floor(this.value / 60) }
+                        |       },
+                        |       categories: !{JSON.stringify(dive.Times)},
+                        |       minTickInterval: 40,
+                        |   },
+                        |   yAxis: {
+                        |       reversed: true,
+                        |       tickAmount: 4,
+                        |       title: { text: null },
+                        |       labels: { style: { fontSize: '8px' } }
+                        |   },
+                        |   series: [
+                        |       {
+                        |            name: 'Profondità',
+                        |            data: !{JSON.stringify(dive.Depths)}
+                        |       },
+                        |       {
+                        |            name: 'Temp',
+                        |            data: !{JSON.stringify(dive.Temps)}
+                        |       }
+                        |   ]
+                        | });
                 
                 .panel
                     h3 Quadro riassuntivo dell'immersione

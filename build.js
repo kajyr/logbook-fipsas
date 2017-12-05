@@ -37,7 +37,7 @@ const sassp = file =>
             return resolve(data);
         })
     )
-.then(data => fs.writeFile(file.replace(TEMPLATE, DEST).replace(/\.s.ss/i, '.css'), data.css))
+        .then(data => fs.writeFile(file.replace(TEMPLATE, DEST).replace(/\.s.ss/i, '.css'), data.css))
         .catch(console.log);
 
 const parse = xml =>
@@ -50,7 +50,7 @@ const parse = xml =>
         })
     );
 
-const save = (file, data) => fs.writeFile(`${DEST}${file}.json`, JSON.stringify(data, null, 2))
+const save = (file, data) => fs.writeFile(`${DEST}${file}.json`, JSON.stringify(data, null, 2));
 
 /*
     Molecules
@@ -61,25 +61,40 @@ const buildHtml = Logbook => {
         const html = compiledFunction({ Logbook });
         return fs.writeFile(`${DEST}index.html`, html);
     } catch (e) {
-        console.log(e)
-        return Promise.reject(e)
+        console.log(e);
+        return Promise.reject(e);
     }
 };
 
 const buildSass = () => globp(`${TEMPLATE}*.scss`).then(files => Promise.all(files.map(sassp)));
 
-const img = () => fs.copy(`${TEMPLATE}/loghi`, `${DEST}/loghi`)
+const img = () => fs.copy(`${TEMPLATE}/loghi`, `${DEST}/loghi`);
 
 const getData = data_file => fs.readFile(data_file, 'utf8').then(parse);
+
+const normalize = Logbook => {
+    const [{ Dive }] = Logbook
+    return Dive.map(dive => {
+        const profile = dive.Profile[0].P;
+
+        return Object.assign({}, dive, {
+            Depths: profile.map(p => parseFloat(p.Depth[0])),
+            Temps: profile.map(p => parseFloat(p.Temp[0])),
+            Times: profile.map(p => parseFloat(p.$.Time))
+        });
+    });
+};
 
 mkdir(DEST)
     .then(() => getData(INPUT_DATA))
     .then(({ Divinglog }) => {
         const { Logbook } = Divinglog;
-        const [{ Dive }] = Logbook;
-        const build = () => Promise.all([buildHtml(Dive), buildSass(), img()]).then(() => console.log('-- Build ok'));
+        const normalized = normalize(Logbook);
+        const build = () =>
+            Promise.all([buildHtml(normalized), buildSass(), img()]).then(() => console.log('-- Build ok'));
 
-        save('dive', Dive)
+        save('dive', Logbook)
+            .then(() => save('dive-normalized', normalized))
             .then(() => save('logbook', Divinglog))
             .then(build)
             .then(() => {
