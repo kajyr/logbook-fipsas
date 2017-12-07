@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/kajyr/logbook-fipsas#readme",
   "dependencies": {
+    "date-fns": "^1.29.0",
     "fs-extra": "^4.0.2",
     "glob": "^7.1.2",
     "node-sass": "^4.7.2",

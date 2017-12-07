@@ -144,10 +144,11 @@ h4 {
         padding-top: 0;
         padding-bottom: 0;
         justify-content: flex-end;
-    }
-    .field-value {
-        min-width: 2em;
-        width: 2em;
+
+        &-value {
+            width: 0.7cm;
+            text-align: right;
+        }
     }
 
     &-far {
@@ -285,4 +286,33 @@ h4 {
 .chart {
     height: 5cm;
     padding: 2mm 1mm;
+}
+
+.riassunto {
+    header {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &-1, &-2 {
+        // width: 29%;
+        flex: 1;
+    }
+
+    &-parziali {
+        flex: 1;
+    }
+
+    .field {
+        justify-content: flex-end;
+        &-value {
+            width: 1cm;
+            text-align: right;
+        }
+    }
+}
+
+.columns {
+    display: flex;
+    justify-content: space-between;
 }

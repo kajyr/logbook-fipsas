@@ -4,9 +4,16 @@ const pug = require('pug');
 const { parseString } = require('xml2js');
 const sass = require('node-sass');
 
+const parse = require('date-fns/parse');
+const format = require('date-fns/format');
+const addMinutes = require('date-fns/add_minutes');
+
 const DEST = './dest/';
 const TEMPLATE = './template/';
 const INPUT_DATA = './data/data.xml';
+
+const NORMALIZE_BOOL_FIELDS = ['Deco', 'Rep', 'DblTank'];
+const NORMALIZE_FLOAT_FIELDS = ['Tanksize', 'PresS', 'PresE', 'Divetime', 'Depth', 'Watertemp', 'Weight'];
 
 /*
     Atoms
@@ -40,7 +47,7 @@ const sassp = file =>
         .then(data => fs.writeFile(file.replace(TEMPLATE, DEST).replace(/\.s.ss/i, '.css'), data.css))
         .catch(console.log);
 
-const parse = xml =>
+const parseXml = xml =>
     new Promise((resolve, reject) =>
         parseString(xml, function(err, data) {
             if (err) {
@@ -70,17 +77,31 @@ const buildSass = () => globp(`${TEMPLATE}*.scss`).then(files => Promise.all(fil
 
 const img = () => fs.copy(`${TEMPLATE}/loghi`, `${DEST}/loghi`);
 
-const getData = data_file => fs.readFile(data_file, 'utf8').then(parse);
+const getData = data_file => fs.readFile(data_file, 'utf8').then(parseXml);
 
 const normalize = Logbook => {
-    const [{ Dive }] = Logbook
+    const [{ Dive }] = Logbook;
     return Dive.map(dive => {
+        const entrydate = parse(`${dive.Divedate}:${dive.Entrytime}`);
+        const diveTime = Math.round(parseFloat(dive.Divetime));
+        const exitdate = addMinutes(entrydate, diveTime);
         const profile = dive.Profile[0].P;
 
-        return Object.assign({}, dive, {
+        const boolFields = NORMALIZE_BOOL_FIELDS.reduce((acc, field) => {
+            acc[field] = dive[field][0] === 'True';
+            return acc;
+        }, {});
+
+        const floatFields = NORMALIZE_FLOAT_FIELDS.reduce((acc, field) => {
+            acc[field] = parseFloat(dive[field][0]);
+            return acc;
+        }, {});
+
+        return Object.assign({}, dive, boolFields, floatFields, {
             Depths: profile.map(p => parseFloat(p.Depth[0])),
             Temps: profile.map(p => parseFloat(p.Temp[0])),
-            Times: profile.map(p => parseFloat(p.$.Time))
+            Times: profile.map(p => parseFloat(p.$.Time)),
+            Exittime: format(exitdate, 'HH:mm')
         });
     });
 };

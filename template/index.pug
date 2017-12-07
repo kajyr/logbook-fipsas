@@ -62,9 +62,9 @@ body
                             | #{dive.Place[0].$.Name}
                     .place-data
                         +field('Lat.')
-                            | #{dive.Place[0].Lat[0]}
+                            | #{parseFloat(dive.Place[0].Lat[0]).toFixed(4)}
                         +field('Long.')
-                            | #{dive.Place[0].Lon[0]}
+                            | #{parseFloat(dive.Place[0].Lon[0]).toFixed(4)}
             .panel
                 .panel
                     h2 Quadro 1 - Pianificazione dell'immersione in curva di sicurezza
@@ -75,6 +75,7 @@ body
                                 h3 immersione ripetitiva
                                 +field('FAR imm. prec.')
                                 +field('intervallo di sup.')
+                                    | #{dive.Rep ? dive.Surfint : '-'}
                                 +field('FAR fine int.sup.')
                                 +field('penalità', '(a)')
                             .panel.plan-steps
@@ -154,11 +155,11 @@ body
                     h3 Attrezzatura
                     .attrezzatura
                         +field('bombole', 'bombole (l)')
-                            | #{dive.Tanksize[0]}
+                            | #{dive.Tanksize}
                         +field('muta', 'muta')
                             | #{dive.Divesuit[0]}
                         +field('zavorra', 'zavorra (kg)')
-                            | #{dive.Weight[0]}
+                            | #{dive.Weight}
                         +field('tabelle', 'tabelle/computer')
                             | #{dive.Computer[0]}
                         +field('altro', 'altro')
@@ -213,8 +214,45 @@ body
                         |   ]
                         | });
                 
-                .panel
-                    h3 Quadro riassuntivo dell'immersione
+                .panel.riassunto
+                    header
+                        h3 Quadro riassuntivo dell'immersione
+                        h4 tempi parziali
+                    .columns
+                        .riassunto-1
+                            +field('ora inizio imm.')
+                                | #{dive.Entrytime}
+                            +field('durata', '(B+C+D+E+F)')
+                                | #{dive.Divetime}
+                            +field('press. iniz.', '(bar)')
+                                | #{Math.round(dive.PresS)}
+                            +field('volume iniz.', '(l)')
+                                | #{dive.PresS * dive.Tanksize}
+                            +field('FAR iniziale')
+                        .riassunto-2
+                            +field('ora fine imm.')
+                                | #{dive.Exittime}
+                            +field('prof. max.', '(m)')
+                                | #{dive.Depth}
+                            +field('press. fin.', '(bar)')
+                                | #{Math.round(dive.PresE)}
+                            +field('consumo', '(l)')
+                                | #{(dive.PresS-dive.PresE)*dive.Tanksize}
+                            +field('FAR finale')
+                        .riassunto-parziali
+                            +field('tempo di fondo', '(B)')
+                                | #{ Math.round(dive.Divetime) - 5 - Math.ceil((dive.Depth - 6)/9) - (dive.Depth > 18 ? 2.5 : 0)}
+                            +field(`sosta prof. ${dive.Depth > 18 ? Math.ceil(dive.Depth/2) + 'm' : '' }`, '(C)')
+                                | #{dive.Depth > 18 ? '2.5' : '-' }
+                            +field('risalita', '(D)')
+                                | #{Math.ceil((dive.Depth - 6)/9)}
+                            +field('deco a 6 m', '(E)')
+                                | #{dive.Deco ? dive.Decostops[0].trim() : '-'}
+                            +field('sosta sic. +emers.', '(F)')
+                                | 5
+                        
+  
+      
         +page('left')
             h2 Annotazioni
             p.note (compagni d'immersione, indirizzi, numeri telefonici, punti di riferimento, piantina della zona, profili della costa e dei fondali, osservazioni naturalistiche o archeologiche, ecc.)
