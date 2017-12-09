@@ -1,7 +1,9 @@
+$base-spacing: 0.5cm;
+
+@import 'partials/page';
 @import 'partials/field';
 @import 'partials/grid';
 
-$base-spacing: 0.5cm;
 
 html {
     /* off-white, so body edge is visible in browser */
@@ -67,22 +69,6 @@ h3 {
 
 h4 {
     font-size: 0.9em;
-}
-
-.page {
-    border: 1px solid #e5e5e5;
-    height: 210mm;
-    display: flex;
-    flex-direction: column;
-    padding: 0.5cm;
-
-    &-left {
-        padding-right: 2cm;
-    }
-
-    &-right {
-        padding-left: 2cm;
-    }
 }
 
 .panel {
@@ -316,7 +302,7 @@ h4 {
 }
 
 .signature {
-    margin-top: 0.5cm;
+    margin-top: $base-spacing;
     .field{
         flex-wrap: wrap;
         &-label {
@@ -339,5 +325,5 @@ h4 {
 .copy {
     text-align: center;
     margin-top: auto;
-    padding-top: 0.5cm;
+    padding-top: $base-spacing;
 }

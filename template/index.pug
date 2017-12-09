@@ -1,13 +1,19 @@
 mixin page(dir)
     .page(class='page-'+dir)
-        header
-            img(class="header-club" src="./loghi/club.png" alt="logo club" height="30px")
-            h1 Scheda Aria (didattica)
-            div F.I.P.S.A.S.
-            img(class="header-didattica-logo" src="./loghi/fipsas.png" alt="logo club" height="30px")
-        block
-        .copy
-            | &copy; FIPSAS 2010
+        aside
+            .hole.ha
+            .hole.hb
+            .hole.hc
+            .hole.hd
+        main
+            header
+                img(class="header-club" src="./loghi/club.png" alt="logo club" height="30px")
+                h1 Scheda Aria (didattica)
+                div F.I.P.S.A.S.
+                img(class="header-didattica-logo" src="./loghi/fipsas.png" alt="logo club" height="30px")
+            block
+            .copy
+                | &copy; FIPSAS 2010
 
 mixin field(label, info)
   .field(class="field-" + (label || 'empty').toLowerCase().replace(/[\.°]/, '').replace(/\s/g, '-'))
