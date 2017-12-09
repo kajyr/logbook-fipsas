@@ -22,7 +22,7 @@ aside {
     position: relative;
 }
 
-$hole-size: 1em;
+$hole-size: 3mm;
 
 .hole {
     border: 1px solid #e5e5e5;
@@ -34,15 +34,15 @@ $hole-size: 1em;
 
 .h {
     &a {
-        margin-top: 53px;
+        margin-top: 2.7cm;
     }
     &b {
-        margin-top: 128px;
+        margin-top: 4.1cm;
     }
     &c {
-        margin-top: 270px;
+        margin-top: 6cm;
     }
     &d {
-        margin-top: 128px;
+        margin-top: 4.1cm;
     }
 }

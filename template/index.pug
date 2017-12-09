@@ -9,11 +9,11 @@ mixin page(dir)
             header
                 img(class="header-club" src="./loghi/club.png" alt="logo club" height="30px")
                 h1 Scheda Aria (didattica)
-                div F.I.P.S.A.S.
+                .org F.I.P.S.A.S.
                 img(class="header-didattica-logo" src="./loghi/fipsas.png" alt="logo club" height="30px")
             block
             .copy
-                | &copy; FIPSAS 2010
+                | &copy; F.I.P.S.A.S. 2010
 
 mixin field(label, info)
   .field(class="field-" + (label || 'empty').toLowerCase().replace(/[\.°]/, '').replace(/\s/g, '-'))
@@ -56,23 +56,24 @@ script(src="https://code.highcharts.com/highcharts.js")
 body
     each dive in Logbook
         +page('right')
-            .panel
-                .intro
-                    +field('Immersione n°')
-                        | #{dive.$.ID}
-                    +field('Data')
-                        | #{dive.Divedate}
-                .place
-                    .place-str
-                        +field('Luogo')
-                            | #{dive.City[0].$.Name} - #{dive.Country[0].$.Name}
-                        +field('Punto')
-                            | #{dive.Place[0].$.Name}
-                    .place-data
-                        +field('Lat.')
-                            | #{parseFloat(dive.Place[0].Lat[0]).toFixed(4)}
-                        +field('Long.')
-                            | #{parseFloat(dive.Place[0].Lon[0]).toFixed(4)}
+            .panel.panel--intro
+                .panel
+                    .intro
+                        +field('Immersione n°')
+                            | #{dive.$.ID}
+                        +field('Data')
+                            | #{dive.Divedate}
+                    .place
+                        .place-str
+                            +field('Luogo')
+                                | #{dive.City[0].$.Name} - #{dive.Country[0].$.Name}
+                            +field('Punto')
+                                | #{dive.Place[0].$.Name}
+                        .place-data
+                            +field('Lat.')
+                                | #{parseFloat(dive.Place[0].Lat[0]).toFixed(4)}
+                            +field('Long.')
+                                | #{parseFloat(dive.Place[0].Lon[0]).toFixed(4)}
             .panel
                 .panel
                     h2 Quadro 1 - Pianificazione dell'immersione in curva di sicurezza

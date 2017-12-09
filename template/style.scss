@@ -1,4 +1,4 @@
-$base-spacing: 0.5cm;
+$inner-margin: 1mm;
 
 @import 'partials/page';
 @import 'partials/field';
@@ -8,7 +8,7 @@ $base-spacing: 0.5cm;
 html {
     /* off-white, so body edge is visible in browser */
     background: #eee;
-    font-size: 10px;
+    font-size: 9pt;
     font-family: 'Roboto', Arial, sans-serif;
 }
 
@@ -22,7 +22,6 @@ body {
     width: 148.5mm;
 
     margin: 0;
-    padding: 2em;
     background: #fff;
 }
 
@@ -44,6 +43,11 @@ header {
     display: flex;
     align-items: center;
     margin-bottom: 0.2em;
+    padding: 0 $inner-margin;
+
+    .org {
+        font-size: 1.2em;
+    }
 }
 
 .header-club {
@@ -56,11 +60,11 @@ header {
 
 h1 {
     flex: 1;
-    font-size: 1.3em;
+    font-size: 1.4em;
 }
 
 h2 {
-    font-size: 1.1em;
+    font-size: 1.3em;
 }
 
 h3 {
@@ -73,45 +77,55 @@ h4 {
 
 .panel {
     border: 1px solid black;
-    background: #cccccc;
+    background: #e5e5e5;
     padding: 1px;
     margin: 1px;
 
     .panel {
-        padding: 2px;
+        padding: 2px $inner-margin;
     }
+
+    
 }
 
 .note {
     font-style: italic;
 }
 
+.panel--intro {
+    .field {
+        padding: 1px 0;
+
+        &-data {
+            margin-left: 1mm;
+        }
+    }
+
+    .field-label {
+        width: 2cm;
+    }
+
+    .field-value {
+        flex: 1;
+    }
+}
+
 /* QUADRO 0 */
 .intro {
     display: flex;
     
+    
     .field {
         flex: 1;
     }
-
-    .field-value {
-        flex: 1;
-    } 
-    
 }
 
 .place {
     display: flex;
-
-    .field-label {
-        width: 4em;
-    }
     
-    .field-value {
-        flex: 1;
-    }
     &-str {
         flex: 1;
+        padding-right: 1mm;
     }
 }
 
@@ -180,6 +194,10 @@ h4 {
     .field {
         flex: 1;
         flex-wrap: wrap;
+
+        &-tipo {
+            margin-left: 1mm;
+        }
     }
 
     .field-value {
@@ -245,6 +263,10 @@ h4 {
     .field {
         flex: auto;
         flex-direction: column;
+
+        & + .field {
+            margin-left: 1mm;
+        }
     
 
         &-label { display: none }
@@ -268,8 +290,8 @@ h4 {
 }
 
 .chart {
-    height: 5cm;
-    padding: 2mm 1mm;
+    height: 3.2cm;
+    border: 1px solid black;
 }
 
 .riassunto {
@@ -302,7 +324,7 @@ h4 {
 }
 
 .signature {
-    margin-top: $base-spacing;
+    margin-top: 2mm;
     .field{
         flex-wrap: wrap;
         &-label {
@@ -325,5 +347,5 @@ h4 {
 .copy {
     text-align: center;
     margin-top: auto;
-    padding-top: $base-spacing;
+    padding-top: 2mm;
 }

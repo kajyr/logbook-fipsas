@@ -1,6 +1,5 @@
 .field {
     display: flex;
-    padding: 0.1em 0.5em;
     justify-content: space-between;
 
     &-label {
@@ -17,7 +16,7 @@
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-        min-height: 1.2em;
+        min-height: 4mm;
         font-size: 0.8em;
         line-height: 1.4em;
 
