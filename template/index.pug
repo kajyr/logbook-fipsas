@@ -6,6 +6,8 @@ mixin page(dir)
             div F.I.P.S.A.S.
             img(class="header-didattica-logo" src="./loghi/fipsas.png" alt="logo club" height="30px")
         block
+        .copy
+            | &copy; FIPSAS 2010
 
 mixin field(label, info)
   .field(class="field-" + (label || 'empty').toLowerCase().replace(/[\.°]/, '').replace(/\s/g, '-'))
@@ -101,7 +103,7 @@ body
                         +field('FAR')
                         +field('consumo')
 
-            .panel
+            .panel.panel--scheda
                 .panel
                     h2 Quadro 2 - Descrizione dell'immersione
                 .panel.descr
@@ -164,7 +166,7 @@ body
                             | #{dive.Computer[0]}
                         +field('altro', 'altro')
                 
-                .panel
+                .panel.panel--chart
                     h3 Profilo dell'Immersione
                     .chart(id="chart-" + dive.Number)
                     script
@@ -250,7 +252,12 @@ body
                                 | #{dive.Deco ? dive.Decostops[0].trim() : '-'}
                             +field('sosta sic. +emers.', '(F)')
                                 | 5
-                        
+
+            .signature
+                +field('Convalida', '(Compagno, Istruttore, Guida)')
+                    | #{dive.Buddy.join(', ')} - 
+                    | #{dive.Divemaster[0]}
+
   
       
         +page('left')

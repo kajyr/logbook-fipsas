@@ -101,7 +101,8 @@ const normalize = Logbook => {
             Depths: profile.map(p => parseFloat(p.Depth[0])),
             Temps: profile.map(p => parseFloat(p.Temp[0])),
             Times: profile.map(p => parseFloat(p.$.Time)),
-            Exittime: format(exitdate, 'HH:mm')
+            Exittime: format(exitdate, 'HH:mm'),
+            Buddy: dive.Buddy.map(buddy => buddy.$.Names)
         });
     });
 };

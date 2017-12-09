@@ -96,8 +96,6 @@ h4 {
     }
 }
 
-
-
 .note {
     font-style: italic;
 }
@@ -315,4 +313,31 @@ h4 {
 .columns {
     display: flex;
     justify-content: space-between;
+}
+
+.signature {
+    margin-top: 0.5cm;
+    .field{
+        flex-wrap: wrap;
+        &-label {
+            width: 100%;
+            font-variant: small-caps;
+            font-weight: 900;
+        }
+
+        &-value {
+            flex: 1;
+            font-size: 1em;
+        }
+
+        &-info {
+            font-size: 0.9em;
+        }
+    }
+}
+
+.copy {
+    text-align: center;
+    margin-top: auto;
+    padding-top: 0.5cm;
 }
