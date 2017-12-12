@@ -107,19 +107,30 @@ const normalize = Logbook => {
     });
 };
 
-mkdir(DEST)
-    .then(() => getData(INPUT_DATA))
-    .then(({ Divinglog }) => {
-        const { Logbook } = Divinglog;
-        const normalized = normalize(Logbook);
-        const build = () =>
-            Promise.all([buildHtml(normalized), buildSass(), img()]).then(() => console.log('-- Build ok'));
+const convert = () =>
+    mkdir(DEST)
+        .then(() => getData(INPUT_DATA))
+        .then(({ Divinglog }) => {
+            const { Logbook } = Divinglog;
+            const normalized = normalize(Logbook);
+            const build = () =>
+                buildSass().then(css => {
+                    console.log(css)
+                    Promise.all([buildHtml(normalized), img()]);
+                })
+                
 
-        save('dive', Logbook)
-            .then(() => save('dive-normalized', normalized))
-            .then(() => save('logbook', Divinglog))
-            .then(build)
-            .then(() => {
+            return save('dive', Logbook)
+                .then(() => save('dive-normalized', normalized))
+                .then(() => save('logbook', Divinglog))
+                .then(build);
+        });
+
+module.exports = convert
+
+/*
+
+.then(() => {
                 fs.watch(TEMPLATE, { recursive: true }, build);
             });
-    });
+    */
