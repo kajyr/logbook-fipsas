@@ -2,5 +2,6 @@
 const argv = require('yargs').argv
 const convert = require('../')
 
+console.log(argv._)
 
-convert().then(() => console.log('done'))
+Promise.all(argv._.map(file => convert(file))).then(() => console.log('done'))

@@ -1,4 +1,5 @@
 const fs = require('fs-extra');
+const path = require('path');
 const glob = require('glob');
 const pug = require('pug');
 const { parseString } = require('xml2js');
@@ -8,9 +9,8 @@ const parse = require('date-fns/parse');
 const format = require('date-fns/format');
 const addMinutes = require('date-fns/add_minutes');
 
-const DEST = './dest/';
-const TEMPLATE = './template/';
-const INPUT_DATA = './data/data.xml';
+const DEST = './';
+const TEMPLATE = `${__dirname}/template/`;
 
 const NORMALIZE_BOOL_FIELDS = ['Deco', 'Rep', 'DblTank'];
 const NORMALIZE_FLOAT_FIELDS = ['Tanksize', 'PresS', 'PresE', 'Divetime', 'Depth', 'Watertemp', 'Weight'];
@@ -37,15 +37,13 @@ const globp = pattern =>
 
 const sassp = file =>
     new Promise((resolve, reject) =>
-        sass.render({ file, outputStyle: 'compact' }, (err, data) => {
+        sass.render({ file, outputStyle: 'compressed' }, (err, data) => {
             if (err) {
                 return reject(err);
             }
-            return resolve(data);
+            return resolve(data.css.toString());
         })
-    )
-        .then(data => fs.writeFile(file.replace(TEMPLATE, DEST).replace(/\.s.ss/i, '.css'), data.css))
-        .catch(console.log);
+    ).catch(console.log);
 
 const parseXml = xml =>
     new Promise((resolve, reject) =>
@@ -58,14 +56,21 @@ const parseXml = xml =>
     );
 
 const save = (file, data) => fs.writeFile(`${DEST}${file}.json`, JSON.stringify(data, null, 2));
-
+const b64 = file =>
+    fs.readFile(file).then(bitmap => ({ value: new Buffer(bitmap).toString('base64'), key: path.basename(file) }));
+const l2o = list =>
+    list.reduce((acc, cur) => {
+        acc[cur.key] = cur.value;
+        return acc;
+    }, {});
+const apply = (pattern, fn) => globp(pattern).then(files => Promise.all(files.map(fn)));
 /*
     Molecules
 */
-const buildHtml = Logbook => {
+const buildHtml = (Logbook, styles, images) => {
     try {
         const compiledFunction = pug.compileFile(`${TEMPLATE}index.pug`);
-        const html = compiledFunction({ Logbook });
+        const html = compiledFunction({ Logbook, styles, images });
         return fs.writeFile(`${DEST}index.html`, html);
     } catch (e) {
         console.log(e);
@@ -73,9 +78,9 @@ const buildHtml = Logbook => {
     }
 };
 
-const buildSass = () => globp(`${TEMPLATE}*.scss`).then(files => Promise.all(files.map(sassp)));
-
-const img = () => fs.copy(`${TEMPLATE}/loghi`, `${DEST}/loghi`);
+const buildSass = () => apply(`${TEMPLATE}*.scss`, sassp);
+const img = () => apply(`${TEMPLATE}/imgs/*.png`, b64);
+//fs.copy(`${TEMPLATE}`, `${DEST}/loghi`);
 
 const getData = data_file => fs.readFile(data_file, 'utf8').then(parseXml);
 
@@ -107,30 +112,30 @@ const normalize = Logbook => {
     });
 };
 
-const convert = () =>
-    mkdir(DEST)
-        .then(() => getData(INPUT_DATA))
-        .then(({ Divinglog }) => {
-            const { Logbook } = Divinglog;
-            const normalized = normalize(Logbook);
-            const build = () =>
-                buildSass().then(css => {
-                    console.log(css)
-                    Promise.all([buildHtml(normalized), img()]);
-                })
-                
-
-            return save('dive', Logbook)
-                .then(() => save('dive-normalized', normalized))
-                .then(() => save('logbook', Divinglog))
-                .then(build);
-        });
-
-module.exports = convert
-
-/*
-
-.then(() => {
-                fs.watch(TEMPLATE, { recursive: true }, build);
+/**
+ *
+ * @param {string} file
+ * @param {bool} debug Outputs processed data in json format
+ */
+const convert = (file, debug) =>
+    getData(file).then(({ Divinglog }) => {
+        const { Logbook } = Divinglog;
+        const normalized = normalize(Logbook);
+        const build = () =>
+            buildSass().then(css => {
+                return img().then(images => {
+                    buildHtml(normalized, css.join('\n'), l2o(images));
+                });
             });
-    */
+
+        if (debug) {
+            return Promise.all([
+                save('dive', Logbook),
+                save('dive-normalized', normalized),
+                save('logbook', Divinglog)
+            ]).then(build);
+        }
+        return build();
+    });
+
+module.exports = convert;

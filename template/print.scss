@@ -2,14 +2,14 @@
     size: A5;
 }
 
+@media print {
+    .page {
+        page-break-after: always;
+        border: 0;
+    }
 
-
-.page {
-    page-break-after: always;
-    border: 0;
-}
-
-.panel,
-.grid {
-    -webkit-print-color-adjust: exact;
+    .panel,
+    .grid {
+        -webkit-print-color-adjust: exact;
+    }
 }

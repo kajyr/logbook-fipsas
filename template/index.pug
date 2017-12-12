@@ -7,10 +7,10 @@ mixin page(dir)
             .hole.hd
         main
             header
-                img(class="header-club" src="./loghi/club.png" alt="logo club" height="30px")
+                img(class="header-club" src="data:image/jpeg;base64,"+images['club.png'] alt="logo club" height="30px")
                 h1 Scheda Aria (didattica)
                 .org F.I.P.S.A.S.
-                img(class="header-didattica-logo" src="./loghi/fipsas.png" alt="logo club" height="30px")
+                img(class="header-didattica-logo" src="data:image/jpeg;base64,"+images['fipsas.png'] alt="logo fipsas" height="30px")
             block
             .copy
                 | &copy; F.I.P.S.A.S. 2010
@@ -49,9 +49,9 @@ mixin tipo(entry)
 doctype html
 meta(charset="utf-8")
 link(href="https://fonts.googleapis.com/css?family=Roboto:400,400i,900" rel="stylesheet")
-link(rel="stylesheet" href="style.css")
-link(rel="stylesheet" media="print" href="print.css")
 script(src="https://code.highcharts.com/highcharts.js")
+style(type="text/css")
+    | #{styles}
 
 body
     each dive in Logbook
