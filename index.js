@@ -9,7 +9,6 @@ const parse = require('date-fns/parse');
 const format = require('date-fns/format');
 const addMinutes = require('date-fns/add_minutes');
 
-const DEST = './';
 const TEMPLATE = `${__dirname}/template/`;
 
 const NORMALIZE_BOOL_FIELDS = ['Deco', 'Rep', 'DblTank'];
@@ -67,11 +66,11 @@ const apply = (pattern, fn) => globp(pattern).then(files => Promise.all(files.ma
 /*
     Molecules
 */
-const buildHtml = (Logbook, styles, images) => {
+const buildHtml = (Logbook, styles, images, dest) => {
     try {
         const compiledFunction = pug.compileFile(`${TEMPLATE}index.pug`);
         const html = compiledFunction({ Logbook, styles, images });
-        return fs.writeFile(`${DEST}index.html`, html);
+        return fs.writeFile(dest, html);
     } catch (e) {
         console.log(e);
         return Promise.reject(e);
@@ -80,7 +79,6 @@ const buildHtml = (Logbook, styles, images) => {
 
 const buildSass = () => apply(`${TEMPLATE}*.scss`, sassp);
 const img = () => apply(`${TEMPLATE}/imgs/*.png`, b64);
-//fs.copy(`${TEMPLATE}`, `${DEST}/loghi`);
 
 const getData = data_file => fs.readFile(data_file, 'utf8').then(parseXml);
 
@@ -117,14 +115,14 @@ const normalize = Logbook => {
  * @param {string} file
  * @param {bool} debug Outputs processed data in json format
  */
-const convert = (file, debug) =>
+const convert = (file, dest, debug) =>
     getData(file).then(({ Divinglog }) => {
         const { Logbook } = Divinglog;
         const normalized = normalize(Logbook);
         const build = () =>
             buildSass().then(css => {
                 return img().then(images => {
-                    buildHtml(normalized, css.join('\n'), l2o(images));
+                    buildHtml(normalized, css.join('\n'), l2o(images), dest);
                 });
             });
 
