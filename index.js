@@ -73,8 +73,8 @@ const apply = (pattern, fn) =>
   globp(pattern).then(files => Promise.all(files.map(fn)));
 
 const copy = (file, dest) => {
-  const niu = path.join(dest, path.basename(file));
-  return fs.copy(file, niu).then(() => niu);
+  const basename = path.basename(file);
+  return fs.copy(file, path.join(dest, basename)).then(() => basename);
 };
 /*
     Molecules
@@ -141,7 +141,7 @@ const convert = (file, dest, debug) =>
         .then(buildSass)
         .then(css =>
           copyTemplateImages(dest).then(images =>
-            buildHtml(normalized, css.join("\n"), l2o(images), dest)
+            buildHtml(normalized, css.join("\n"), images, dest)
           )
         );
 
