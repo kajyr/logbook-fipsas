@@ -32,3 +32,7 @@ tofipsas --help
 [divinglog]: http://divinglog.de/
 [fipsas]: http://www.fipsas.it/didattica/didattica-subacquea/documenti-didattica-subacquea/logbook
 [node]: https://nodejs.org
+
+# Changelog
+
+1.1.0 - L'opzione `--dest` ora specifica una cartella dove salvare l'output
