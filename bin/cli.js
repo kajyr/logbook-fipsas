@@ -1,12 +1,24 @@
 #!/usr/bin/env node
-const argv = require('yargs')
-    .usage('$0 file.xml')
-    .option('d', {
-        alias: 'dest',
-        default: './index.html',
-        describe: 'Destinazione del file di oputput',
-        type: 'string'
-    }).argv;
-const convert = require('../');
+const yargs = require("yargs");
+const path = require("path");
+const argv = yargs
+  .usage("$0 file.xml")
+  .option("d", {
+    alias: "dest",
+    default: "./",
+    describe: "Destinazione (folder) del file di output",
+    type: "string"
+  })
+  .option("debug", {
+    default: false,
+    describe: "Debug mode",
+    type: "boolean"
+  }).argv;
+const convert = require("../");
 
-Promise.all(argv._.map(file => convert(file, argv.d)));
+if (argv._.length === 0) {
+  yargs.showHelp();
+  return;
+}
+
+Promise.all(argv._.map(file => convert(file, argv.d, argv.debug)));

@@ -7,10 +7,10 @@ mixin page(dir)
             .hole.hd
         main
             header
-                img(class="header-club" src="data:image/jpeg;base64,"+images['club.png'] alt="logo club" height="30px")
+                img(class="header-club" src=(images['club.png']) alt="logo club" height="30px")
                 h1 Scheda Aria (didattica)
                 .org F.I.P.S.A.S.
-                img(class="header-didattica-logo" src="data:image/jpeg;base64,"+images['fipsas.png'] alt="logo fipsas" height="30px")
+                img(class="header-didattica-logo" src=(images['fipsas.png']) alt="logo fipsas" height="30px")
             block
             .copy
                 | &copy; F.I.P.S.A.S. 2010
