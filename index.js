@@ -71,32 +71,39 @@ const copyTemplateImages = dest => apply(`${TEMPLATE}/imgs/*.png`, image => copy
 
 const getData = data_file => fs.readFile(data_file, 'utf8').then(parseXml);
 
-/**
- *
- * @param {string} file
- * @param {string} dest Destination folder
- * @param {bool} debug Outputs processed data in json format
- */
-const convert = (file, dest, debug) =>
+const build = (data, dest) =>
+    buildSass().then(css => copyTemplateImages(dest).then(images => buildHtml(data, css.join('\n'), images, dest)));
+
+const readFile = (file, dest, debug) =>
     getData(file).then(({ Divinglog }) => {
         const { Logbook } = Divinglog;
         const normalized = normalize(Logbook);
-        const build = () =>
-            fs
-                .ensureDir(dest)
-                .then(buildSass)
-                .then(css =>
-                    copyTemplateImages(dest).then(images => buildHtml(normalized, css.join('\n'), images, dest))
-                );
 
         if (debug) {
             return Promise.all([
                 saveJson(path.join(dest, 'dive'), Logbook),
                 saveJson(path.join(dest, 'dive-normalized'), normalized),
                 saveJson(path.join(dest, 'logbook'), Divinglog)
-            ]).then(build);
+            ]).then(() => normalized);
         }
-        return build();
+        return normalized;
     });
+/**
+ *
+ * @param {string} file
+ * @param {string} dest Destination folder
+ * @param {bool} debug Outputs processed data in json format
+ */
+const convert = (file, dest, debug) => {
+    fs
+        .ensureDir(dest)
+        .then(() => {
+            if (file) {
+                return readFile(file, dest, debug);
+            }
+            return [{}];
+        })
+        .then(data => build(data, dest));
+};
 
 module.exports = convert;

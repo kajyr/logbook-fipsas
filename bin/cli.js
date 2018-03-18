@@ -12,12 +12,21 @@ const argv = yargs
         default: false,
         describe: 'Debug mode',
         type: 'boolean'
+    })
+    .option('empty', {
+        default: false,
+        describe: 'Prints an empty sheet (Does not load any xml file)',
+        type: 'boolean'
     }).argv;
 const convert = require('../');
 
-if (argv._.length === 0) {
-    yargs.showHelp();
-    process.abort();
-}
+if (argv.empty) {
+    convert(undefined, argv.d, argv.debug);
+} else {
+    if (argv._.length === 0) {
+        yargs.showHelp();
+        process.exit();
+    }
 
-Promise.all(argv._.map(file => convert(file, argv.d, argv.debug)));
+    Promise.all(argv._.map(file => convert(file, argv.d, argv.debug)));
+}

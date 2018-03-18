@@ -38,7 +38,7 @@ mixin multifield(label, info)
 
 mixin field-check(label, variants, field)
     +field(label)
-        if variants.includes(field.toLowerCase().trim())
+        if field && variants.includes(field.toLowerCase())
             | ✔
 
 mixin tipo(entry)
@@ -60,20 +60,20 @@ body
                 .panel
                     .intro
                         +field('Immersione n°')
-                            | #{dive.$.ID}
+                            | #{dive.ID}
                         +field('Data')
                             | #{dive.Divedate}
                     .place
                         .place-str
                             +field('Luogo')
-                                | #{dive.City.$.Name} - #{dive.Country.$.Name}
+                                | #{[dive.City, dive.Country].filter(c => !!c).join(' - ')}
                             +field('Punto')
-                                | #{dive.Place.$.Name}
+                                | #{dive.Place}
                         .place-data
                             +field('Lat.')
-                                | #{parseFloat(dive.Place.Lat[0]).toFixed(4)}
+                                | #{dive.Lat}
                             +field('Long.')
-                                | #{parseFloat(dive.Place.Lon[0]).toFixed(4)}
+                                | #{dive.Lon}
             .panel
                 .panel
                     h2 Quadro 1 - Pianificazione dell'immersione in curva di sicurezza
@@ -262,7 +262,7 @@ body
 
             .signature
                 +field('Convalida', '(Compagno, Istruttore, Guida)')
-                    | #{dive.Buddy.join(', ')} - 
+                    | #{dive.Buddy} - 
                     | #{dive.Divemaster}
 
   
