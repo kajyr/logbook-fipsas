@@ -4,7 +4,7 @@
   "description": "Un template per [DivingLog][divinglog] per stampare i [logbook F.I.P.S.A.S.][fipsas] precompilati",
   "main": "index.js",
   "scripts": {
-    "start": "node build.js",
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,11 +22,11 @@
   "homepage": "https://github.com/kajyr/logbook-fipsas#readme",
   "dependencies": {
     "date-fns": "^1.29.0",
-    "fs-extra": "^4.0.2",
+    "fs-extra": "^5.0.0",
     "glob": "^7.1.2",
     "node-sass": "^4.7.2",
-    "pug": "^2.0.0-rc.4",
+    "pug": "^2.0.1",
     "xml2js": "^0.4.19",
-    "yargs": "^10.0.3"
+    "yargs": "^11.0.0"
   }
 }
