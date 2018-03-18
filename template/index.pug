@@ -38,7 +38,7 @@ mixin multifield(label, info)
 
 mixin field-check(label, variants, field)
     +field(label)
-        if variants.includes(field[0].toLowerCase().trim())
+        if variants.includes(field.toLowerCase().trim())
             | ✔
 
 mixin tipo(entry)
@@ -66,14 +66,14 @@ body
                     .place
                         .place-str
                             +field('Luogo')
-                                | #{dive.City[0].$.Name} - #{dive.Country[0].$.Name}
+                                | #{dive.City.$.Name} - #{dive.Country.$.Name}
                             +field('Punto')
-                                | #{dive.Place[0].$.Name}
+                                | #{dive.Place.$.Name}
                         .place-data
                             +field('Lat.')
-                                | #{parseFloat(dive.Place[0].Lat[0]).toFixed(4)}
+                                | #{parseFloat(dive.Place.Lat[0]).toFixed(4)}
                             +field('Long.')
-                                | #{parseFloat(dive.Place[0].Lon[0]).toFixed(4)}
+                                | #{parseFloat(dive.Place.Lon[0]).toFixed(4)}
             .panel
                 .panel
                     h2 Quadro 1 - Pianificazione dell'immersione in curva di sicurezza
@@ -117,17 +117,17 @@ body
                     +field('scopo', '(didattica, svago, esplorazione, foto, ...)')
                         | #{dive.Divetype}
                     +field('tipo', '(da riva, da barca, secca, notturna, relitto,...)')
-                        case dive.Entry.join('')
+                        case dive.Entry
                             when "Boat"
                                 | da barca
                             default
-                                | #{dive.Entry.join('|')}
+                                | #{dive.Entry}
                         | /
-                        case dive.Water.join('')
+                        case dive.Water
                             when "Salt"
                                 | in mare
                             default
-                                | #{dive.Water.join('|')}
+                                | #{dive.Water}
                 .panel
                     h3 Condizioni
                     .cond
@@ -166,11 +166,11 @@ body
                         +field('bombole', 'bombole (l)')
                             | #{dive.Tanksize}
                         +field('muta', 'muta')
-                            | #{dive.Divesuit[0]}
+                            | #{dive.Divesuit}
                         +field('zavorra', 'zavorra (kg)')
                             | #{dive.Weight}
                         +field('tabelle', 'tabelle/computer')
-                            | #{dive.Computer[0]}
+                            | #{dive.Computer}
                         +field('altro', 'altro')
                 
                 .panel.panel--chart
@@ -256,14 +256,14 @@ body
                             +field('risalita', '(D)')
                                 | #{Math.ceil((dive.Depth - 6)/9)}
                             +field('deco a 6 m', '(E)')
-                                | #{dive.Deco ? dive.Decostops[0].trim() : '-'}
+                                | #{dive.Deco ? dive.Decostops : '-'}
                             +field('sosta sic. +emers.', '(F)')
                                 | 5
 
             .signature
                 +field('Convalida', '(Compagno, Istruttore, Guida)')
                     | #{dive.Buddy.join(', ')} - 
-                    | #{dive.Divemaster[0]}
+                    | #{dive.Divemaster}
 
   
       
