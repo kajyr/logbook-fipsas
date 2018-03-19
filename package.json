@@ -1,6 +1,6 @@
 {
     "name": "logbook-fipsas",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "description": "Un template per [DivingLog][divinglog] per stampare i [logbook F.I.P.S.A.S.][fipsas] precompilati",
     "main": "index.js",
     "scripts": {

@@ -35,4 +35,5 @@ tofipsas --help
 
 # Changelog
 
-1.1.0 - L'opzione `--dest` ora specifica una cartella dove salvare l'output
+*   1.2.0 - L'opzione `--empty` stampa una schedina vuota
+*   1.1.0 - L'opzione `--dest` ora specifica una cartella dove salvare l'output

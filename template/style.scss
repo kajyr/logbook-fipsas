@@ -4,7 +4,6 @@ $inner-margin: 1mm;
 @import 'partials/field';
 @import 'partials/grid';
 
-
 html {
     /* off-white, so body edge is visible in browser */
     background: #eee;
@@ -84,8 +83,6 @@ h4 {
     .panel {
         padding: 2px $inner-margin;
     }
-
-    
 }
 
 .note {
@@ -108,13 +105,18 @@ h4 {
     .field-value {
         flex: 1;
     }
+
+    .place-data {
+        .field-value {
+            min-width: 1.2cm;
+        }
+    }
 }
 
 /* QUADRO 0 */
 .intro {
     display: flex;
-    
-    
+
     .field {
         flex: 1;
     }
@@ -122,7 +124,7 @@ h4 {
 
 .place {
     display: flex;
-    
+
     &-str {
         flex: 1;
         padding-right: 1mm;
@@ -236,7 +238,7 @@ h4 {
             flex: 1;
             font-size: 0.9em;
             padding-left: 0;
-            
+
             &-value {
                 min-width: 1rem;
                 width: 1rem;
@@ -267,10 +269,13 @@ h4 {
         & + .field {
             margin-left: 1mm;
         }
-    
 
-        &-label { display: none }
-        &-value { min-width: auto }
+        &-label {
+            display: none;
+        }
+        &-value {
+            min-width: auto;
+        }
         &-info {
             order: 3;
             width: 100%;
@@ -292,6 +297,7 @@ h4 {
 .chart {
     height: 3.2cm;
     border: 1px solid black;
+    background: white;
 }
 
 .riassunto {
@@ -300,7 +306,8 @@ h4 {
         justify-content: space-between;
     }
 
-    &-1, &-2 {
+    &-1,
+    &-2 {
         // width: 29%;
         flex: 1;
     }
@@ -325,7 +332,7 @@ h4 {
 
 .signature {
     margin-top: 2mm;
-    .field{
+    .field {
         flex-wrap: wrap;
         &-label {
             width: 100%;

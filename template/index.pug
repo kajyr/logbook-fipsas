@@ -14,6 +14,7 @@ mixin page(dir)
             block
             .copy
                 | &copy; F.I.P.S.A.S. 2010
+                | &dash; www.subnettuno.it
 
 mixin field(label, info)
   .field(class="field-" + (label || 'empty').toLowerCase().replace(/[\.°]/, '').replace(/\s/g, '-'))
@@ -38,7 +39,7 @@ mixin multifield(label, info)
 
 mixin field-check(label, variants, field)
     +field(label)
-        if variants.includes(field.toLowerCase().trim())
+        if field && variants.includes(field.toLowerCase())
             | ✔
 
 mixin tipo(entry)
@@ -60,20 +61,20 @@ body
                 .panel
                     .intro
                         +field('Immersione n°')
-                            | #{dive.$.ID}
+                            | #{dive.ID}
                         +field('Data')
                             | #{dive.Divedate}
                     .place
                         .place-str
                             +field('Luogo')
-                                | #{dive.City.$.Name} - #{dive.Country.$.Name}
+                                | #{[dive.City, dive.Country].filter(c => !!c).join(' - ')}
                             +field('Punto')
-                                | #{dive.Place.$.Name}
+                                | #{dive.Place}
                         .place-data
                             +field('Lat.')
-                                | #{parseFloat(dive.Place.Lat[0]).toFixed(4)}
+                                | #{dive.Lat}
                             +field('Long.')
-                                | #{parseFloat(dive.Place.Lon[0]).toFixed(4)}
+                                | #{dive.Lon}
             .panel
                 .panel
                     h2 Quadro 1 - Pianificazione dell'immersione in curva di sicurezza
@@ -84,7 +85,7 @@ body
                                 h3 immersione ripetitiva
                                 +field('FAR imm. prec.')
                                 +field('intervallo di sup.')
-                                    | #{dive.Rep ? dive.Surfint : '-'}
+                                    | #{dive.Surfint}
                                 +field('FAR fine int.sup.')
                                 +field('penalità', '(a)')
                             .panel.plan-steps
@@ -122,7 +123,7 @@ body
                                 | da barca
                             default
                                 | #{dive.Entry}
-                        | /
+                        | #{dive.Entry &&  dive.Water ? ' / ' : ''}
                         case dive.Water
                             when "Salt"
                                 | in mare
@@ -234,9 +235,9 @@ body
                             +field('durata', '(B+C+D+E+F)')
                                 | #{dive.Divetime}
                             +field('press. iniz.', '(bar)')
-                                | #{Math.round(dive.PresS)}
+                                | #{dive.PresS}
                             +field('volume iniz.', '(l)')
-                                | #{dive.PresS * dive.Tanksize}
+                                | #{dive.TankVolInitial}
                             +field('FAR iniziale')
                         .riassunto-2
                             +field('ora fine imm.')
@@ -244,29 +245,26 @@ body
                             +field('prof. max.', '(m)')
                                 | #{dive.Depth}
                             +field('press. fin.', '(bar)')
-                                | #{Math.round(dive.PresE)}
+                                | #{dive.PresE}
                             +field('consumo', '(l)')
-                                | #{(dive.PresS-dive.PresE)*dive.Tanksize}
+                                | #{dive.Consumo}
                             +field('FAR finale')
                         .riassunto-parziali
                             +field('tempo di fondo', '(B)')
-                                | #{ Math.round(dive.Divetime) - 5 - Math.ceil((dive.Depth - 6)/9) - (dive.Depth > 18 ? 2.5 : 0)}
-                            +field(`sosta prof. ${dive.Depth > 18 ? Math.ceil(dive.Depth/2) + 'm' : '' }`, '(C)')
-                                | #{dive.Depth > 18 ? '2.5' : '-' }
+                                | #{dive.TempoFondo}
+                            +field(`sosta prof. ${dive.HalfDepthBreak ? dive.HalfDepthBreak : '___'}`, '(C)')
+                                | #{dive.HalfDepthBreakTime}
                             +field('risalita', '(D)')
-                                | #{Math.ceil((dive.Depth - 6)/9)}
+                                | #{dive.EmersionTime}
                             +field('deco a 6 m', '(E)')
-                                | #{dive.Deco ? dive.Decostops : '-'}
+                                | #{dive.Decostops}
                             +field('sosta sic. +emers.', '(F)')
                                 | 5
 
             .signature
                 +field('Convalida', '(Compagno, Istruttore, Guida)')
-                    | #{dive.Buddy.join(', ')} - 
-                    | #{dive.Divemaster}
+                    | #{[dive.Buddy, dive.Divemaster].filter(c => !!c).join(' - ')}
 
-  
-      
         +page('left')
             h2 Annotazioni
             p.note (compagni d'immersione, indirizzi, numeri telefonici, punti di riferimento, piantina della zona, profili della costa e dei fondali, osservazioni naturalistiche o archeologiche, ecc.)
