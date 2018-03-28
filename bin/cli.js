@@ -8,6 +8,17 @@ const argv = yargs
         describe: 'Destinazione (folder) del file di output',
         type: 'string'
     })
+    .option('signatures', {
+        default: './firme',
+        describe: 'Folder containing the signatures',
+        type: 'string'
+    })
+    .option('v', {
+        alias: 'verbose',
+        default: false,
+        describe: 'Verbose mode',
+        type: 'boolean'
+    })
     .option('debug', {
         default: false,
         describe: 'Debug mode',
@@ -28,5 +39,7 @@ if (argv.empty) {
         process.exit();
     }
 
-    Promise.all(argv._.map(file => convert(file, argv.d, argv.debug)));
+    const { verbose, debug, signatures } = argv;
+
+    Promise.all(argv._.map(file => convert(file, argv.dest, { verbose, debug, signatures })));
 }

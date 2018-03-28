@@ -51,6 +51,10 @@ const copy = (file, dest) => {
     const basename = path.basename(file);
     return fs.copy(file, path.join(dest, basename)).then(() => basename);
 };
+
+const unique = list => Array.from(new Set(list));
+
+const strDasherize = str => str.replace(/\s+/g, '-').toLowerCase();
 /*
     Molecules
 */
@@ -88,13 +92,30 @@ const readFile = (file, dest, debug) =>
         }
         return normalized;
     });
+
+const fetchSignatures = (data, signatures, dest) => {
+    return Promise.all(
+        unique(data.map(dive => dive.Divemaster))
+            .map(strDasherize)
+            .map(str => path.join(signatures, `${str}.png`))
+            .map(file =>
+                copy(file, dest).catch(err => {
+                    if (err.code === 'ENOENT') {
+                        console.warn('Missing signature', file);
+                    } else {
+                        return Promise.reject(err);
+                    }
+                })
+            )
+    );
+};
 /**
  *
  * @param {string} file
  * @param {string} dest Destination folder
  * @param {bool} debug Outputs processed data in json format
  */
-const convert = (file, dest, debug) => {
+const convert = (file, dest, { verbose, debug, signatures }) => {
     fs
         .ensureDir(dest)
         .then(() => {
@@ -103,6 +124,7 @@ const convert = (file, dest, debug) => {
             }
             return [{}];
         })
+        .then(data => fetchSignatures(data, signatures, dest).then(() => data))
         .then(data => build(data, dest));
 };
 
