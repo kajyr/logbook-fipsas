@@ -31,6 +31,7 @@
         "yargs": "^11.0.0"
     },
     "devDependencies": {
+        "@types/node": "^9.6.0",
         "ava": "^0.25.0",
         "eslint": "^4.19.0",
         "eslint-config-prettier": "^2.9.0",
@@ -39,11 +40,15 @@
         "prettier": "^1.11.1"
     },
     "ava": {
-        "files": ["tests/*.js"],
+        "files": [
+            "tests/*.js"
+        ],
         "failFast": true
     },
     "nyc": {
         "all": true,
-        "exclude": ["tests/**/*.js"]
+        "exclude": [
+            "tests/**/*.js"
+        ]
     }
 }

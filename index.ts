@@ -13,9 +13,9 @@ const TEMPLATE = `${__dirname}/template/`;
     Atoms
 */
 
-const globp = pattern =>
+const globp = (pattern: string) =>
     new Promise((resolve, reject) =>
-        glob(pattern, (err, files) => {
+        glob(pattern, (err: Error, files: Array<string>) => {
             if (err) {
                 return reject(err);
             }
@@ -23,9 +23,9 @@ const globp = pattern =>
         })
     );
 
-const sassp = file =>
+const sassp = (file: string) =>
     new Promise((resolve, reject) =>
-        sass.render({ file, outputStyle: 'compressed' }, (err, data) => {
+        sass.render({ file, outputStyle: 'compressed' }, (err: Error, data: any) => {
             if (err) {
                 return reject(err);
             }
@@ -33,9 +33,9 @@ const sassp = file =>
         })
     ).catch(console.log);
 
-const parseXml = xml =>
+const parseXml = (xml: string) =>
     new Promise((resolve, reject) =>
-        parseString(xml, function(err, data) {
+        parseString(xml, function(err: Error, data: string) {
             if (err) {
                 return reject(err);
             }
@@ -43,11 +43,12 @@ const parseXml = xml =>
         })
     );
 
-const saveJson = (file, data) => fs.writeFile(`${file}.json`, JSON.stringify(data, null, 2));
+const saveJson = (file: string, data: any) => fs.writeFile(`${file}.json`, JSON.stringify(data, null, 2));
 
-const apply = (pattern, fn) => globp(pattern).then(files => Promise.all(files.map(fn)));
+const apply = (pattern: string, fn: Function) =>
+    globp(pattern).then((files: Array<string>) => Promise.all(files.map(fn)));
 
-const copy = (file, dest) => {
+const copy = (file: string, dest: string) => {
     const basename = path.basename(file);
     return fs.copy(file, path.join(dest, basename)).then(() => basename);
 };
@@ -58,7 +59,7 @@ const strDasherize = str => str.replace(/\s+/g, '-').toLowerCase();
 /*
     Molecules
 */
-const buildHtml = (Logbook, styles, images, dest) => {
+const buildHtml = (Logbook, styles: string, images: Array<string>, dest: string) => {
     try {
         const compiledFunction = pug.compileFile(`${TEMPLATE}index.pug`);
         const html = compiledFunction({ Logbook, styles, images });
@@ -115,7 +116,7 @@ const fetchSignatures = (data, signatures, dest) => {
  * @param {string} dest Destination folder
  * @param {bool} debug Outputs processed data in json format
  */
-const convert = (file, dest, { verbose, debug, signatures }) => {
+const convert = (file: string, dest: string, { verbose: boolean, debug: boolean, signatures: string }) => {
     fs
         .ensureDir(dest)
         .then(() => {

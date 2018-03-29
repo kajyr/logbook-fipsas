@@ -1,5 +1,5 @@
 *.~crd
 node_modules
-dest/*
+build/
 data/*.xml
 .nyc_output/*
