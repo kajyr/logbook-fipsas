@@ -4,12 +4,6 @@ Un template per [DivingLog][divinglog] per stampare i [logbook F.I.P.S.A.S.][fip
 
 ## Installazione
 
-&Egrave; necessario avere installato [nodejs][node] con npm
-
-```
-npm i -g logbook-fipsas
-```
-
 ## Utilizzo
 
 1.  Esportate da DivingLog le vostre immersione in un file xml
@@ -35,10 +29,10 @@ tofipsas --help
 
 # Stampa
 
-1. Stampare il html in pdf senza margini
-2. Per stampare il PDF scegliere il formato di carta A5 e impostare la scala al 100%
-3. Stampare solo i fogli dispari, girare e quindi i fogli pari.
-![print conf](docs/conf_print.png)
+1.  Stampare il html in pdf senza margini
+2.  Per stampare il PDF scegliere il formato di carta A5 e impostare la scala al 100%
+3.  Stampare solo i fogli dispari, girare e quindi i fogli pari.
+    ![print conf](docs/conf_print.png)
 
 # Changelog
 

@@ -2,83 +2,55 @@ use dive;
 use serde_xml_rs;
 use chrono::prelude::*;
 
-
 #[derive(Deserialize, Debug)]
 struct Divinglog {
-    #[serde(rename="DBVersion")]
-    db_version: String,
-    #[serde(rename="Logbook")]
-    logbook: Logbook,
+    #[serde(rename = "DBVersion")] db_version: String,
+    #[serde(rename = "Logbook")] logbook: Logbook,
 }
 
 #[derive(Deserialize, Debug)]
 struct Logbook {
-    #[serde(rename="Dive")]
-    dives: Vec<Dive>,
+    #[serde(rename = "Dive")] dives: Vec<Dive>,
 }
 
 #[derive(Deserialize, Debug)]
 struct Dive {
-    #[serde(rename="ID")]
-    id: String,
-    #[serde(rename="Number")]
-    number: String,
-    #[serde(rename="Divedate")]
-    date: String,
-    #[serde(rename="Entrytime")]
-    entry_time: String,
-    #[serde(rename="Surfint")]
-    surface: String,
-    #[serde(rename="Country")]
-    country: NamedItem,
-    #[serde(rename="City")]
-    city: NamedItem,
-    #[serde(rename="Place")]
-    place: Place,
-    #[serde(rename="Divetime")]
-    dive_time: String,
-    #[serde(rename="Depth")]
-    depth: String,
-    #[serde(rename="Buddy")]
-    buddy: NamesItem,
-    #[serde(rename="Signature")]
-    signature: String,
-    #[serde(rename="Comments")]
-    comments: String,
-    #[serde(rename="Water")]
-    water: String,
-    #[serde(rename="Entry")]
-    entry: String,
-    #[serde(rename="Divetype")]
-    dive_type: String,
-    #[serde(rename="Tanktype")]
-    tank_type: String,
-    #[serde(rename="Tanksize")]
-    tank_size: String,
+    #[serde(rename = "ID")] id: String,
+    #[serde(rename = "Number")] number: String,
+    #[serde(rename = "Divedate")] date: String,
+    #[serde(rename = "Entrytime")] entry_time: String,
+    #[serde(rename = "Surfint")] surface: String,
+    #[serde(rename = "Country")] country: NamedItem,
+    #[serde(rename = "City")] city: NamedItem,
+    #[serde(rename = "Place")] place: Place,
+    #[serde(rename = "Divetime")] dive_time: String,
+    #[serde(rename = "Depth")] depth: String,
+    #[serde(rename = "Buddy")] buddy: NamesItem,
+    #[serde(rename = "Signature")] signature: String,
+    #[serde(rename = "Comments")] comments: String,
+    #[serde(rename = "Water")] water: String,
+    #[serde(rename = "Entry")] entry: String,
+    #[serde(rename = "Divetype")] dive_type: String,
+    #[serde(rename = "Tanktype")] tank_type: String,
+    #[serde(rename = "Tanksize")] tank_size: String,
 }
 
 #[derive(Deserialize, Debug)]
 struct NamedItem {
-    #[serde(rename="Name")]
-    name: String,
+    #[serde(rename = "Name")] name: String,
 }
 
 #[derive(Deserialize, Debug)]
 struct NamesItem {
-    #[serde(rename="Names")]
-    name: String,
+    #[serde(rename = "Names")] name: String,
 }
 
 #[derive(Deserialize, Debug)]
 struct Place {
-    #[serde(rename="Name")]
-    name: String,
-    #[serde(rename="Lat")]
-    lat: String,
-    #[serde(rename="Lon")]
-    lon: String,
+    #[serde(rename = "Name")] name: String,
+    #[serde(rename = "Lat")] lat: String,
+    #[serde(rename = "Lon")] lon: String,
 }
-
 
 fn map_my_dive_to_dive(dive: &Dive) -> dive::Dive {
     let date = format!("{} {}:00", dive.date, dive.entry_time);
@@ -108,14 +80,20 @@ fn map_my_dive_to_dive(dive: &Dive) -> dive::Dive {
 }
 
 pub fn parse(data: String) -> dive::Log {
-    let imported_log: Divinglog = serde_xml_rs::deserialize(data.as_bytes()).unwrap_or_else(|err| {
-        println!("{:?}", err);
-        panic!(err)
-    });
+    let imported_log: Divinglog =
+        serde_xml_rs::deserialize(data.as_bytes()).unwrap_or_else(|err| {
+            println!("{:?}", err);
+            panic!(err)
+        });
 
     //println!("{:#?}", imported_log);
 
     dive::Log {
-        dives: imported_log.logbook.dives.iter().map(map_my_dive_to_dive).collect()
+        dives: imported_log
+            .logbook
+            .dives
+            .iter()
+            .map(map_my_dive_to_dive)
+            .collect(),
     }
 }

@@ -1,0 +1,13 @@
+name: Logbook-template
+version: "0.3.0"
+author: Carlo 'kj' <carlo.panzi@@gmail.com>
+about: Does awesome things
+args:
+    - INPUT:
+        help: Sets the input file to use
+        required: true
+        index: 1
+    - verbose:
+        short: v
+        multiple: true
+        help: Sets the level of verbosity

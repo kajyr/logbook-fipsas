@@ -5,7 +5,6 @@ pub struct Log {
     pub dives: Vec<Dive>,
 }
 
-
 #[derive(Debug, Serialize)]
 pub struct Dive {
     pub number: i32,
