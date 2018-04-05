@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,900" rel="stylesheet">
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+</head>
+<body>
+    {{#dives}}
+        <div class="page page-right">
+        <aside>
+            <div class="hole ha"></div>
+            <div class="hole hb"></div>
+            <div class="hole hc"></div>
+            <div class="hole hd"></div>
+        </aside>
+        <main>
+            <header>
+                <img class="header-club" src="club.png" alt="logo club" height="30px" />
+                <h1>Scheda Aria (didattica)</h1>
+                <div class="org">F.I.P.S.A.S.</div>
+                <img class="header-didattica-logo" src="fipsas.png" alt="logo fipsas" height="30px" />
+            </header>
+            <div class="panel panel--intro">
+                <div class="panel">
+                    <div class="intro">
+                        <div class="field field-immersione-n">
+                            <span class="field-label">Immersione n°</span>
+                            <span class="field-value">{number}</span>
+                        </div>
+                        <div class="field field-data">
+                            <span class="field-label">Data</span>
+                            <span class="field-value">{date}</span>
+                        </div>
+                    </div>
+                    <div class="place">
+                        <div class="place-str">
+                            <div class="field field-luogo">
+                                <span class="field-label">Luogo</span>
+                                <span class="field-value">{city} - {country}</span>
+                            </div>
+                            <div class="field field-punto">
+                                <span class="field-label">Punto</span>
+                                <span class="field-value">{point}</span>
+                            </div>
+                        </div>
+                        <div class="place-data">
+                            <div class="field field-lat">
+                                <span class="field-label">Lat.</span>
+                                <span class="field-value">42.4010</span>
+                            </div>
+                            <div class="field field-long">
+                                <span class="field-label">Long.</span>
+                                <span class="field-value">11.0914</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel">
+                <div class="panel">
+                    <h2>Quadro 1 - Pianificazione dell'immersione in curva di sicurezza</h2>
+                </div>
+                <div class="plan">
+                    <div class="plan-programmazione">
+                        <div class="plan-tempi">
+                            <div class="panel plan-far">
+                                <h3>immersione ripetitiva</h3>
+                                <div class="field field-far-imm-prec.">
+                                    <span class="field-label">FAR imm. prec.</span>
+                                    <span class="field-value"></span>
+                                </div>
+                                <div class="field field-intervallo-di-sup">
+                                    <span class="field-label">intervallo di sup.</span>
+                                    <span class="field-value">-</span>
+                                </div>
+                                <div class="field field-far-fine-intsup.">
+                                    <span class="field-label">FAR fine int.sup.</span>
+                                    <span class="field-value"></span>
+                                </div>
+                                <div class="field field-penalità">
+                                    <span class="field-label">penalità</span>
+                                    <span class="field-info">(a)</span>
+                                    <span class="field-value"></span>
+                                </div>
+                            </div>
+                            <div class="panel plan-steps">
+                                <h3>
+                                    <span>prof.</span>
+                                    <span>tempi</span>
+                                    <span>cons.</span>
+                                </h3>
+                                <div class="field field-fondo-reale">
+                                    <span class="field-label">fondo reale</span>
+                                    <span class="field-info">(b)</span>
+                                    <span class="field-value"></span>
+                                    <span class="field-value"></span>
+                                    <span class="field-value"></span>
+                                </div>
+                                <div class="field field-sosta-profonda">
+                                    <span class="field-label">sosta profonda</span>
+                                    <span class="field-info">(c)</span>
+                                    <span class="field-value"></span>
+                                    <span class="field-value"></span>
+                                    <span class="field-value"></span>
+                                </div>
+                                <div class="field field-risalita">
+                                    <span class="field-label">risalita</span>
+                                    <span class="field-info">(d)</span>
+                                    <span class="field-value"></span>
+                                    <span class="field-value"></span>
+                                    <span class="field-value"></span>
+                                </div>
+                                <div class="field field-sosta-sic+emers.">
+                                    <span class="field-label">sosta sic.+emers.</span>
+                                    <span class="field-info">(f)</span>
+                                    <span class="field-value"></span>
+                                    <span class="field-value"></span>
+                                    <span class="field-value"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel plan-legend">
+                            <div>FAR = Fattore Azoto Residuo</div>
+                            <div>tempo di tabella=a+b+c [+d (consigliato)]</div>
+                            <div>durata=b+c+d+f</div>
+                        </div>
+                    </div>
+                    <div class="panel plan-recap">
+                        <h3>riepilogo</h3>
+                        <div class="field field-prof-tab.">
+                            <span class="field-label">prof. tab.</span>
+                            <span class="field-value"></span>
+                        </div>
+                        <div class="field field-tempo-tab">
+                            <span class="field-label">tempo tab.</span>
+                            <span class="field-value"></span>
+                        </div>
+                        <div class="field field-durata">
+                            <span class="field-label">durata</span>
+                            <span class="field-value"></span>
+                        </div>
+                        <div class="field field-far">
+                            <span class="field-label">FAR</span>
+                            <span class="field-value"></span>
+                        </div>
+                        <div class="field field-consumo">
+                            <span class="field-label">consumo</span>
+                            <span class="field-value"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel--scheda">
+                <div class="panel">
+                    <h2>Quadro 2 - Descrizione dell'immersione</h2>
+                </div>
+                <div class="panel descr">
+                    <div class="field field-scopo">
+                        <span class="field-label">scopo</span>
+                        <span class="field-info">(didattica, svago, esplorazione, foto, ...)</span>
+                        <span class="field-value">Addestramento</span>
+                    </div>
+                    <div class="field field-tipo">
+                        <span class="field-label">tipo</span>
+                        <span class="field-info">(da riva, da barca, secca, notturna, relitto,...)</span>
+                        <span class="field-value">da barca / in mare</span>
+                    </div>
+                </div>
+                <div class="panel">
+                    <h3>Condizioni</h3>
+                    <div class="cond">
+                        <div class="cond-ambient">
+                            <h4>ambientali</h4>
+                            <div class="row">
+                                <div class="label">meteo:</div>
+                                <div class="field field-sereno">
+                                    <span class="field-label">sereno</span>
+                                    <span class="field-value">✔</span>
+                                </div>
+                                <div class="field field-coperto">
+                                    <span class="field-label">coperto</span>
+                                    <span class="field-value"></span>
+                                </div>
+                                <div class="field field-pioggia">
+                                    <span class="field-label">pioggia</span>
+                                    <span class="field-value"></span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="label">mare:</div>
+                                <div class="field field-calmo">
+                                    <span class="field-label">calmo</span>
+                                    <span class="field-value">✔</span>
+                                </div>
+                                <div class="field field-poco-mosso">
+                                    <span class="field-label">poco mosso</span>
+                                    <span class="field-value"></span>
+                                </div>
+                                <div class="field field-mosso">
+                                    <span class="field-label">mosso</span>
+                                    <span class="field-value"></span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="label">visibilità:</div>
+                                <div class="field field-buona">
+                                    <span class="field-label">buona</span>
+                                    <span class="field-value"></span>
+                                </div>
+                                <div class="field field-sufficiente">
+                                    <span class="field-label">sufficiente</span>
+                                    <span class="field-value">✔</span>
+                                </div>
+                                <div class="field field-scarsa">
+                                    <span class="field-label">scarsa</span>
+                                    <span class="field-value"></span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="label">corrente:</div>
+                                <div class="field field-assente">
+                                    <span class="field-label">assente</span>
+                                    <span class="field-value"></span>
+                                </div>
+                                <div class="field field-debole">
+                                    <span class="field-label">debole</span>
+                                    <span class="field-value"></span>
+                                </div>
+                                <div class="field field-forte">
+                                    <span class="field-label">forte</span>
+                                    <span class="field-value"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cond-pers">
+                            <h4>personali / sintomi</h4>
+                            <div class="field field-prima">
+                                <span class="field-label">prima</span>
+                                <span class="field-value"></span>
+                            </div>
+                            <div class="field field-empty">
+                                <span class="field-value"></span>
+                            </div>
+                            <div class="field field-dopo">
+                                <span class="field-label">dopo</span>
+                                <span class="field-value"></span>
+                            </div>
+                            <div class="field field-empty">
+                                <span class="field-value"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel">
+                    <h3>Attrezzatura</h3>
+                    <div class="attrezzatura">
+                        <div class="field field-bombole">
+                            <span class="field-label">bombole</span>
+                            <span class="field-info">bombole (l)</span>
+                            <span class="field-value">15</span>
+                        </div>
+                        <div class="field field-muta">
+                            <span class="field-label">muta</span>
+                            <span class="field-info">muta</span>
+                            <span class="field-value">umida monopezzo</span>
+                        </div>
+                        <div class="field field-zavorra">
+                            <span class="field-label">zavorra</span>
+                            <span class="field-info">zavorra (kg)</span>
+                            <span class="field-value">9</span>
+                        </div>
+                        <div class="field field-tabelle">
+                            <span class="field-label">tabelle</span>
+                            <span class="field-info">tabelle/computer</span>
+                            <span class="field-value">Aladin Sport Matrix</span>
+                        </div>
+                        <div class="field field-altro">
+                            <span class="field-label">altro</span>
+                            <span class="field-info">altro</span>
+                            <span class="field-value"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel--chart">
+                    <h3>Profilo dell'Immersione</h3>
+                    <div class="chart" id="chart-1"></div>
+                    <script>var myChart = Highcharts.chart('chart-1', {
+                            chart: {
+                                type: 'line'
+                            },
+                            title: {
+                                text: null
+                            },
+                            legend: {
+                                floating: true,
+                                align: 'right',
+                                verticalAlign: 'bottom',
+                                itemStyle: { fontSize: '8px', fontWeight: 'normal' },
+                                symbolHeight: .001,
+                                y: -20
+                            },
+                            credits: { enabled: false },
+                            tooltip: { enabled: false },
+                            plotOptions: {
+                                line: {
+                                    lineWidth: 1,
+                                    states: { hover: { enabled: false } }
+                                }
+                            },
+                            xAxis: {
+                                labels: {
+                                    style: { fontSize: '8px' },
+                                    formatter: function () { return Math.floor(this.value / 60) }
+                                },
+                                categories: [4, 8, 12, 16, 20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64, 68, 72, 76, 80, 84, 88, 92, 96, 100, 104, 108, 112, 116, 120, 124, 128, 132, 136, 140, 144, 148, 152, 156, 160, 164, 168, 172, 176, 180, 184, 188, 192, 196, 200, 204, 208, 212, 216, 220, 224, 228, 232, 236, 240, 244, 248, 252, 256, 260, 264, 268, 272, 276, 280, 284, 288, 292, 296, 300, 304, 308, 312, 316, 320, 324, 328, 332, 336, 340, 344, 348, 352, 356, 360, 364, 368, 372, 376, 380, 384, 388, 392, 396, 400, 404, 408, 412, 416, 420, 424, 428, 432, 436, 440, 444, 448, 452, 456, 460, 464, 468, 472, 476, 480, 484, 488, 492, 496, 500, 504, 508, 512, 516, 520, 524, 528, 532, 536, 540, 544, 548, 552, 556, 560, 564, 568, 572, 576, 580, 584, 588, 592, 596, 600, 604, 608, 612, 616, 620, 624, 628, 632, 636, 640, 644, 648, 652, 656, 660, 664, 668, 672, 676, 680, 684, 688, 692, 696, 700, 704, 708, 712, 716, 720, 724, 728, 732, 736, 740, 744, 748, 752, 756, 760, 764, 768, 772, 776, 780, 784, 788, 792, 796, 800, 804, 808, 812, 816, 820, 824, 828, 832, 836, 840, 844, 848, 852, 856, 860, 864, 868, 872, 876, 880, 884, 888, 892, 896, 900, 904, 908, 912, 916, 920, 924, 928, 932, 936, 940, 944, 948, 952, 956, 960, 964, 968, 972, 976, 980, 984, 988, 992, 996, 1000, 1004, 1008, 1012, 1016, 1020, 1024, 1028, 1032, 1036, 1040, 1044, 1048, 1052, 1056, 1060, 1064, 1068, 1072, 1076, 1080, 1084, 1088, 1092, 1096, 1100, 1104, 1108, 1112, 1116, 1120, 1124, 1128, 1132, 1136, 1140, 1144, 1148, 1152, 1156, 1160, 1164, 1168, 1172, 1176, 1180, 1184, 1188, 1192, 1196, 1200, 1204, 1208, 1212, 1216, 1220, 1224, 1228, 1232, 1236, 1240, 1244, 1248, 1252, 1256, 1260, 1264, 1268, 1272, 1276, 1280, 1284, 1288, 1292, 1296, 1300, 1304, 1308, 1312, 1316, 1320, 1324, 1328, 1332, 1336, 1340, 1344, 1348, 1352, 1356, 1360, 1364, 1368, 1372, 1376, 1380, 1384, 1388, 1392, 1396, 1400, 1404, 1408, 1412, 1416, 1420, 1424, 1428, 1432, 1436, 1440, 1444, 1448, 1452, 1456, 1460, 1464, 1468, 1472, 1476, 1480, 1484, 1488, 1492, 1496, 1500, 1504, 1508, 1512, 1516, 1520, 1524, 1528, 1532, 1536, 1540, 1544, 1548, 1552, 1556, 1560, 1564, 1568, 1572, 1576, 1580, 1584, 1588, 1592, 1596, 1600, 1604, 1608, 1612, 1616, 1620, 1624, 1628, 1632, 1636, 1640, 1644, 1648, 1652, 1656, 1660, 1664, 1668, 1672, 1676, 1680, 1684, 1688, 1692, 1696, 1700, 1704, 1708, 1712, 1716, 1720, 1724, 1728, 1732, 1736, 1740, 1744, 1748, 1752, 1756, 1760, 1764, 1768, 1772, 1776, 1780, 1784, 1788, 1792, 1796, 1800, 1804, 1808, 1812, 1816, 1820, 1824, 1828, 1832, 1836, 1840, 1844, 1848, 1852, 1856, 1860, 1864, 1868, 1872, 1876, 1880, 1884, 1888, 1892, 1896, 1900, 1904, 1908, 1912, 1916, 1920, 1924, 1928, 1932, 1936, 1940, 1944, 1948, 1952, 1956, 1960, 1964, 1968, 1972, 1976, 1980, 1984, 1988, 1992, 1996, 2000, 2004, 2008, 2012, 2016, 2020, 2024, 2028, 2032, 2036, 2040, 2044, 2048, 2052, 2056, 2060, 2064, 2068, 2072, 2076, 2080, 2084, 2088, 2092, 2096, 2100, 2104, 2108, 2112, 2116, 2120, 2124, 2128, 2132, 2136, 2140, 2144, 2148, 2152, 2156, 2160, 2164, 2168, 2172, 2176, 2180, 2184, 2188, 2192, 2196, 2200, 2204, 2208, 2212, 2216, 2220, 2224, 2228, 2232, 2236, 2240, 2244, 2248, 2252, 2256, 2260, 2264, 2268, 2272, 2276, 2280, 2284, 2288, 2292, 2296, 2300, 2304, 2308, 2312, 2316, 2320, 2324, 2328, 2332, 2336, 2340, 2344, 2348, 2352, 2356, 2360, 2364, 2368, 2372, 2376, 2380, 2384, 2388, 2392, 2396, 2400, 2404, 2408, 2412, 2416, 2420, 2424, 2428, 2432, 2436, 2440, 2444, 2448, 2452, 2456, 2460, 2464, 2468, 2472, 2476, 2480, 2484, 2488, 2492, 2496, 2500, 2504, 2508, 2512, 2516, 2520, 2524, 2528, 2532, 2536, 2540, 2544, 2548, 2552, 2556, 2560, 2564, 2568, 2572, 2576, 2580, 2584, 2588, 2592, 2596, 2600, 2604, 2608, 2612, 2616, 2620, 2624, 2628, 2632, 2636, 2640, 2644, 2648, 2652, 2656, 2660, 2664, 2668, 2672, 2676, 2680, 2684, 2688, 2692, 2696, 2700, 2704, 2708, 2712, 2716, 2720, 2724, 2728, 2732, 2736, 2740, 2744, 2748, 2752, 2756, 2760, 2764, 2768, 2772, 2776, 2780, 2784, 2788, 2792, 2796, 2800, 2804, 2808, 2812, 2816, 2820, 2824, 2828, 2832, 2836, 2840, 2844, 2848, 2852, 2856, 2860, 2864, 2868],
+                                minTickInterval: 40,
+                            },
+                            yAxis: {
+                                reversed: true,
+                                tickAmount: 4,
+                                title: { text: null },
+                                labels: { style: { fontSize: '8px' } }
+                            },
+                            series: [
+                                {
+                                    name: 'Profondità',
+                                    data: [0.06, 1.01, 1.03, 0.98, 1.35, 1.42, 0.98, 1.4, 1.19, 1.19, 1.33, 1.38, 1.23, 1.38, 1.4, 1.37, 1.4, 1.31, 1.37, 1.4, 1.5, 1.62, 1.95, 2.3, 2.32, 2.16, 2.71, 3.28, 3.82, 3.82, 3.9, 4.35, 4.93, 5.13, 5.4, 5.38, 5.46, 5.34, 5.36, 5.36, 5.52, 5.81, 6.49, 7.16, 6.92, 6.47, 6.65, 7.1, 7.25, 7.14, 6.67, 7, 7.06, 7.16, 7.49, 8.21, 8.83, 9.69, 9.98, 10.61, 11.62, 12.77, 13.86, 15.13, 15.93, 16.95, 17.02, 17.32, 17.57, 18.02, 18.84, 19.23, 19.05, 19.29, 19.79, 20.03, 20.59, 20.87, 21.12, 21.33, 21.59, 22, 22.46, 23.09, 23.48, 23.75, 24.34, 24.3, 25.08, 25.62, 26.03, 26.66, 26.77, 26.85, 27.11, 26.77, 26.54, 26.52, 26.6, 26.73, 26.87, 27.07, 27.46, 27.36, 27.09, 27.03, 26.95, 26.38, 26.36, 26.36, 26.33, 26.38, 26.29, 26.25, 25.74, 25.66, 25.82, 25.94, 25.78, 25.51, 25.47, 25.37, 25.56, 25.41, 25.27, 25.45, 25.47, 25.39, 25.31, 25.53, 25.45, 25.43, 25.37, 25.37, 25.55, 25.6, 25.78, 25.66, 25.31, 25.16, 24.78, 24.3, 24.06, 24.75, 24.69, 24.63, 25.04, 25.06, 25.08, 24.96, 25.02, 24.45, 24.43, 24.61, 24.28, 24.57, 24, 24.32, 24.14, 23.56, 23.36, 23.56, 23.69, 23.13, 23.26, 22.93, 22.72, 22.97, 22.37, 22.54, 22.39, 21.86, 21.31, 21.2, 21.66, 21.55, 21.41, 21.55, 21.66, 21.65, 21.55, 21.94, 22.11, 21.92, 21.49, 20.96, 21.04, 21.33, 21.8, 22.17, 22.7, 22.68, 21.98, 21.61, 21.84, 21.76, 21.8, 21.55, 21.41, 21.43, 21.45, 20.98, 20.36, 20.05, 19.83, 19.46, 19.07, 19.19, 18.9, 19.21, 19.42, 19.85, 20.05, 20.18, 20.61, 20.61, 20.77, 20.55, 20.81, 21.08, 21.18, 21.37, 21.26, 21.1, 21.49, 21.49, 22.13, 21.96, 22.48, 23.07, 23.44, 23.85, 24.3, 24.61, 24.86, 24.96, 25, 25.21, 25.41, 25.29, 25.68, 25.74, 25.43, 25.02, 24.98, 24.38, 23.95, 23.48, 23.48, 23.4, 23.4, 23.4, 23.52, 23.93, 24.41, 25, 24.67, 25.27, 25.27, 25.6, 25.97, 25.8, 25.47, 25.45, 25.35, 25.29, 25.55, 25.68, 25.45, 25.35, 25.25, 24.88, 24.49, 24.38, 24.47, 24.28, 23.58, 23.36, 23.32, 23.15, 23.01, 23.24, 23.11, 23.07, 23.01, 23.01, 22.89, 23.11, 22.97, 22.64, 22.56, 22.78, 22.95, 22.8, 22.91, 22.93, 22.54, 22.52, 21.96, 21.55, 21.39, 21.16, 20.98, 20.73, 20.44, 20.36, 20.14, 19.83, 20.05, 20.26, 20.3, 19.97, 19.68, 19.58, 19.62, 19.73, 19.48, 19.17, 19.4, 19.77, 19.46, 19.48, 19.58, 19.85, 20.28, 20.22, 20.38, 19.6, 19.6, 19.73, 19.91, 20.05, 19.97, 20.3, 20.48, 20.59, 20.49, 20.75, 20.59, 20.94, 20.81, 20.46, 20.77, 20.75, 21.02, 21.24, 21.68, 22.09, 21.86, 22.19, 22.07, 21.76, 21.84, 21.8, 21.82, 22.02, 21.78, 21.49, 21.63, 21.53, 21.24, 21.22, 21.55, 21.74, 21.78, 21.72, 21.63, 20.9, 20.63, 20.36, 19.97, 20.1, 20.05, 19.6, 19.29, 19.52, 18.74, 18.68, 18.97, 19.09, 18.41, 18.62, 18.33, 18.68, 18.68, 18.41, 17.94, 17.98, 17.59, 17.24, 17.12, 16.77, 16.56, 16.15, 15.74, 15.83, 15.8, 15.81, 15.31, 15.13, 15.19, 15.15, 15.09, 14.88, 14.82, 14.59, 14.41, 14.41, 14.02, 14.22, 13.83, 13.32, 12.95, 12.54, 12.25, 12.48, 12.5, 12.4, 11.9, 11.91, 11.82, 11.97, 11.9, 12.32, 12.34, 12.09, 11.72, 12.29, 12.52, 12.3, 12.36, 11.86, 11.78, 11.91, 12.21, 12.05, 12.27, 12.25, 12.21, 12.13, 12.21, 11.91, 11.86, 11.74, 11.99, 11.88, 11.84, 12.17, 12.38, 12.21, 12.11, 12.17, 11.86, 11.99, 12.42, 12.36, 12.46, 12.69, 12.71, 12.77, 13.03, 13.22, 12.99, 12.6, 12.89, 12.71, 12.68, 12.62, 12.29, 12.29, 12.19, 12.13, 11.54, 11.72, 11.95, 11.88, 11.78, 11.72, 11.68, 11.86, 11.52, 11.12, 11.06, 10.73, 11.13, 11.06, 11.15, 11.56, 11.08, 11.13, 11.27, 11.08, 11.39, 11.35, 11.68, 11.47, 11.51, 11.76, 11.56, 11.45, 11.27, 12.09, 12.11, 12.13, 11.8, 11.27, 11, 11.04, 11.37, 11.43, 11.27, 10.92, 10.73, 10.88, 11.17, 10.98, 10.8, 10.74, 10.3, 10.14, 10.18, 10.2, 10.02, 9.93, 9.75, 9.59, 9.5, 9.28, 9.46, 9.26, 9.22, 9.03, 9.07, 9.01, 9.48, 9.52, 9.34, 9.18, 9.24, 9.36, 8.81, 9.13, 9.01, 9.32, 9.24, 9.36, 9.52, 9.36, 9.75, 9.65, 9.22, 9.38, 9.87, 9.52, 9.32, 9.34, 9.59, 9.24, 9.07, 8.99, 8.97, 8.58, 8.23, 8.25, 8.07, 7.8, 7.88, 8, 8.27, 8.05, 7.45, 7.06, 7.04, 6.84, 6.96, 6.75, 6.59, 6.26, 5.93, 5.52, 5.42, 5.03, 5.36, 5.48, 5.5, 5.21, 5.4, 5.03, 4.93, 5.11, 5.15, 5.23, 5.36, 5.03, 5.09, 5.52, 5.38, 4.91, 4.99, 5.3, 5.54, 5.64, 5.09, 5.09, 5.05, 5.15, 5.34, 5.34, 4.99, 5.32, 4.78, 4.88, 4.54, 4.76, 5.05, 4.86, 4.78, 4.39, 4.11, 4.41, 3.96, 4.31, 4.47, 4.89, 4.91, 4.84, 5.36, 5.11, 4.82, 5.09, 5.17, 5.54, 5.85, 5.19, 4.49, 4.91, 4.68, 4.11, 3.72, 2.44, 1.4, 0.88, 0.2, 0.25, 0.29, 0.1, 0.33, 0.45, 0.27, 0.2, 0.21, 0.29, 0.23, 0.14, 0.12, 0.12, 0.39, 0.25, 0.2, 0.23, 0.18, 0.2, 0.35, 0.25, 0.31, 0.47, 0.06, 0.1, 0.08, 0.21, 0.2, 0.18, 0.27, 0.16, 0.14, 0.08, 0.14, 0.27, 0.27, 0.25, 0.1, 0.06, 0.08, 0.08, 0.06, 0.06, 0.06, 0.08, 0.08, 0.18, 0.06, 0.16, 0.12, 0.06, 0.23, 0.12, 0.1, 0.16, 0.1, 0.47, 0.16, 0.12, 0.08, 0.1, 0.35, 0.33, 0.23, 0.49, 0.1, 0.06, 0.04, 0.06, 0.06, 0.06, 0.06, 0.06, 0]
+                                },
+                                {
+                                    name: 'Temp',
+                                    data: [19.6, 19.6, 19.2, 19.2, 19.2, 19.2, 19.2, 19.2, 19.2, 18.8, 18.8, 18.8, 18.8, 18.8, 18.8, 18.8, 18.8, 18.8, 18.8, 18.8, 18.8, 18.8, 18.8, 18.8, 18.8, 18.8, 18.8, 18.8, 18.8, 18.8, 18.4, 18.4, 18.4, 18.4, 18.4, 18.4, 18.4, 18.4, 18.4, 18.4, 18.4, 18.4, 18.4, 18.4, 18.4, 18.4, 18.4, 18.4, 18.4, 18.4, 18.4, 18.4, 18.4, 18.4, 18.4, 18.4, 18.4, 18.4, 18.4, 18.4, 18.4, 18.4, 18.4, 18.4, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 18, 17.6, 17.6, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18.4, 18.4, 18.4, 18.4, 18, 18, 18]
+                                }
+                            ]
+                        });</script>
+                </div>
+                <div class="panel riassunto">
+                    <header>
+                        <h3>Quadro riassuntivo dell'immersione</h3>
+                        <h4>tempi parziali</h4>
+                    </header>
+                    <div class="columns">
+                        <div class="riassunto-1">
+                            <div class="field field-ora-inizio-imm">
+                                <span class="field-label">ora inizio imm.</span>
+                                <span class="field-value">09:00</span>
+                            </div>
+                            <div class="field field-durata">
+                                <span class="field-label">durata</span>
+                                <span class="field-info">(B+C+D+E+F)</span>
+                                <span class="field-value">42</span>
+                            </div>
+                            <div class="field field-press-iniz.">
+                                <span class="field-label">press. iniz.</span>
+                                <span class="field-info">(bar)</span>
+                                <span class="field-value">210</span>
+                            </div>
+                            <div class="field field-volume-iniz">
+                                <span class="field-label">volume iniz.</span>
+                                <span class="field-info">(l)</span>
+                                <span class="field-value">3150</span>
+                            </div>
+                            <div class="field field-far-iniziale">
+                                <span class="field-label">FAR iniziale</span>
+                                <span class="field-value"></span>
+                            </div>
+                        </div>
+                        <div class="riassunto-2">
+                            <div class="field field-ora-fine-imm">
+                                <span class="field-label">ora fine imm.</span>
+                                <span class="field-value">09:42</span>
+                            </div>
+                            <div class="field field-prof-max.">
+                                <span class="field-label">prof. max.</span>
+                                <span class="field-info">(m)</span>
+                                <span class="field-value">27.4</span>
+                            </div>
+                            <div class="field field-press-fin.">
+                                <span class="field-label">press. fin.</span>
+                                <span class="field-info">(bar)</span>
+                                <span class="field-value">70</span>
+                            </div>
+                            <div class="field field-consumo">
+                                <span class="field-label">consumo</span>
+                                <span class="field-info">(l)</span>
+                                <span class="field-value">2100</span>
+                            </div>
+                            <div class="field field-far-finale">
+                                <span class="field-label">FAR finale</span>
+                                <span class="field-value"></span>
+                            </div>
+                        </div>
+                        <div class="riassunto-parziali">
+                            <div class="field field-tempo-di-fondo">
+                                <span class="field-label">tempo di fondo</span>
+                                <span class="field-info">(B)</span>
+                                <span class="field-value">31.5</span>
+                            </div>
+                            <div class="field field-sosta-prof-14m">
+                                <span class="field-label">sosta prof. 14m</span>
+                                <span class="field-info">(C)</span>
+                                <span class="field-value">2.5</span>
+                            </div>
+                            <div class="field field-risalita">
+                                <span class="field-label">risalita</span>
+                                <span class="field-info">(D)</span>
+                                <span class="field-value">3</span>
+                            </div>
+                            <div class="field field-deco-a-6-m">
+                                <span class="field-label">deco a 6 m</span>
+                                <span class="field-info">(E)</span>
+                                <span class="field-value">-</span>
+                            </div>
+                            <div class="field field-sosta-sic-+emers.">
+                                <span class="field-label">sosta sic. +emers.</span>
+                                <span class="field-info">(F)</span>
+                                <span class="field-value">5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="signature">
+                <div class="field field-convalida">
+                    <span class="field-label">Convalida</span>
+                    <span class="field-info">(Compagno, Istruttore, Guida)</span>
+                    <span class="field-value">Andrea (Marito di Simona) - Mauro Furini</span>
+                </div>
+            </div>
+            <div class="copy">&copy; F.I.P.S.A.S. 2010 &dash; www.subnettuno.it</div>
+            </main>
+        </div>
+         <div class="page page-left">
+        <aside>
+            <div class="hole ha"></div>
+            <div class="hole hb"></div>
+            <div class="hole hc"></div>
+            <div class="hole hd"></div>
+        </aside>
+        <main>
+            <header>
+                <img class="header-club" src="club.png" alt="logo club" height="30px" />
+                <h1>Scheda Aria (didattica)</h1>
+                <div class="org">F.I.P.S.A.S.</div>
+                <img class="header-didattica-logo" src="fipsas.png" alt="logo fipsas" height="30px" />
+            </header>
+            <h2>Annotazioni</h2>
+            <p class="note">(compagni d'immersione, indirizzi, numeri telefonici, punti di riferimento, piantina della zona, profili della
+                costa e dei fondali, osservazioni naturalistiche o archeologiche, ecc.)</p>
+            <div class="grid"></div>
+            <div class="copy">&copy; F.I.P.S.A.S. 2010 &dash; www.subnettuno.it</div>
+        </main>
+    </div>
+    {{/dives}}
+</body>

@@ -1,12 +1,12 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <Divinglog DBVersion="4.1.1">
   <Header>
     <AppName>Diving Log 6.0</AppName>
     <AppVersion>6.0.11.1</AppVersion>
-    <ExportDate>2017-11-30T21:59:17</ExportDate>
+    <ExportDate>2017-12-13T16:40:42</ExportDate>
   </Header>
   <Logbook>
-    <Dive ID="1" UUID="75BB49D1-D225-45FD-B7BC-2A3DF729E154" Updated="2017-11-25T16:55:13">
+    <Dive ID="1" UUID="75BB49D1-D225-45FD-B7BC-2A3DF729E154" Updated="2017-12-13T16:39:54">
       <Number>1</Number>
       <Divedate>2017-11-11</Divedate>
       <Entrytime>09:00</Entrytime>
@@ -20,7 +20,7 @@
       </Place>
       <Divetime>42.00</Divetime>
       <Depth>27.40</Depth>
-      <Buddy IDs="1" Names="Andrea (Marito di Simona)" />
+      <Buddy IDs="1" Names="Andrea Negrisolo" />
       <Signature />
       <Comments />
       <Water>Salt</Water>
@@ -7250,7 +7250,7 @@
       <ShopID>1</ShopID>
       <TripID>1</TripID>
     </Dive>
-    <Dive ID="2" UUID="57518CBB-ABE0-4D39-9F1F-5EE05607EE02" Updated="2017-11-25T16:55:05">
+    <Dive ID="2" UUID="57518CBB-ABE0-4D39-9F1F-5EE05607EE02" Updated="2017-12-13T16:39:45">
       <Number>2</Number>
       <Divedate>2017-11-11</Divedate>
       <Entrytime>12:55</Entrytime>
@@ -7263,7 +7263,7 @@
       </Place>
       <Divetime>39.00</Divetime>
       <Depth>32.10</Depth>
-      <Buddy IDs="1" Names="Andrea (Marito di Simona)" />
+      <Buddy IDs="1" Names="Andrea Negrisolo" />
       <Signature />
       <Comments />
       <Water>Salt</Water>
@@ -14003,7 +14003,7 @@
       <ShopID>1</ShopID>
       <TripID>1</TripID>
     </Dive>
-    <Dive ID="3" UUID="1F8FF535-A79B-4289-B320-7A52910D5FEB" Updated="2017-11-25T15:48:13">
+    <Dive ID="3" UUID="1F8FF535-A79B-4289-B320-7A52910D5FEB" Updated="2017-12-13T16:39:45">
       <Number>3</Number>
       <Divedate>2017-11-12</Divedate>
       <Entrytime>08:54</Entrytime>
@@ -14016,7 +14016,7 @@
       </Place>
       <Divetime>46.00</Divetime>
       <Depth>31.20</Depth>
-      <Buddy IDs="1" Names="Andrea (Marito di Simona)" />
+      <Buddy IDs="1" Names="Andrea Negrisolo" />
       <Signature />
       <Comments />
       <Water>Salt</Water>
@@ -21836,11 +21836,11 @@
       <ShopID>1</ShopID>
       <TripID>1</TripID>
     </Dive>
-    <Dive ID="4" UUID="AEDB5850-1591-4F87-856A-DCBAE32D79E7" Updated="2017-11-25T15:48:07">
+    <Dive ID="4" UUID="AEDB5850-1591-4F87-856A-DCBAE32D79E7" Updated="2017-12-07T07:39:09">
       <Number>4</Number>
       <Divedate>2017-11-12</Divedate>
       <Entrytime>12:54</Entrytime>
-      <Surfint>03:13</Surfint>
+      <Surfint>03:14</Surfint>
       <Country ID="1" Name="Italia" />
       <City ID="2" Name="Porto Santo Stefano" />
       <Place ID="8" Name="Cala Grande Punta Sud">
