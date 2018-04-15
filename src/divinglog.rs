@@ -86,8 +86,6 @@ pub fn parse(data: String) -> dive::Log {
             panic!(err)
         });
 
-    //println!("{:#?}", imported_log);
-
     dive::Log {
         dives: imported_log
             .logbook

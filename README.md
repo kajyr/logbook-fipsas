@@ -10,12 +10,10 @@ Supported templates:
 
 *   [logbook F.I.P.S.A.S.][fipsas] Nettuno
 
-## Installazione
-
 ## Utilizzo
 
-1.  Esportate da DivingLog le vostre immersione in un file xml
-2.  da un terminale lanciate
+1.  Export your dives from you log application of choice in xml
+2.  Launch from a terminal
 
     ```sh
     tofipsas <file>
@@ -50,5 +48,5 @@ tofipsas --help
 
 # Changelog
 
-*   1.2.0 - L'opzione `--empty` stampa una schedina vuota
+*   1.2.0 - Passing no INPUT file outputs an empty logbook page, useful sometimes.
 *   1.1.0 - `--dest` options specifies a folder to collect output.

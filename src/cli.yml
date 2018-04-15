@@ -5,7 +5,6 @@ about: Does awesome things
 args:
     - INPUT:
         help: Sets the input file to use
-        required: true
         index: 1
     - verbose:
         short: v
