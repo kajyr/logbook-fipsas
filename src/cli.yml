@@ -11,3 +11,8 @@ args:
         short: v
         multiple: true
         help: Sets the level of verbosity
+    - dest:
+        short: d
+        long: dest
+        help: Specifies destination folder. Defaults to ./
+        takes_value: true

@@ -1,6 +1,14 @@
 # Logbook F.I.P.S.A.S
 
-Un template per [DivingLog][divinglog] per stampare i [logbook F.I.P.S.A.S.][fipsas] precompilati
+A template system for you diving logs.
+
+Suppoted formats:
+
+*   [DivingLog][divinglog] XLM Export
+
+Supported templates:
+
+*   [logbook F.I.P.S.A.S.][fipsas] Nettuno
 
 ## Installazione
 
@@ -34,7 +42,13 @@ tofipsas --help
 3.  Stampare solo i fogli dispari, girare e quindi i fogli pari.
     ![print conf](docs/conf_print.png)
 
+# Todo rust:
+
+1.  css and images
+2.  empty option
+3.  convert doc in english
+
 # Changelog
 
 *   1.2.0 - L'opzione `--empty` stampa una schedina vuota
-*   1.1.0 - L'opzione `--dest` ora specifica una cartella dove salvare l'output
+*   1.1.0 - `--dest` options specifies a folder to collect output.

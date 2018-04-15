@@ -3,17 +3,20 @@ extern crate clap;
 extern crate logbook;
 extern crate mustache;
 
-use std::io;
+use std::fs;
 use std::fs::File;
 use std::io::BufReader;
 use std::io::prelude::*;
+use std::path::Path;
+use std::path::PathBuf;
+use std::str;
 
 use clap::App;
 
 use logbook::divinglog;
 use logbook::dive::Log;
 
-const TEMPLATE: &str = "./template/index.mustache";
+const TEMPLATE: &str = "./templates/fipsas/index.mustache";
 
 fn read_file(path: String) -> String {
     let f = File::open(path).expect("File not found");
@@ -24,30 +27,36 @@ fn read_file(path: String) -> String {
     contents
 }
 
+fn write_file(path: PathBuf, content: &str) {
+    let mut f = File::create(path).expect("Unable to create file");
+    f.write_all(content.as_bytes())
+        .expect("Unable to write data");
+}
+
 fn main() {
     let yaml = load_yaml!("cli.yml");
-    let matches = App::from_yaml(yaml).get_matches();
+    let config = App::from_yaml(yaml).get_matches();
 
-    match matches.occurrences_of("v") {
-        0 => println!("No verbose info"),
-        1 => println!("Some verbose info"),
-        2 => println!("Tons of verbose info"),
-        3 | _ => println!("Don't be crazy"),
-    }
-
-    let file = matches.value_of("INPUT").unwrap();
+    let file = config.value_of("INPUT").unwrap();
 
     let contents = read_file(String::from(file));
     let template = read_file(String::from(TEMPLATE));
     let template = mustache::compile_str(&template).unwrap();
 
-    // println!("---------");
-    // println!("{}", contents);
-    // println!("---------");
-
-    //println!("{}", template);
-
     let dive: Log = divinglog::parse(String::from(contents.trim()));
-    println!("{:#?}", dive);
-    template.render(&mut io::stdout(), &dive).unwrap();
+    //    println!("{:#?}", dive);
+
+    let mut rendered = vec![];
+    template
+        .render(&mut rendered, &dive)
+        .expect("Failed to render");
+
+    let rendered = str::from_utf8(&rendered).unwrap();
+
+    // Saving output
+    let path = config.value_of("dest").unwrap_or("./");
+    let path = Path::new(path);
+    let index_file = path.join("index.html");
+    fs::create_dir_all(path).unwrap();
+    write_file(index_file, &rendered);
 }
