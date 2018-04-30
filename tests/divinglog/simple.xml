@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Divinglog DBVersion="4.1.1">
+  <Header>
+    <AppName>Diving Log 6.0</AppName>
+    <AppVersion>6.0.11.1</AppVersion>
+    <ExportDate>2017-11-30T21:59:17</ExportDate>
+  </Header>
+  <Logbook>
+    <Dive ID="1" UUID="75BB49D1-D225-45FD-B7BC-2A3DF729E154" Updated="2017-11-25T16:55:13">
+      <Number>1</Number>
+      <Divedate>2017-11-11</Divedate>
+      <Entrytime>09:00</Entrytime>
+      <Surfint>
+      </Surfint>
+      <Country ID="1" Name="Italia" />
+      <City ID="2" Name="Porto Santo Stefano" />
+      <Place ID="4" Name="Scoglio del Corallo">
+        <Lat>42.4010194444444</Lat>
+        <Lon>11.0914083333333</Lon>
+      </Place>
+      <Divetime>42.00</Divetime>
+      <Depth>27.40</Depth>
+      <Buddy IDs="1" Names="Andrea" />
+      <Signature />
+      <Comments />
+      <Water>Salt</Water>
+      <Entry>Boat</Entry>
+      <Divetype>Addestramento</Divetype>
+      <Tanktype>Steel</Tanktype>
+      <Tanksize>15.00</Tanksize>
+      <PresS>210.00</PresS>
+      <PresE>70.00</PresE>
+      <Gas>
+      </Gas>
+      <Weather>sereno</Weather>
+      <UWCurrent>
+      </UWCurrent>
+      <Surface>Normale</Surface>
+      <Visibility>Average</Visibility>
+      <Airtemp>21.50</Airtemp>
+      <Watertemp>17.60</Watertemp>
+      <Weight>9.00</Weight>
+      <Deco>False</Deco>
+      <Decostops>
+      </Decostops>
+      <Rep>False</Rep>
+      <Altitude>0m ... 850m</Altitude>
+      <Divesuit>umida monopezzo</Divesuit>
+      <Computer>Aladin Sport Matrix</Computer>
+      <ProfileInt>4</ProfileInt>
+      <UsedEquip>Aladin Sport Matrix,Jacket,Maschera Blu,Muta 5mm logo giallo,Pinne</UsedEquip>
+      <PresW />
+      <DepthAvg>15.74</DepthAvg>
+      <Profile4>
+      </Profile4>
+      <Profile5>
+      </Profile5>
+      <RepNumber />
+      <VisHor>
+      </VisHor>
+      <VisVer>
+      </VisVer>
+      <CNS>0</CNS>
+      <PGStart>
+      </PGStart>
+      <PGEnd>
+      </PGEnd>
+      <Divemaster>Mauro</Divemaster>
+      <Boat>
+      </Boat>
+      <Rating>0</Rating>
+      <O2>21.00</O2>
+      <He>0.00</He>
+      <DblTank>False</DblTank>
+      <SupplyType />
+      <MinPPO2>0.00</MinPPO2>
+      <MaxPPO2>1.40</MaxPPO2>
+      <ShopID>1</ShopID>
+      <TripID>1</TripID>
+    </Dive>
+  </Logbook>
+</Divinglog>

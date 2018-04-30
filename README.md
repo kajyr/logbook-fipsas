@@ -29,7 +29,6 @@ Per ulteriori parametri lanciare
 logtemplate --help
 ```
 
-
 # Stampa
 
 1.  Stampare il html in pdf senza margini
@@ -37,17 +36,10 @@ logtemplate --help
 3.  Stampare solo i fogli dispari, girare e quindi i fogli pari.
     ![print conf](docs/conf_print.png)
 
-# Todo rust:
-
-1.  css and images
-2.  empty option
-3.  convert doc in english
-
 # Changelog
 
 *   1.2.0 - Passing no INPUT file outputs an empty logbook page, useful sometimes.
 *   1.1.0 - `--dest` options specifies a folder to collect output.
-
 
 [divinglog]: http://divinglog.de/
 [fipsas]: http://www.fipsas.it/didattica/didattica-subacquea/documenti-didattica-subacquea/logbook
