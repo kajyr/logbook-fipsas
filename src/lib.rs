@@ -9,6 +9,7 @@ pub mod divinglog;
 pub mod dive;
 
 use dive::Log;
+use dive::Dive;
 
 use std::fs;
 use std::fs::File;
@@ -57,5 +58,4 @@ pub fn render(file: &str, path: &PathBuf) {
     write_file(index_file, &rendered);
 }
 
-pub fn render_empty(path: &PathBuf) {
-}
+pub fn render_empty(path: &PathBuf) {}
