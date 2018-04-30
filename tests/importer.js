@@ -1,5 +1,5 @@
 import test from 'ava';
-import { importer, normalizeDive } from '../lib/importer/divelog';
+import { importer } from '../lib/importer';
 
 test('Simple dive', async t => {
     const expected = {
