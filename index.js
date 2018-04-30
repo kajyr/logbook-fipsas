@@ -1,37 +1,16 @@
 const fs = require('fs-extra');
 const path = require('path');
-const glob = require('glob');
-const pug = require('pug');
+const { copy } = require('./lib/fs');
+const print = require('./lib/printer');
 const { parseString } = require('xml2js');
-const sass = require('node-sass');
 
 const { normalize } = require('./lib/normalize');
 
-const TEMPLATE = `${__dirname}/template/`;
+const TEMPLATE = path.join(__dirname, '/templates/fipsas/src');
 
 /*
     Atoms
 */
-
-const globp = pattern =>
-    new Promise((resolve, reject) =>
-        glob(pattern, (err, files) => {
-            if (err) {
-                return reject(err);
-            }
-            return resolve(files);
-        })
-    );
-
-const sassp = file =>
-    new Promise((resolve, reject) =>
-        sass.render({ file, outputStyle: 'compressed' }, (err, data) => {
-            if (err) {
-                return reject(err);
-            }
-            return resolve(data.css.toString());
-        })
-    ).catch(console.log);
 
 const parseXml = xml =>
     new Promise((resolve, reject) =>
@@ -45,38 +24,14 @@ const parseXml = xml =>
 
 const saveJson = (file, data) => fs.writeFile(`${file}.json`, JSON.stringify(data, null, 2));
 
-const apply = (pattern, fn) => globp(pattern).then(files => Promise.all(files.map(fn)));
-
-const copy = (file, dest) => {
-    const basename = path.basename(file);
-    return fs.copy(file, path.join(dest, basename)).then(() => basename);
-};
-
 const unique = list => Array.from(new Set(list));
 
 const strDasherize = str => str.replace(/\s+/g, '-').toLowerCase();
 /*
     Molecules
 */
-const buildHtml = (Logbook, styles, images, dest) => {
-    try {
-        const compiledFunction = pug.compileFile(`${TEMPLATE}index.pug`);
-        const html = compiledFunction({ Logbook, styles, images });
-        return fs.writeFile(path.join(dest, 'index.html'), html);
-    } catch (e) {
-        console.log(e);
-        return Promise.reject(e);
-    }
-};
-
-const buildSass = () => apply(TEMPLATE + '*.scss', sassp);
-
-const copyTemplateImages = dest => apply(`${TEMPLATE}/imgs/*.png`, image => copy(image, dest));
 
 const getData = data_file => fs.readFile(data_file, 'utf8').then(parseXml);
-
-const build = (data, dest) =>
-    buildSass().then(css => copyTemplateImages(dest).then(images => buildHtml(data, css.join('\n'), images, dest)));
 
 const readFile = (file, dest, debug) =>
     getData(file).then(({ Divinglog }) => {
@@ -125,7 +80,7 @@ const convert = (file, dest, { verbose, debug, signatures }) => {
             return [{}];
         })
         .then(data => fetchSignatures(data, signatures, dest).then(() => data))
-        .then(data => build(data, dest));
+        .then(data => print(TEMPLATE, data, dest));
 };
 
 module.exports = convert;

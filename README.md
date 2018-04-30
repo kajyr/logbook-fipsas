@@ -1,6 +1,6 @@
-# Logbook F.I.P.S.A.S
+# Logbook templates
 
-A template system for you diving logs.
+A template system for you diving log applications.
 
 Suppoted formats:
 
@@ -16,9 +16,9 @@ Supported templates:
 2.  Launch from a terminal
 
     ```sh
-    tofipsas <file>
+    logtemplate <file>
 
-    # tofipsas diving.xml
+    # logtemplate diving.xml
     ```
 
 Verrà creato un file index.html contenente tutto il necessario nella cartella corrente.
@@ -26,12 +26,9 @@ Verrà creato un file index.html contenente tutto il necessario nella cartella c
 Per ulteriori parametri lanciare
 
 ```sh
-tofipsas --help
+logtemplate --help
 ```
 
-[divinglog]: http://divinglog.de/
-[fipsas]: http://www.fipsas.it/didattica/didattica-subacquea/documenti-didattica-subacquea/logbook
-[node]: https://nodejs.org
 
 # Stampa
 
@@ -50,3 +47,8 @@ tofipsas --help
 
 *   1.2.0 - Passing no INPUT file outputs an empty logbook page, useful sometimes.
 *   1.1.0 - `--dest` options specifies a folder to collect output.
+
+
+[divinglog]: http://divinglog.de/
+[fipsas]: http://www.fipsas.it/didattica/didattica-subacquea/documenti-didattica-subacquea/logbook
+[node]: https://nodejs.org

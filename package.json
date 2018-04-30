@@ -18,7 +18,7 @@
         "url": "https://github.com/kajyr/logbook-fipsas/issues"
     },
     "bin": {
-        "tofipsas": "./bin/cli.js"
+        "logtemplate": "./bin/cli.js"
     },
     "homepage": "https://github.com/kajyr/logbook-fipsas#readme",
     "dependencies": {
@@ -35,15 +35,20 @@
         "eslint": "^4.19.1",
         "eslint-config-prettier": "^2.9.0",
         "eslint-plugin-prettier": "^2.6.0",
+        "eslint-watch": "^3.1.4",
         "nyc": "^11.7.1",
         "prettier": "^1.12.1"
     },
     "ava": {
-        "files": ["tests/*.js"],
+        "files": [
+            "tests/*.js"
+        ],
         "failFast": true
     },
     "nyc": {
         "all": true,
-        "exclude": ["tests/**/*.js"]
+        "exclude": [
+            "tests/**/*.js"
+        ]
     }
 }
