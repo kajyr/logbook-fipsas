@@ -8,10 +8,9 @@
   <Logbook>
     <Dive ID="1" UUID="75BB49D1-D225-45FD-B7BC-2A3DF729E154" Updated="2017-11-25T16:55:13">
       <Number>1</Number>
-      <Divedate>2017-11-11</Divedate>
-      <Entrytime>09:00</Entrytime>
-      <Surfint>
-      </Surfint>
+      <Divedate>2017-02-25</Divedate>
+      <Entrytime>10:01</Entrytime>
+      <Surfint>03:12</Surfint>
       <Country ID="1" Name="Italia" />
       <City ID="2" Name="Porto Santo Stefano" />
       <Place ID="4" Name="Scoglio del Corallo">
@@ -32,7 +31,7 @@
       <PresE>70.00</PresE>
       <Gas>
       </Gas>
-      <Weather>sereno</Weather>
+      <Weather>Sereno</Weather>
       <UWCurrent>
       </UWCurrent>
       <Surface>Normale</Surface>
@@ -43,7 +42,7 @@
       <Deco>False</Deco>
       <Decostops>
       </Decostops>
-      <Rep>False</Rep>
+      <Rep>True</Rep>
       <Altitude>0m ... 850m</Altitude>
       <Divesuit>umida monopezzo</Divesuit>
       <Computer>Aladin Sport Matrix</Computer>
