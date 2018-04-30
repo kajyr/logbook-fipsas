@@ -1,19 +1,19 @@
 # Logbook F.I.P.S.A.S
 
-Un template per [DivingLog][divinglog] per stampare i [logbook F.I.P.S.A.S.][fipsas] precompilati
+A template system for you diving logs.
 
-## Installazione
+Suppoted formats:
 
-&Egrave; necessario avere installato [nodejs][node] con npm
+*   [DivingLog][divinglog] XLM Export
 
-```
-npm i -g logbook-fipsas
-```
+Supported templates:
+
+*   [logbook F.I.P.S.A.S.][fipsas] Nettuno
 
 ## Utilizzo
 
-1.  Esportate da DivingLog le vostre immersione in un file xml
-2.  da un terminale lanciate
+1.  Export your dives from you log application of choice in xml
+2.  Launch from a terminal
 
     ```sh
     tofipsas <file>
@@ -35,12 +35,18 @@ tofipsas --help
 
 # Stampa
 
-1. Stampare il html in pdf senza margini
-2. Per stampare il PDF scegliere il formato di carta A5 e impostare la scala al 100%
-3. Stampare solo i fogli dispari, girare e quindi i fogli pari.
-![print conf](docs/conf_print.png)
+1.  Stampare il html in pdf senza margini
+2.  Per stampare il PDF scegliere il formato di carta A5 e impostare la scala al 100%
+3.  Stampare solo i fogli dispari, girare e quindi i fogli pari.
+    ![print conf](docs/conf_print.png)
+
+# Todo rust:
+
+1.  css and images
+2.  empty option
+3.  convert doc in english
 
 # Changelog
 
-*   1.2.0 - L'opzione `--empty` stampa una schedina vuota
-*   1.1.0 - L'opzione `--dest` ora specifica una cartella dove salvare l'output
+*   1.2.0 - Passing no INPUT file outputs an empty logbook page, useful sometimes.
+*   1.1.0 - `--dest` options specifies a folder to collect output.
