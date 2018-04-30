@@ -428,7 +428,12 @@
                 <div class="field field-convalida">
                     <span class="field-label">Convalida</span>
                     <span class="field-info">(Compagno, Istruttore, Guida)</span>
-                    <span class="field-value">{{buddies}} - {{dive_master}}</span>
+                    <span class="field-value">{{buddies}} - {{dive_master}}
+                    {{#dive_master_signature}}
+                        <img src="{{.}}" />
+                    {{/dive_master_signature}}
+                    
+                    </span>
                 </div>
             </div>
             <div class="copy">&copy; F.I.P.S.A.S. 2010 &dash; www.subnettuno.it</div>

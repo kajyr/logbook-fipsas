@@ -41,5 +41,5 @@ if (argv.empty) {
 
     const { verbose, debug, signatures } = argv;
 
-    Promise.all(argv._.map(file => convert(file, argv.dest, { verbose, debug, signatures })));
+    Promise.all(argv._.map(file => convert(file, argv.dest, { verbose, debug, signaturesFolder: signatures })));
 }
