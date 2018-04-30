@@ -1,7 +1,8 @@
 const fs = require('fs-extra');
 const path = require('path');
-const { copy } = require('./lib/fs');
+
 const print = require('./lib/printer');
+const signatures = require('./lib/signatures');
 
 const { importer } = require('./lib/importer/divelog');
 
@@ -13,9 +14,6 @@ const TEMPLATE = path.join(__dirname, '/templates/fipsas/src');
 
 const saveJson = (file, data) => fs.writeFile(`${file}.json`, JSON.stringify(data, null, 2));
 
-const unique = list => Array.from(new Set(list));
-
-const strDasherize = str => str.replace(/\s+/g, '-').toLowerCase();
 /*
     Molecules
 */
@@ -32,29 +30,13 @@ const readFile = (file, dest, debug) =>
             console.error('Something wrong: ', err.message);
         });
 
-const fetchSignatures = (data, signatures, dest) => {
-    return Promise.all(
-        unique(data.map(dive => dive.dive_master))
-            .map(strDasherize)
-            .map(str => path.join(signatures, `${str}.png`))
-            .map(file =>
-                copy(file, dest).catch(err => {
-                    if (err.code === 'ENOENT') {
-                        console.warn('Missing signature', file);
-                    } else {
-                        return Promise.reject(err);
-                    }
-                })
-            )
-    );
-};
 /**
  *
  * @param {string} file
  * @param {string} dest Destination folder
  * @param {bool} debug Outputs processed data in json format
  */
-const convert = (file, dest, { verbose, debug, signatures }) => {
+const convert = (file, dest, { verbose, debug, signaturesFolder }) => {
     fs
         .ensureDir(dest)
         .then(() => {
@@ -63,7 +45,19 @@ const convert = (file, dest, { verbose, debug, signatures }) => {
             }
             return [{}];
         })
-        .then(logbook => fetchSignatures(logbook.dives, signatures, dest).then(() => logbook))
+        .then(logbook =>
+            signatures(logbook.dives, signaturesFolder, dest).then(available_signatures => {
+                logbook.dives = logbook.dives.map(dive => {
+                    const dive_master_signature = available_signatures[dive.dive_master];
+                    return !dive_master_signature
+                        ? dive
+                        : Object.assign({}, dive, {
+                              dive_master_signature
+                          });
+                });
+                return logbook;
+            })
+        )
         .then(logbook => print(TEMPLATE, logbook, dest));
 };
 
