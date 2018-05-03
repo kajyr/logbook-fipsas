@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dives SYSTEM "http://www.mac-dive.com/macdive_logbook.dtd">
+
+<dives>
+    <units>Metric</units>
+    <schema>2.2.0</schema>
+    <dive>
+        <date>2017-02-25 10:01:55</date>
+        <identifier>63007881-1127412230</identifier>
+        <diveNumber>1</diveNumber>
+        <rating>4</rating>
+        <repetitiveDive>2</repetitiveDive>
+        <diver>Carlo Panzi</diver>
+        <computer>Scubapro Aladin Sport Matrix</computer>
+        <serial>63007881</serial>
+        <maxDepth>27.4</maxDepth>
+        <averageDepth>15.67</averageDepth>
+        <cns>0.00</cns>
+        <decoModel>ZH-L16 ADT</decoModel>
+        <duration>2564</duration>
+        <gasModel>Air</gasModel>
+        <surfaceInterval>192</surfaceInterval>
+        <sampleInterval>4</sampleInterval>
+        <tempAir>21.50</tempAir>
+        <tempHigh>19.60</tempHigh>
+        <tempLow>17.60</tempLow>
+        <visibility></visibility>
+        <weight>9</weight>
+        <notes><![CDATA[]]></notes>
+        <diveMaster>Mauro</diveMaster>
+        <diveOperator>Centro Immersioni Costa D'Argento</diveOperator>
+        <skipper>Luca</skipper>
+        <boat></boat>
+        <weather>Sereno</weather>
+        <current></current>
+        <surfaceConditions>Normale</surfaceConditions>
+        <entryType>Boat</entryType>
+        <site>
+            <country>Italia</country>
+            <location>Porto Santo Stefano</location>
+            <name>Scoglio del Corallo</name>
+            <bodyOfWater></bodyOfWater>
+            <waterType>Salt</waterType>
+            <difficulty></difficulty>
+            <altitude>0</altitude>
+            <lat>42.40100</lat>
+            <lon>11.09140</lon>
+        </site>
+        <tags>
+            <tag>scuba</tag>
+        </tags>
+        <types>
+            <type>Addestramento</type>
+        </types>
+        <buddies>
+            <buddy>Andrea</buddy>
+        </buddies>
+        <gear>
+            <item>
+                <type>Wetsuit</type>
+                <manufacturer>Scubapro</manufacturer>
+                <name>umida monopezzo</name>
+                <serial></serial>
+            </item>
+            <item>
+                <type>Computer</type>
+                <manufacturer>Scubapro</manufacturer>
+                <name>Aladin Sport Matrix</name>
+                <serial>63007881</serial>
+            </item>
+            <item>
+                <type>BCD</type>
+                <manufacturer>Technisub</manufacturer>
+                <name>Parka</name>
+                <serial></serial>
+            </item>
+            <item>
+                <type>Mask</type>
+                <manufacturer>Aqua Lung</manufacturer>
+                <name>Favola (Blu)</name>
+                <serial></serial>
+            </item>
+            <item>
+                <type>Fins</type>
+                <manufacturer>Techisub</manufacturer>
+                <name>Stratos (per calzare)</name>
+                <serial></serial>
+            </item>
+        </gear>
+        <gases>
+            <gas>
+                <pressureStart>210.00</pressureStart>
+                <pressureEnd>70.00</pressureEnd>
+                <oxygen>21</oxygen>
+                <helium>0</helium>
+                <double>0</double>
+                <tankSize>15</tankSize>
+                <workingPressure>200</workingPressure>
+                <supplyType>Open Circuit</supplyType>
+                <duration>2564</duration>
+                <tankName>15L</tankName>
+            </gas>
+        </gases>
+        <samples></samples>
+        <events>
+            <event>
+                <type>28</type>
+                <time>2272.00</time>
+                <detail></detail>
+                <name>User Bookmark</name>
+            </event>
+            <event>
+                <type>28</type>
+                <time>2324.00</time>
+                <detail></detail>
+                <name>User Bookmark</name>
+            </event>
+            <event>
+                <type>28</type>
+                <time>2400.00</time>
+                <detail></detail>
+                <name>User Bookmark</name>
+            </event>
+        </events>
+    </dive>
+</dives>

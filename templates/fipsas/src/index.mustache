@@ -167,7 +167,7 @@
                     <div class="field field-tipo">
                         <span class="field-label">tipo</span>
                         <span class="field-info">(da riva, da barca, secca, notturna, relitto,...)</span>
-                        <span class="field-value">{{entry}} / {{water}}</span>
+                        <span class="field-value">{{#entry}}{{.}} {{#water}}/{{/water}}{{/entry}} {{water}}</span>
                     </div>
                 </div>
                 <div class="panel">
@@ -428,7 +428,7 @@
                 <div class="field field-convalida">
                     <span class="field-label">Convalida</span>
                     <span class="field-info">(Compagno, Istruttore, Guida)</span>
-                    <span class="field-value">{{buddies}} - {{dive_master}}
+                    <span class="field-value">{{buddies}}
                     {{#dive_master_signature}}
                         <img src="{{.}}" />
                     {{/dive_master_signature}}

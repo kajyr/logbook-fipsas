@@ -4,7 +4,8 @@ A template system for you diving log applications.
 
 Suppoted formats:
 
-*   [DivingLog][divinglog] XLM Export
+*   [MacDive][macdive] XML Export
+*   [DivingLog][divinglog] XML Export
 
 Supported templates:
 
@@ -42,5 +43,6 @@ logtemplate --help
 *   1.1.0 - `--dest` options specifies a folder to collect output.
 
 [divinglog]: http://divinglog.de/
+[macdive]: http://www.mac-dive.com/
 [fipsas]: http://www.fipsas.it/didattica/didattica-subacquea/documenti-didattica-subacquea/logbook
 [node]: https://nodejs.org

@@ -20,7 +20,7 @@ test('Clean object', t => {
     };
     t.deepEqual(clean(dirty), expected);
 });
-/*
+
 test('Clean nested shit', t => {
     const dirty = {
         A: [
@@ -29,13 +29,20 @@ test('Clean nested shit', t => {
                     {
                         value: ['0.06']
                     }
+                ],
+                C: [
+                    {
+                        value: ['7']
+                    },
+                    {
+                        value: ['8']
+                    }
                 ]
             }
         ]
     };
     const expected = {
-        A: { B: { value: 0.06 } }
+        A: { B: { value: 0.06 }, C: [{ value: 7 }, { value: 8 }] }
     };
     t.deepEqual(clean(dirty), expected);
 });
-*/

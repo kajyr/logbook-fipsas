@@ -28,11 +28,20 @@ const argv = yargs
         default: false,
         describe: 'Prints an empty sheet (Does not load any xml file)',
         type: 'boolean'
+    })
+    .option('importers', {
+        default: false,
+        describe: 'Print the list of available importers',
+        type: 'boolean'
     }).argv;
+
 const convert = require('../');
 
 if (argv.empty) {
     convert(undefined, argv.d, argv.debug);
+} else if (argv.importers) {
+    const { listImporters } = require('../lib/importer');
+    listImporters();
 } else {
     if (argv._.length === 0) {
         yargs.showHelp();

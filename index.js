@@ -4,7 +4,7 @@ const path = require('path');
 const print = require('./lib/printer');
 const signatures = require('./lib/signatures');
 
-const { importer } = require('./lib/importer/divelog');
+const { importer } = require('./lib/importer');
 
 const TEMPLATE = path.join(__dirname, '/templates/fipsas/src');
 
@@ -20,11 +20,11 @@ const saveJson = (file, data) => fs.writeFile(`${file}.json`, JSON.stringify(dat
 
 const readFile = (file, dest, debug) =>
     importer(file)
-        .then(Logbook => {
+        .then(logbook => {
             if (debug) {
-                return Promise.all([saveJson(path.join(dest, 'logbook'), Logbook)]).then(() => Logbook);
+                return saveJson(path.join(dest, 'logbook'), logbook).then(() => logbook);
             }
-            return Logbook;
+            return logbook;
         })
         .catch(err => {
             console.error('Something wrong: ', err.message);
