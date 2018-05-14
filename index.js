@@ -21,9 +21,6 @@ const saveJson = (file, data) => fs.writeFile(`${file}.json`, JSON.stringify(dat
 */
 
 const readFile = (file, dest, debug) => {
-    if (!file) {
-        return Promise.resolve([{}]);
-    }
     return importer(file)
         .then(logbook => {
             if (debug) {
@@ -42,28 +39,41 @@ const readFile = (file, dest, debug) => {
  * @param {string} dest Destination folder
  * @param {bool} debug Outputs processed data in json format
  */
-const convert = (file, dest, { verbose, debug, signaturesFolder }) => {
+async function convert(file, dest, { verbose, debug, signaturesFolder }) {
+    const empty = file === undefined;
+    if (empty) {
+        console.log('Rendering empty template');
+    }
     const tmpDir = tmp.dirSync({ unsafeCleanup: !debug, keep: debug });
     const collector = tmpDir.name;
     if (verbose) {
         console.log('Collector dir: ', collector);
     }
-    readFile(file, collector, debug)
-        .then(logbook =>
-            signatures(logbook.dives, signaturesFolder, collector).then(available_signatures => {
-                logbook.dives = logbook.dives.map(dive => {
-                    const dive_master_signature = available_signatures[dive.dive_master];
-                    return !dive_master_signature
-                        ? dive
-                        : Object.assign({}, dive, {
-                              dive_master_signature
-                          });
-                });
-                return logbook;
-            })
-        )
-        .then(logbook => print(TEMPLATE, logbook, collector))
-        .then(collector => exporter(collector, dest, verbose, debug));
-};
+
+    const logbook = empty
+        ? {
+              dives: [
+                  {
+                      empty
+                  }
+              ]
+          }
+        : await readFile(file, collector, debug);
+
+    if (logbook.dives) {
+        const available_signatures = await signatures(logbook.dives, signaturesFolder, collector);
+        logbook.dives = logbook.dives.map(dive => {
+            const dive_master_signature = available_signatures[dive.dive_master];
+            return !dive_master_signature
+                ? dive
+                : Object.assign({}, dive, {
+                      dive_master_signature
+                  });
+        });
+    }
+
+    await print(TEMPLATE, logbook, collector);
+    return exporter(collector, dest, verbose, debug);
+}
 
 module.exports = convert;
