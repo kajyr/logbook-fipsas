@@ -39,6 +39,7 @@ logtemplate --help
 
 # Changelog
 
+*   1.3.0 - Macdive XML export support
 *   1.2.0 - Passing no INPUT file outputs an empty logbook page, useful sometimes.
 *   1.1.0 - `--dest` options specifies a folder to collect output.
 
