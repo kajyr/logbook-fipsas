@@ -1,10 +1,12 @@
 const fs = require('fs-extra');
 const path = require('path');
+const tmp = require('tmp');
 
 const print = require('./lib/printer');
 const signatures = require('./lib/signatures');
 
 const { importer } = require('./lib/importer');
+const exporter = require('./lib/pdf-exporter');
 
 const TEMPLATE = path.join(__dirname, '/templates/fipsas/src');
 
@@ -18,8 +20,11 @@ const saveJson = (file, data) => fs.writeFile(`${file}.json`, JSON.stringify(dat
     Molecules
 */
 
-const readFile = (file, dest, debug) =>
-    importer(file)
+const readFile = (file, dest, debug) => {
+    if (!file) {
+        return Promise.resolve([{}]);
+    }
+    return importer(file)
         .then(logbook => {
             if (debug) {
                 return saveJson(path.join(dest, 'logbook'), logbook).then(() => logbook);
@@ -29,6 +34,7 @@ const readFile = (file, dest, debug) =>
         .catch(err => {
             console.error('Something wrong: ', err.message);
         });
+};
 
 /**
  *
@@ -37,16 +43,14 @@ const readFile = (file, dest, debug) =>
  * @param {bool} debug Outputs processed data in json format
  */
 const convert = (file, dest, { verbose, debug, signaturesFolder }) => {
-    fs
-        .ensureDir(dest)
-        .then(() => {
-            if (file) {
-                return readFile(file, dest, debug);
-            }
-            return [{}];
-        })
+    const tmpDir = tmp.dirSync({ unsafeCleanup: !debug, keep: debug });
+    const collector = tmpDir.name;
+    if (verbose) {
+        console.log('Collector dir: ', collector);
+    }
+    readFile(file, collector, debug)
         .then(logbook =>
-            signatures(logbook.dives, signaturesFolder, dest).then(available_signatures => {
+            signatures(logbook.dives, signaturesFolder, collector).then(available_signatures => {
                 logbook.dives = logbook.dives.map(dive => {
                     const dive_master_signature = available_signatures[dive.dive_master];
                     return !dive_master_signature
@@ -58,7 +62,8 @@ const convert = (file, dest, { verbose, debug, signaturesFolder }) => {
                 return logbook;
             })
         )
-        .then(logbook => print(TEMPLATE, logbook, dest));
+        .then(logbook => print(TEMPLATE, logbook, collector))
+        .then(collector => exporter(collector, dest, verbose, debug));
 };
 
 module.exports = convert;
