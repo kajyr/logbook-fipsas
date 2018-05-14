@@ -22,7 +22,9 @@ const saveJson = (file, data) => fs.writeFile(`${file}.json`, JSON.stringify(dat
 
 const readFile = (file, dest, debug) => {
     if (!file) {
-        return Promise.resolve([{}]);
+        return Promise.resolve({
+            dives: [{}]
+        });
     }
     return importer(file)
         .then(logbook => {
@@ -49,8 +51,11 @@ const convert = (file, dest, { verbose, debug, signaturesFolder }) => {
         console.log('Collector dir: ', collector);
     }
     readFile(file, collector, debug)
-        .then(logbook =>
-            signatures(logbook.dives, signaturesFolder, collector).then(available_signatures => {
+        .then(logbook => {
+            if (!logbook.dives) {
+                return logbook;
+            }
+            return signatures(logbook.dives, signaturesFolder, collector).then(available_signatures => {
                 logbook.dives = logbook.dives.map(dive => {
                     const dive_master_signature = available_signatures[dive.dive_master];
                     return !dive_master_signature
@@ -60,8 +65,8 @@ const convert = (file, dest, { verbose, debug, signaturesFolder }) => {
                           });
                 });
                 return logbook;
-            })
-        )
+            });
+        })
         .then(logbook => print(TEMPLATE, logbook, collector))
         .then(collector => exporter(collector, dest, verbose, debug));
 };
