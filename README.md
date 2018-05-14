@@ -11,7 +11,7 @@ Supported templates:
 
 *   [logbook F.I.P.S.A.S.][fipsas] Nettuno
 
-## Utilizzo
+## Usage
 
 1.  Export your dives from you log application of choice in xml
 2.  Launch from a terminal
@@ -22,9 +22,9 @@ Supported templates:
     # logtemplate diving.xml
     ```
 
-Verrà creato un file index.html contenente tutto il necessario nella cartella corrente.
+A pdf file with all the dives rendered would be the output. The default name will be `export.pdf` but it can be customized with the `--dest` option
 
-Per ulteriori parametri lanciare
+To see all the options please run
 
 ```sh
 logtemplate --help
@@ -39,6 +39,7 @@ logtemplate --help
 
 # Changelog
 
+*   1.4.0 - Direct PDF output. the `--dest` argument now specifies the destination file.
 *   1.3.0 - Macdive XML export support
 *   1.2.0 - Passing no INPUT file outputs an empty logbook page, useful sometimes.
 *   1.1.0 - `--dest` options specifies a folder to collect output.

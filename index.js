@@ -6,6 +6,7 @@ const print = require('./lib/printer');
 const signatures = require('./lib/signatures');
 
 const { importer } = require('./lib/importer');
+const exporter = require('./lib/pdf-exporter');
 
 const TEMPLATE = path.join(__dirname, '/templates/fipsas/src');
 
@@ -47,8 +48,6 @@ const convert = (file, dest, { verbose, debug, signaturesFolder }) => {
     if (verbose) {
         console.log('Collector dir: ', collector);
     }
-    //fs.ensureDir(dest)
-
     readFile(file, collector, debug)
         .then(logbook =>
             signatures(logbook.dives, signaturesFolder, collector).then(available_signatures => {
@@ -63,9 +62,8 @@ const convert = (file, dest, { verbose, debug, signaturesFolder }) => {
                 return logbook;
             })
         )
-        .then(logbook => {
-            return print(TEMPLATE, logbook, collector);
-        });
+        .then(logbook => print(TEMPLATE, logbook, collector))
+        .then(collector => exporter(collector, dest, verbose, debug));
 };
 
 module.exports = convert;
