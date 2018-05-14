@@ -4,8 +4,8 @@ const argv = yargs
     .usage('$0 file.xml')
     .option('d', {
         alias: 'dest',
-        default: './',
-        describe: 'Destinazione (folder) del file di output',
+        default: 'export.pdf',
+        describe: 'Output file name',
         type: 'string'
     })
     .option('signatures', {
@@ -36,9 +36,9 @@ const argv = yargs
     }).argv;
 
 const convert = require('../');
-
-if (argv.empty) {
-    convert(undefined, argv.d, argv.debug);
+const { verbose, debug, signatures, empty, dest } = argv;
+if (empty) {
+    convert(undefined, dest, debug);
 } else if (argv.importers) {
     const { listImporters } = require('../lib/importer');
     listImporters();
@@ -48,7 +48,5 @@ if (argv.empty) {
         process.exit();
     }
 
-    const { verbose, debug, signatures } = argv;
-
-    Promise.all(argv._.map(file => convert(file, argv.dest, { verbose, debug, signaturesFolder: signatures })));
+    Promise.all(argv._.map(file => convert(file, dest, { verbose, debug, signaturesFolder: signatures })));
 }
