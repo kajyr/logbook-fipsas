@@ -40,7 +40,9 @@
                         <div class="place-str">
                             <div class="field field-luogo">
                                 <span class="field-label">Luogo</span>
-                                <span class="field-value">{{city}} - {{country}}</span>
+                                <span class="field-value">
+                                    {{#city}}{{.}} {{#country}}-{{/country}}{{/city}} {{country}}
+                                </span>
                             </div>
                             <div class="field field-punto">
                                 <span class="field-label">Punto</span>
@@ -288,6 +290,7 @@
                 <div class="panel panel--chart">
                     <h3>Profilo dell'Immersione</h3>
                     <div class="chart" id="chart-{{number}}"></div>
+                    {{^empty}}
                     <script>
                         Highcharts.chart('chart-{{number}}', {
                             chart: {
@@ -337,6 +340,7 @@
                                 }
                             ]
                         });</script>
+                    {{/empty}}
                 </div>
                 <div class="panel riassunto">
                     <header>
@@ -418,7 +422,7 @@
                             <div class="field field-sosta-sic-+emers.">
                                 <span class="field-label">sosta sic. +emers.</span>
                                 <span class="field-info">(F)</span>
-                                <span class="field-value">5</span>
+                                <span class="field-value">{{^empty}}5{{/empty}}</span>
                             </div>
                         </div>
                     </div>
