@@ -8,7 +8,7 @@ const signatures = require('./lib/signatures');
 const { importer } = require('./lib/importer');
 const exporter = require('./lib/pdf-exporter');
 
-const TEMPLATE = path.join(__dirname, '/templates/fipsas/src');
+const TEMPLATE = path.join(__dirname, '/templates/fipsas-didattica');
 
 /*
     Atoms
