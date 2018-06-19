@@ -1,3 +1,45 @@
+html {
+  /* off-white, so body edge is visible in browser */
+  background: #eee;
+  font-size: 9pt;
+  font-family: 'Roboto', Arial, sans-serif; }
+
+* {
+  box-sizing: border-box; }
+
+body {
+  /* A5 dimensions */
+  /* height: 210mm; */
+  width: 148.5mm;
+  margin: 0;
+  background: #fff; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+  font-variant: small-caps; }
+
+h1 {
+  flex: 1;
+  font-size: 1.4em; }
+
+h2 {
+  font-size: 1.3em; }
+
+h3 {
+  font-size: 1em; }
+
+h4 {
+  font-size: 0.9em; }
+
+section {
+  padding: 1mm 0; }
+
 .page {
   border: 1px solid #e5e5e5;
   height: 210mm;
@@ -35,7 +77,8 @@ aside {
 
 .field {
   display: flex;
-  justify-content: space-between; }
+  justify-content: space-between;
+  padding: 1px 0; }
   .field-label {
     margin-right: 1mm;
     white-space: nowrap; }
@@ -50,9 +93,12 @@ aside {
     white-space: nowrap;
     min-height: 4mm;
     font-size: 0.8em;
-    line-height: 1.5em; }
+    line-height: 1.5em;
+    flex-shrink: 0; }
     .field-value + .field-value {
       margin-left: 1mm; }
+    .field-value--number {
+      text-align: right; }
   .field-info {
     font-size: 0.6em;
     align-self: center;
@@ -68,31 +114,17 @@ aside {
   flex: 1;
   width: 99%; }
 
-html {
-  /* off-white, so body edge is visible in browser */
-  background: #eee;
-  font-size: 9pt;
-  font-family: 'Roboto', Arial, sans-serif; }
+/**
+Grid System
+*/
+.grid-container {
+  display: flex; }
 
-* {
-  box-sizing: border-box; }
+.grid-column-flex {
+  flex: 1; }
 
-body {
-  /* A5 dimensions */
-  /* height: 210mm; */
-  width: 148.5mm;
-  margin: 0;
-  background: #fff; }
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 0;
-  padding: 0;
-  font-variant: small-caps; }
+.grid-column + .grid-column {
+  margin-left: 3mm; }
 
 /**
     HEADER
@@ -101,7 +133,8 @@ header {
   display: flex;
   align-items: center;
   margin-bottom: 0.2em;
-  padding: 0 1mm; }
+  padding: 0 1mm;
+  flex-shrink: 0; }
   header .org {
     font-size: 1.2em; }
 
@@ -110,19 +143,6 @@ header {
 
 .header-didattica-logo {
   margin-left: 1em; }
-
-h1 {
-  flex: 1;
-  font-size: 1.4em; }
-
-h2 {
-  font-size: 1.3em; }
-
-h3 {
-  font-size: 1em; }
-
-h4 {
-  font-size: 0.9em; }
 
 .panel {
   border: 1px solid black;
@@ -135,152 +155,123 @@ h4 {
 .note {
   font-style: italic; }
 
-.panel--intro .field {
-  padding: 1px 0; }
-  .panel--intro .field-data {
-    margin-left: 1mm; }
-
-.panel--intro .field-label {
-  width: 2cm; }
-
-.panel--intro .field-value {
-  flex: 1; }
-
-.panel--intro .place-data .field-value {
-  min-width: 1.2cm; }
-
-/* QUADRO 0 */
 .intro {
   display: flex; }
   .intro .field {
     flex: 1; }
-
-.place {
-  display: flex; }
-  .place-str {
-    flex: 1;
-    padding-right: 1mm; }
+  .intro .field-label {
+    width: 2cm; }
+  .intro .panel-column--id .field-value {
+    width: 1.5cm; }
+  .intro .panel-column--place .field-value {
+    flex: 1; }
 
 /* QUADRO 1 */
-.plan {
+.setup {
   display: flex; }
-  .plan h3 {
+  .setup h2 {
+    display: block;
+    margin-bottom: 1mm; }
+
+.ambiente {
+  width: 60%; }
+  .ambiente .row {
+    display: flex;
+    align-items: center;
     font-size: 0.8em; }
-  .plan .field {
-    padding-top: 0;
-    padding-bottom: 0;
+  .ambiente .field {
     justify-content: flex-end; }
-    .plan .field-value {
-      width: 0.7cm;
-      text-align: right; }
-  .plan-far h3 {
-    text-align: center; }
-  .plan-programmazione {
-    flex: 1; }
-  .plan-tempi {
-    display: flex; }
-  .plan-steps {
-    flex: 1; }
-    .plan-steps h3 {
-      text-align: right; }
-      .plan-steps h3 span {
-        margin-right: 2mm; }
-  .plan-legend {
-    display: flex;
-    justify-content: space-around;
-    font-size: 0.7em;
-    flex: 1; }
-  .plan-recap h3 {
-    text-align: center; }
-
-.descr {
-  display: flex; }
-  .descr .field {
+  .ambiente .label {
+    width: 15%; }
+  .ambiente .field {
     flex: 1;
-    flex-wrap: wrap; }
-    .descr .field-tipo {
-      margin-left: 1mm; }
-  .descr .field-value {
-    flex: 1; }
-  .descr .field-info {
-    order: 3;
-    width: 100%;
-    margin-top: 1mm; }
-
-.cond {
-  display: flex; }
-  .cond h4 {
-    text-align: center; }
-  .cond .row {
-    display: flex;
-    align-items: center; }
-  .cond .field {
-    justify-content: flex-end; }
-  .cond-ambient {
-    width: 60%; }
-    .cond-ambient .label {
-      width: 15%; }
-    .cond-ambient .field {
-      flex: 1;
-      font-size: 0.9em;
-      padding-left: 0; }
-      .cond-ambient .field-value {
-        min-width: 1rem;
-        width: 1rem;
-        padding: 0;
-        text-align: center;
-        font-size: 0.8em; }
-  .cond-pers {
-    flex: 1; }
-    .cond-pers .field-value {
-      flex: 1;
-      max-width: 80%; }
+    padding-left: 0; }
+    .ambiente .field-value {
+      min-width: 1rem;
+      width: 1rem;
+      padding: 0;
+      text-align: center;
+      font-size: 0.8em; }
 
 .attrezzatura {
-  display: flex; }
-  .attrezzatura .field {
-    flex: auto;
-    flex-direction: column; }
-    .attrezzatura .field + .field {
-      margin-left: 1mm; }
-    .attrezzatura .field-label {
-      display: none; }
-    .attrezzatura .field-value {
-      min-width: auto; }
-    .attrezzatura .field-info {
-      order: 3;
-      width: 100%;
-      margin-top: 0.5mm;
-      text-align: center; }
-    .attrezzatura .field-tabelle, .attrezzatura .field-muta {
-      flex-grow: 2; }
-    .attrezzatura .field-altro {
-      flex-grow: 3; }
+  flex: 1; }
+  .attrezzatura .field-label {
+    width: 37%; }
+  .attrezzatura .field-value {
+    flex: 1; }
+
+.profilo-layers {
+  position: relative; }
+  .profilo-layers-0 {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    width: 100%; }
+
+.profilo .field-label {
+  display: block;
+  font-size: 0.6em; }
+
+.profilo .row {
+  display: flex;
+  width: 100%;
+  margin-bottom: 6mm; }
+
+.profilo .field-value {
+  border: 0.1mm solid black; }
+
+.profilo svg {
+  margin-top: 8mm; }
+
+.profilo .field-far,
+.profilo .field-intervallo-di-sup {
+  flex-direction: column;
+  text-align: center; }
+  .profilo .field-far .field-label,
+  .profilo .field-intervallo-di-sup .field-label {
+    text-align: center;
+    width: 100%; }
+  .profilo .field-far .field-value,
+  .profilo .field-intervallo-di-sup .field-value {
+    display: block; }
+
+.profilo .field-intervallo-di-sup .field-value {
+  border-left: none;
+  border-right: none; }
+
+.profilo .field-far {
+  width: 5mm; }
+  .profilo .field-far-before {
+    margin-left: 5mm; }
+  .profilo .field-far-exit {
+    margin-left: auto;
+    margin-right: 5mm; }
+
+.profilo .ora {
+  justify-content: space-between; }
+  .profilo .ora .field-ora .field-label {
+    text-align: right; }
+  .profilo .ora .field-ora-start {
+    margin-left: 8mm; }
+  .profilo .ora .field-ora-end {
+    margin-right: 5mm; }
+  .profilo .ora .field-deco {
+    margin-left: 8mm; }
+
+.profilo .press {
+  justify-content: space-between; }
+
+.profilo .tempi {
+  justify-content: space-between; }
+  .profilo .tempi .field {
+    flex-wrap: wrap; }
+  .profilo .tempi .field-value {
+    width: 100%; }
 
 .chart {
   height: 3.2cm;
   border: 1px solid black;
   background: white; }
-
-.riassunto header {
-  display: flex;
-  justify-content: space-between; }
-
-.riassunto-1, .riassunto-2 {
-  flex: 1; }
-
-.riassunto-parziali {
-  flex: 1; }
-
-.riassunto .field {
-  justify-content: flex-end; }
-  .riassunto .field-value {
-    width: 1cm;
-    text-align: right; }
-
-.columns {
-  display: flex;
-  justify-content: space-between; }
 
 .signature {
   margin-top: 2mm; }
