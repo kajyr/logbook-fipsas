@@ -1,0 +1,48 @@
+.page {
+    border: 1px solid #e5e5e5;
+    height: 210mm;
+    padding: 0.5cm;
+    display: flex;
+
+    &-left {
+        aside {
+            order: 1;
+        }
+    }
+
+    main {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+    }
+}
+
+aside {
+    width: 1cm;
+    position: relative;
+}
+
+$hole-size: 3mm;
+
+.hole {
+    border: 1px solid #e5e5e5;
+    width: $hole-size;
+    height: $hole-size;
+    border-radius: $hole-size;
+    margin: 0 auto;
+}
+
+.h {
+    &a {
+        margin-top: 2.7cm;
+    }
+    &b {
+        margin-top: 4.1cm;
+    }
+    &c {
+        margin-top: 6cm;
+    }
+    &d {
+        margin-top: 4.1cm;
+    }
+}
