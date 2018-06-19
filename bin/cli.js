@@ -13,6 +13,11 @@ const argv = yargs
         describe: 'Folder containing the signatures',
         type: 'string'
     })
+    .option('template', {
+        default: 'fipsas',
+        describe: 'Template name',
+        type: 'string'
+    })
     .option('v', {
         alias: 'verbose',
         default: false,
@@ -36,7 +41,7 @@ const argv = yargs
     }).argv;
 
 const convert = require('../');
-const { verbose, debug, signatures, empty, dest } = argv;
+const { verbose, debug, signatures, empty, dest, template } = argv;
 if (empty) {
     convert(undefined, dest, debug);
 } else if (argv.importers) {
@@ -48,5 +53,5 @@ if (empty) {
         process.exit();
     }
 
-    Promise.all(argv._.map(file => convert(file, dest, { verbose, debug, signaturesFolder: signatures })));
+    Promise.all(argv._.map(file => convert(file, dest, { verbose, debug, signaturesFolder: signatures, template })));
 }

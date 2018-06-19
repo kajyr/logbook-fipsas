@@ -1,6 +1,7 @@
 .field {
     display: flex;
     justify-content: space-between;
+    padding: 1px 0;
 
     &-label {
         margin-right: 1mm;
@@ -22,6 +23,10 @@
 
         & + & {
             margin-left: 1mm;
+        }
+
+        &--number {
+            text-align: right;
         }
     }
 

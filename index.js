@@ -8,8 +8,6 @@ const signatures = require('./lib/signatures');
 const { importer } = require('./lib/importer');
 const exporter = require('./lib/pdf-exporter');
 
-const TEMPLATE = path.join(__dirname, '/templates/fipsas-didattica');
-
 /*
     Atoms
 */
@@ -39,8 +37,10 @@ const readFile = (file, dest, debug) => {
  * @param {string} dest Destination folder
  * @param {bool} debug Outputs processed data in json format
  */
-async function convert(file, dest, { verbose, debug, signaturesFolder }) {
+async function convert(file, dest, { verbose, debug, signaturesFolder, template }) {
     const empty = file === undefined;
+    const templateFolder = path.join(__dirname, 'templates', template);
+
     if (empty) {
         console.log('Rendering empty template');
     }
@@ -72,7 +72,7 @@ async function convert(file, dest, { verbose, debug, signaturesFolder }) {
         });
     }
 
-    await print(TEMPLATE, logbook, collector);
+    await print(templateFolder, logbook, collector);
     return exporter(collector, dest, verbose, debug);
 }
 
