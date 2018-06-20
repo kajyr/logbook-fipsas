@@ -20,6 +20,7 @@
         min-height: 4mm;
         font-size: 0.8em;
         line-height: 1.5em;
+        flex-shrink: 0;
 
         & + & {
             margin-left: 1mm;

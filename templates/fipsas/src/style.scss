@@ -123,40 +123,111 @@ header {
     }
 }
 
-.chart {
-    height: 3.2cm;
-    border: 1px solid black;
-    background: white;
-}
+.profilo {
+    &-layers {
+        position: relative;
 
-.riassunto {
-    header {
+        &-0 {
+            position: absolute;
+            z-index: 0;
+            top: 0;
+            width: 100%;
+        }
+    }
+
+    .field-label {
+        display: block;
+        font-size: 0.6em;
+    }
+
+    .row {
         display: flex;
+        width: 100%;
+        margin-bottom: 6mm;
+    }
+
+    .field-value {
+        border: 0.1mm solid black;
+    }
+
+    svg {
+        margin-top: 8mm;
+    }
+
+    .field-far,
+    .field-intervallo-di-sup {
+        flex-direction: column;
+        text-align: center;
+
+        .field-label {
+            text-align: center;
+            width: 100%;
+        }
+
+        .field-value {
+            display: block;
+        }
+    }
+
+    .field-intervallo-di-sup {
+        .field-value {
+            border-left: none;
+            border-right: none;
+        }
+    }
+
+    .field-far {
+        width: 5mm;
+
+        &-before {
+            margin-left: 5mm;
+        }
+        &-exit {
+            margin-left: auto;
+            margin-right: 5mm;
+        }
+    }
+
+    .ora {
+        justify-content: space-between;
+
+        .field-ora {
+            .field-label {
+                text-align: right;
+            }
+
+            &-start {
+                margin-left: 8mm;
+            }
+
+            &-end {
+                margin-right: 5mm;
+            }
+        }
+
+        .field-deco {
+            margin-left: 8mm;
+        }
+    }
+
+    .press {
         justify-content: space-between;
     }
-
-    &-1,
-    &-2 {
-        // width: 29%;
-        flex: 1;
-    }
-
-    &-parziali {
-        flex: 1;
-    }
-
-    .field {
-        justify-content: flex-end;
-        &-value {
-            width: 1cm;
-            text-align: right;
+    .tempi {
+        justify-content: space-between;
+        .field {
+            flex-wrap: wrap;
+        }
+        .field-value {
+            width: 100%;
         }
     }
 }
 
-.columns {
-    display: flex;
-    justify-content: space-between;
+.chart {
+    height: 3.2cm;
+    border: 1px solid black;
+    background: white;
 }
 
 .signature {

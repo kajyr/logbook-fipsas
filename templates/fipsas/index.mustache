@@ -135,6 +135,78 @@
                     </section>
                     <section class="profilo">
                         <h2>Profilo dell'immersione</h2>
+                        <div class="profilo-layers">
+                        <div class="profilo-layers-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="120" viewBox="0 0 439 120">
+                                <polyline fill="none" stroke="#000000" stroke-width="3" points=".848 2.445 93.919 2.445 128.423 118.38 261.655 118.38 305.619 60.318 367.625 60.318 387.373 2.445 438.316 2.445"/>
+                            </svg>
+                        </div>
+                            <div class="row far">
+                               <div class="field field-far field-far-before">
+                                    <span class="field-label">FAR</span>
+                                    <span class="field-value"></span>
+                                </div>
+                                <div class="field field-intervallo-di-sup">
+                                    <span class="field-label">int. sup.</span>
+                                    <span class="field-value">{{surface_interval}}</span>
+                                </div>
+                                <div class="field field-far">
+                                    <span class="field-label">FAR</span>
+                                    <span class="field-value"></span>
+                                </div>
+                                 <div class="field field-far field-far-exit">
+                                    <span class="field-label">FAR</span>
+                                    <span class="field-value"></span>
+                                </div>
+                            </div>
+                            <div class="row ora">
+                                <div class="field field-ora field-ora-start">
+                                    <span class="field-label">ora<br /><small>inizio</small></span>
+                                    <span class="field-value">{{entry_time}}</span>
+                                </div>
+                                <div class="field field-deco">
+                                    <span class="field-label">deco a 6 m</span>
+                                    <span class="field-info">(E)</span>
+                                    <span class="field-value">{{deco_stops}}</span>
+                                </div>
+                                <div class="field field-ora field-ora-end">
+                                    <span class="field-label">ora<br /><small>fine</small></span>
+                                    <span class="field-value">{{exit_time}}</span>
+                                </div>
+                            </div>
+                            <div class="press row">
+                                <div class="field field-press field-press-start">
+                                    <span class="field-label">bar<br /><small>inizio</small></span>
+                                    <span class="field-value">{{pressure_start}}</span>
+                                </div>
+                                <div class="field field-press field-press-end">
+                                    <span class="field-label">bar<br /><small>fine</small></span>
+                                    <span class="field-value">{{pressure_end}}</span>
+                                </div>
+                            </div>
+                             <div class="tempi row">
+                                <div class="field field-penalità">
+                                    <span class="field-label">Penalità</span>
+                                    <span class="field-info">(min)</span>
+                                    <span class="field-value"></span>
+                                </div>
+                                <div class="field field-tempo-di-fondo">
+                                    <span class="field-label">T<sub>fondo</sub></span>
+                                    <span class="field-info">(min)</span>
+                                    <span class="field-value">{{bottom_time}}</span>
+                                </div>
+                                <div class="field field-prof-max.">
+                                    <span class="field-label">P<sub>max</sub></span>
+                                    <span class="field-info">(m)</span>
+                                    <span class="field-value">{{max_depth}}</span>
+                                </div>
+                                <div class="field field-durata">
+                                    <span class="field-label">Durata</span>
+                                    <span class="field-info">(min)</span>
+                                    <span class="field-value">{{dive_time}}</span>
+                                </div>
+                            </div>
+                        </div>
                     </section>
                 </div>     
             </div>
@@ -192,91 +264,6 @@
                         ]
                     });</script>
                 {{/empty}}
-            </div>
-            <div class="panel riassunto">
-                <header>
-                    <h3>Quadro riassuntivo dell'immersione</h3>
-                    <h4>tempi parziali</h4>
-                </header>
-                <div class="columns">
-                    <div class="riassunto-1">
-                        <div class="field field-ora-inizio-imm">
-                            <span class="field-label">ora inizio imm.</span>
-                            <span class="field-value">{{entry_time}}</span>
-                        </div>
-                        <div class="field field-durata">
-                            <span class="field-label">durata</span>
-                            <span class="field-info">(B+C+D+E+F)</span>
-                            <span class="field-value">{{dive_time}}</span>
-                        </div>
-                        <div class="field field-press-iniz.">
-                            <span class="field-label">press. iniz.</span>
-                            <span class="field-info">(bar)</span>
-                            <span class="field-value">{{pressure_start}}</span>
-                        </div>
-                        <div class="field field-volume-iniz">
-                            <span class="field-label">volume iniz.</span>
-                            <span class="field-info">(l)</span>
-                            <span class="field-value">{{volume_start}}</span>
-                        </div>
-                        <div class="field field-far-iniziale">
-                            <span class="field-label">FAR iniziale</span>
-                            <span class="field-value"></span>
-                        </div>
-                    </div>
-                    <div class="riassunto-2">
-                        <div class="field field-ora-fine-imm">
-                            <span class="field-label">ora fine imm.</span>
-                            <span class="field-value">{{exit_time}}</span>
-                        </div>
-                        <div class="field field-prof-max.">
-                            <span class="field-label">prof. max.</span>
-                            <span class="field-info">(m)</span>
-                            <span class="field-value">{{max_depth}}</span>
-                        </div>
-                        <div class="field field-press-fin.">
-                            <span class="field-label">press. fin.</span>
-                            <span class="field-info">(bar)</span>
-                            <span class="field-value">{{pressure_end}}</span>
-                        </div>
-                        <div class="field field-consumo">
-                            <span class="field-label">consumo</span>
-                            <span class="field-info">(l)</span>
-                            <span class="field-value">{{air_used}}</span>
-                        </div>
-                        <div class="field field-far-finale">
-                            <span class="field-label">FAR finale</span>
-                            <span class="field-value"></span>
-                        </div>
-                    </div>
-                    <div class="riassunto-parziali">
-                        <div class="field field-tempo-di-fondo">
-                            <span class="field-label">tempo di fondo</span>
-                            <span class="field-info">(B)</span>
-                            <span class="field-value">{{bottom_time}}</span>
-                        </div>
-                        <div class="field field-sosta-prof-14m">
-                            <span class="field-label">sosta prof. {{half_depth_break}}</span>
-                            <span class="field-info">(C)</span>
-                            <span class="field-value">{{half_depth_break_time}}</span>
-                        </div>
-                        <div class="field field-risalita">
-                            <span class="field-label">risalita</span>
-                            <span class="field-info">(D)</span>
-                            <span class="field-value">{{emersion_time}}</span>
-                        </div>
-                        <div class="field field-deco-a-6-m">
-                            <span class="field-label">deco a 6 m</span>
-                            <span class="field-info">(E)</span>
-                            <span class="field-value">{{deco_stops}}</span>
-                        </div>
-                        <div class="field field-sosta-sic-+emers.">
-                            <span class="field-label">sosta sic. +emers.</span>
-                            <span class="field-info">(F)</span>
-                            <span class="field-value">{{^empty}}5{{/empty}}</span>
-                        </div>
-                    </div>
-                </div>
             </div>
             <div class="signature">
                 <div class="field field-convalida">

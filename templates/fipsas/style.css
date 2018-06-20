@@ -93,7 +93,8 @@ aside {
     white-space: nowrap;
     min-height: 4mm;
     font-size: 0.8em;
-    line-height: 1.5em; }
+    line-height: 1.5em;
+    flex-shrink: 0; }
     .field-value + .field-value {
       margin-left: 1mm; }
     .field-value--number {
@@ -169,7 +170,8 @@ header {
 .setup {
   display: flex; }
   .setup h2 {
-    display: block; }
+    display: block;
+    margin-bottom: 1mm; }
 
 .ambiente {
   width: 60%; }
@@ -198,30 +200,78 @@ header {
   .attrezzatura .field-value {
     flex: 1; }
 
+.profilo-layers {
+  position: relative; }
+  .profilo-layers-0 {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    width: 100%; }
+
+.profilo .field-label {
+  display: block;
+  font-size: 0.6em; }
+
+.profilo .row {
+  display: flex;
+  width: 100%;
+  margin-bottom: 6mm; }
+
+.profilo .field-value {
+  border: 0.1mm solid black; }
+
+.profilo svg {
+  margin-top: 8mm; }
+
+.profilo .field-far,
+.profilo .field-intervallo-di-sup {
+  flex-direction: column;
+  text-align: center; }
+  .profilo .field-far .field-label,
+  .profilo .field-intervallo-di-sup .field-label {
+    text-align: center;
+    width: 100%; }
+  .profilo .field-far .field-value,
+  .profilo .field-intervallo-di-sup .field-value {
+    display: block; }
+
+.profilo .field-intervallo-di-sup .field-value {
+  border-left: none;
+  border-right: none; }
+
+.profilo .field-far {
+  width: 5mm; }
+  .profilo .field-far-before {
+    margin-left: 5mm; }
+  .profilo .field-far-exit {
+    margin-left: auto;
+    margin-right: 5mm; }
+
+.profilo .ora {
+  justify-content: space-between; }
+  .profilo .ora .field-ora .field-label {
+    text-align: right; }
+  .profilo .ora .field-ora-start {
+    margin-left: 8mm; }
+  .profilo .ora .field-ora-end {
+    margin-right: 5mm; }
+  .profilo .ora .field-deco {
+    margin-left: 8mm; }
+
+.profilo .press {
+  justify-content: space-between; }
+
+.profilo .tempi {
+  justify-content: space-between; }
+  .profilo .tempi .field {
+    flex-wrap: wrap; }
+  .profilo .tempi .field-value {
+    width: 100%; }
+
 .chart {
   height: 3.2cm;
   border: 1px solid black;
   background: white; }
-
-.riassunto header {
-  display: flex;
-  justify-content: space-between; }
-
-.riassunto-1, .riassunto-2 {
-  flex: 1; }
-
-.riassunto-parziali {
-  flex: 1; }
-
-.riassunto .field {
-  justify-content: flex-end; }
-  .riassunto .field-value {
-    width: 1cm;
-    text-align: right; }
-
-.columns {
-  display: flex;
-  justify-content: space-between; }
 
 .signature {
   margin-top: 2mm; }
