@@ -57,9 +57,9 @@ if (empty) {
   Promise.all(
     argv._.map((file) =>
       convert(
+        file,
         dest,
         { verbose, debug, signaturesFolder: signatures, template },
-        file,
       ),
     ),
   );

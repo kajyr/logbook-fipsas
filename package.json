@@ -39,6 +39,7 @@
         "puppeteer": "^1.4.0",
         "tabelle-immersione-fipsas": "^0.1.0",
         "tmp": "0.0.33",
+        "ts-node": "^7.0.0",
         "typescript": "^2.9.2",
         "xml2js": "^0.4.19",
         "yargs": "^11.0.0"

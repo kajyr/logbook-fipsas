@@ -9,38 +9,34 @@ import { importer } from './lib/importer';
 import exporter from './lib/pdf-exporter';
 import enrich from './lib/postdata';
 
-import { ILogBook } from './lib/logbook';
+import { EMPTY_LOGBOOK, ILogbook } from './lib/logbook';
 
 /*
     Atoms
 */
 
-const saveJson = (file: string, data: object) =>
+async function saveJson(file: string, data: object): Promise<any> {
   fs.writeFile(`${file}.json`, JSON.stringify(data, null, 2));
+}
 
 /*
     Molecules
 */
 
-const readFile = (
+async function readFile(
   file: string,
   dest: string,
   debug: boolean,
-): Promise<ILogBook> => {
+): Promise<ILogbook> {
   return importer(file)
-    .then((logbook: ILogBook) => {
+    .then(async (logbook: ILogbook): Promise<ILogbook> => {
       if (debug) {
-        return saveJson(path.join(dest, 'logbook'), logbook).then(
-          () => logbook,
-        );
+        await saveJson(path.join(dest, 'logbook'), logbook);
       }
       return logbook;
     })
-    .then((logbook: ILogBook) => enrich(logbook))
-    .catch((err) => {
-      console.error('Something wrong: ', err.message);
-    });
-};
+    .then(enrich);
+}
 
 interface IConvertOptions {
   verbose?: boolean;
@@ -49,42 +45,24 @@ interface IConvertOptions {
   template: string;
 }
 
-/**
- *
- * @param {string} dest Destination folder
- * @param {bool} debug Outputs processed data in json format
- */
 async function convert(
+  file: string,
   dest: string,
-  { verbose, debug, signaturesFolder, template }: IConvertOptions,
-  file?: string,
+  options: IConvertOptions,
 ) {
-  const empty = file === undefined;
-  const templateFolder = path.join(__dirname, 'templates', template);
 
-  if (empty) {
-    console.log('Rendering empty template');
-  }
-  const tmpDir = tmp.dirSync({ unsafeCleanup: !debug, keep: debug });
+  const tmpDir = tmp.dirSync({ unsafeCleanup: !options.debug, keep: options.debug });
   const collector = tmpDir.name;
-  if (verbose) {
+
+  if (options.verbose) {
     console.log('Collector dir: ', collector);
   }
 
-  const logbook = empty
-    ? {
-        dives: [
-          {
-            empty,
-          },
-        ],
-      }
-    : await readFile(file, collector, debug);
-
+  const logbook = await readFile(file, collector, options.debug);
   if (logbook.dives) {
     const availableSignatures = await signatures(
       logbook,
-      signaturesFolder,
+      options.signaturesFolder,
       collector,
     );
     logbook.dives = logbook.dives.map((dive) => {
@@ -96,6 +74,27 @@ async function convert(
           });
     });
   }
+
+  return process(logbook, dest, collector, options);
+}
+
+export async function convertEmpty(  dest: string, options: IConvertOptions) {
+  console.log('Rendering empty template');
+
+  const tmpDir = tmp.dirSync({ unsafeCleanup: !options.debug, keep: options.debug });
+  const collector = tmpDir.name;
+
+  if (options.verbose) {
+    console.log('Collector dir: ', collector);
+  }
+
+  return process(EMPTY_LOGBOOK, dest, collector, options);
+}
+
+async function process(
+    logbook: ILogbook,
+    dest: string, collector: string, { verbose, debug, signaturesFolder, template }: IConvertOptions) {
+  const templateFolder = path.join(__dirname, 'templates', template);
 
   await print(templateFolder, logbook, collector);
   return exporter(collector, dest, verbose, debug);
