@@ -6,6 +6,7 @@ const print = require('./lib/printer');
 const signatures = require('./lib/signatures');
 
 const { importer } = require('./lib/importer');
+const enrich = require('./lib/postdata');
 const exporter = require('./lib/pdf-exporter');
 
 /*
@@ -26,6 +27,7 @@ const readFile = (file, dest, debug) => {
             }
             return logbook;
         })
+        .then(logbook => enrich(logbook))
         .catch(err => {
             console.error('Something wrong: ', err.message);
         });
