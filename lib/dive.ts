@@ -1,7 +1,8 @@
 const unique = (list: string[]): string[] => Array.from(new Set(list));
 
-export function buddies(buddyList: string[], divemaster: string): string {
-  return unique(buddyList.concat(divemaster))
+export function buddies(buddy: string[] | string, divemaster: string): string {
+const buddyList = typeof buddy === 'string' ? [buddy] : buddy;
+return unique(buddyList.concat(divemaster))
     .filter((b: string) => !!b && b.trim() !== '')
     .join(', ');
 }

@@ -11,7 +11,7 @@ export interface IDive {
   current: string;
   date: string;
   deco_stops: string;
-  depths: any[];
+  depths: number[];
   dive_master: string;
   diveSuit: string;
   diveTime: number;
@@ -35,8 +35,8 @@ export interface IDive {
   surface_is_mid: boolean;
   surface_is_rough: boolean;
   surface: string;
-  temps: any[];
-  times: any[];
+  temps: number[];
+  times: number[];
   type: string;
   isAir: boolean;
   visibility_is_enough: boolean;

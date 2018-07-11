@@ -94,7 +94,7 @@ export async function convertEmpty(  dest: string, options: IConvertOptions) {
 async function process(
     logbook: ILogbook,
     dest: string, collector: string, { verbose, debug, signaturesFolder, template }: IConvertOptions) {
-  const templateFolder = path.join(__dirname, 'templates', template);
+  const templateFolder = path.join(__dirname, '..', 'templates', template);
 
   await print(templateFolder, logbook, collector);
   return exporter(collector, dest, verbose, debug);

@@ -1,14 +1,13 @@
 {
   "compilerOptions": {
-    "lib": ["es2015.promise", "es2017", "es2015", "es6"],
-    "target": "es2015",
+    "lib": ["es2017", "es6", "es2015", "es5"],
+    "target": "es2017",
     "module": "commonjs",
     "outDir": "./build",
     "sourceMap": false,
     "strict": true,
     "noImplicitAny": false,
     "alwaysStrict": true,
-    "preserveSymlinks": true,
     "moduleResolution": "node"
   },
   "include": ["**/*.ts"],

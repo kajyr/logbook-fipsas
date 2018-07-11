@@ -1,6 +1,7 @@
 import { IDive, IDiveEnriched, ILogbook } from './logbook';
 
-import tabelle from 'tabelle-immersione-fipsas';
+// tslint:disable-next-line:no-var-requires
+const tabelle = require('tabelle-immersione-fipsas');
 
 function enrich(logbook: ILogbook): ILogbook {
     let prev: IDiveEnriched;

@@ -41,9 +41,14 @@ function normalizeDive(dive: object): IDive  {
     const {
         gases: { gas },
         samples: { sample = [] },
+        site,
     } = cleanDive;
     const repetitive = cleanDive.repetitiveDive > 1;
     const isAir = gas.oxygen === 21;
+
+    const lat = site.lat > 0 ? site.lat.toFixed(4) : '' ;
+    const long = site.lon > 0 ? site.lon.toFixed(4) : '' ;
+
     const data = {
         air_used: (gas.pressureStart - gas.pressureEnd) * gas.tankSize,
         bottom_time: bottom_time(diveTime, cleanDive.maxDepth),
@@ -71,8 +76,8 @@ function normalizeDive(dive: object): IDive  {
         half_depth_break: half_depth_break(cleanDive.maxDepth),
         half_depth_break_time: half_depth_break_time(cleanDive.maxDepth),
         isAir,
-        lat: cleanDive.site.lat.toFixed(4),
-        long: cleanDive.site.lon.toFixed(4),
+        lat,
+        long,
         max_depth: cleanDive.maxDepth,
         number: cleanDive.diveNumber,
         pressure_end: gas.pressureEnd,
