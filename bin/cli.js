@@ -14,7 +14,7 @@ const argv = yargs
         type: 'string'
     })
     .option('template', {
-        default: 'fipsas',
+        default: 'fipsas-didattica',
         describe: 'Template name',
         type: 'string'
     })
