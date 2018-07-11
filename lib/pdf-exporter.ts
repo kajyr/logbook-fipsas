@@ -1,20 +1,21 @@
-const express = require('express');
-const path = require('path');
+import * as express from 'express';
+import * as path from 'path';
+import * as puppeteer from 'puppeteer';
+
 const app = express();
-const puppeteer = require('puppeteer');
 
 const SERVER_PORT = 55443;
 
-function listen(app, port) {
-    return new Promise(resolve => {
-        const server = app.listen(port, () => resolve(server));
+function listen(appa: express.Application, port: number): Promise<any> {
+    return new Promise((resolve) => {
+        const server = appa.listen(port, () => resolve(server));
     });
 }
 
 async function exporter(folder, dest, verbose, debug) {
     // viewed at http://localhost:8080
     app.use(express.static(folder));
-    app.get('/', function(req, res) {
+    app.get('/', (req, res) => {
         res.sendFile(path.join(folder, 'index.html'));
     });
 
@@ -38,4 +39,4 @@ async function exporter(folder, dest, verbose, debug) {
     }
 }
 
-module.exports = exporter;
+export default exporter;
