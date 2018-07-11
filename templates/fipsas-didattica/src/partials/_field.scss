@@ -1,6 +1,7 @@
 .field {
     display: flex;
     justify-content: space-between;
+    padding: 1px 0;
 
     &-label {
         margin-right: 1mm;
@@ -19,9 +20,14 @@
         min-height: 4mm;
         font-size: 0.8em;
         line-height: 1.5em;
+        flex-shrink: 0;
 
         & + & {
             margin-left: 1mm;
+        }
+
+        &--number {
+            text-align: right;
         }
     }
 

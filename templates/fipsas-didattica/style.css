@@ -1,3 +1,45 @@
+html {
+  /* off-white, so body edge is visible in browser */
+  background: #eee;
+  font-size: 9pt;
+  font-family: 'Roboto', Arial, sans-serif; }
+
+* {
+  box-sizing: border-box; }
+
+body {
+  /* A5 dimensions */
+  /* height: 210mm; */
+  width: 148.5mm;
+  margin: 0;
+  background: #fff; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+  font-variant: small-caps; }
+
+h1 {
+  flex: 1;
+  font-size: 1.4em; }
+
+h2 {
+  font-size: 1.3em; }
+
+h3 {
+  font-size: 1em; }
+
+h4 {
+  font-size: 0.9em; }
+
+section {
+  padding: 1mm 0; }
+
 .page {
   border: 1px solid #e5e5e5;
   height: 210mm;
@@ -35,7 +77,8 @@ aside {
 
 .field {
   display: flex;
-  justify-content: space-between; }
+  justify-content: space-between;
+  padding: 1px 0; }
   .field-label {
     margin-right: 1mm;
     white-space: nowrap; }
@@ -50,9 +93,12 @@ aside {
     white-space: nowrap;
     min-height: 4mm;
     font-size: 0.8em;
-    line-height: 1.5em; }
+    line-height: 1.5em;
+    flex-shrink: 0; }
     .field-value + .field-value {
       margin-left: 1mm; }
+    .field-value--number {
+      text-align: right; }
   .field-info {
     font-size: 0.6em;
     align-self: center;
@@ -68,31 +114,17 @@ aside {
   flex: 1;
   width: 99%; }
 
-html {
-  /* off-white, so body edge is visible in browser */
-  background: #eee;
-  font-size: 9pt;
-  font-family: 'Roboto', Arial, sans-serif; }
+/**
+Grid System
+*/
+.grid-container {
+  display: flex; }
 
-* {
-  box-sizing: border-box; }
+.grid-column-flex {
+  flex: 1; }
 
-body {
-  /* A5 dimensions */
-  /* height: 210mm; */
-  width: 148.5mm;
-  margin: 0;
-  background: #fff; }
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 0;
-  padding: 0;
-  font-variant: small-caps; }
+.grid-column + .grid-column {
+  margin-left: 3mm; }
 
 /**
     HEADER
@@ -110,19 +142,6 @@ header {
 
 .header-didattica-logo {
   margin-left: 1em; }
-
-h1 {
-  flex: 1;
-  font-size: 1.4em; }
-
-h2 {
-  font-size: 1.3em; }
-
-h3 {
-  font-size: 1em; }
-
-h4 {
-  font-size: 0.9em; }
 
 .panel {
   border: 1px solid black;
@@ -173,8 +192,12 @@ h4 {
     .plan .field-value {
       width: 0.7cm;
       text-align: right; }
-  .plan-far h3 {
-    text-align: center; }
+  .plan-far {
+    width: 4cm; }
+    .plan-far h3 {
+      text-align: center; }
+    .plan-far .field-value {
+      width: 1cm; }
   .plan-programmazione {
     flex: 1; }
   .plan-tempi {
