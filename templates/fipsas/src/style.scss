@@ -207,6 +207,14 @@ header {
 
         .field-deco {
             margin-left: 8mm;
+            align-items: flex-end;
+
+            .field-value  {
+                background: transparent;
+                border-top: 0;
+                border-left: 0;
+                border-right: 0;
+            }
         }
     }
 
