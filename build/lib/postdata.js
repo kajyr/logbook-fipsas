@@ -8,18 +8,19 @@ function enrich(logbook) {
         .reverse()
         .map((dive) => {
         let farIniziale = '-';
-        let farFinale = '-';
+        const farFinale = '-';
         if (dive.repetitive && prev) {
             farIniziale = prev.farFinale;
         }
-        const durataPenalizzata = dive.diveTime; // TODO Inserire penalità
         console.log('⚠️ Unable to calculate Penality YET');
-        if (dive.isAir) {
-            farFinale = tabelle.far(tabelle.TABELLA_ARIA, dive.max_depth, durataPenalizzata) || '⚠️';
-        }
-        else {
-            console.log('Unable to calculate FAR for other gases');
-        }
+        /*
+            const durataPenalizzata = dive.diveTime; // TODO Inserire penalità
+            if (dive.isAir) {
+                farFinale = tabelle.far(tabelle.TABELLA_ARIA, dive.max_depth, durataPenalizzata) || '⚠️';
+            } else {
+                console.log('Unable to calculate FAR for other gases');
+            }
+        */
         const newDive = (prev = Object.assign({}, dive, {
             farFinale,
             farIniziale,
