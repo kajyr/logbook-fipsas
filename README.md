@@ -4,12 +4,12 @@ A template system for you diving log applications.
 
 Suppoted formats:
 
-*   [MacDive][macdive] XML Export
-*   [DivingLog][divinglog] XML Export
+- [MacDive][macdive] XML Export
+- [DivingLog][divinglog] XML Export
 
 Supported templates:
 
-*   [logbook F.I.P.S.A.S.][fipsas] Nettuno
+- [logbook F.I.P.S.A.S.][fipsas] Nettuno
 
 ## Usage
 
@@ -36,13 +36,6 @@ logtemplate --help
 2.  Per stampare il PDF scegliere il formato di carta A5 e impostare la scala al 100%
 3.  Stampare solo i fogli dispari, girare e quindi i fogli pari.
     ![print conf](docs/conf_print.png)
-
-# Changelog
-
-*   1.4.0 - Direct PDF output. the `--dest` argument now specifies the destination file.
-*   1.3.0 - Macdive XML export support
-*   1.2.0 - Passing no INPUT file outputs an empty logbook page, useful sometimes.
-*   1.1.0 - `--dest` options specifies a folder to collect output.
 
 [divinglog]: http://divinglog.de/
 [macdive]: http://www.mac-dive.com/
