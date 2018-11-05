@@ -45,7 +45,7 @@ const argv = yargs
 }).argv;
 const { verbose, debug, signatures, empty, dest, template } = argv;
 if (empty) {
-    __1.convertEmpty(dest, debug);
+    __1.convertEmpty(dest, { verbose, debug, signaturesFolder: signatures, template });
 }
 else if (argv.importers) {
     index_1.listImporters();

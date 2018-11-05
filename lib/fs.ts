@@ -20,3 +20,7 @@ export function copy(file: string, dest: string) {
 export function apply(pattern: string, fn: (name: string) => Promise<any>) {
   return globp(pattern).then((files) => Promise.all(files.map(fn)));
 }
+
+export function saveJson(folder: string, file: string, data: object): Promise<any> {
+  return fs.writeFile(path.join(folder, `${file}.json`), JSON.stringify(data, null, 2));
+}

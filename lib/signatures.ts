@@ -10,17 +10,17 @@ function signatures(logbook: ILogbook, folder: string, dest: string): Promise<st
     const fetched = Promise.all(
         unique(logbook.dives.filter((dive: IDive): boolean => !!dive.dive_master)
             .map((dive: IDive): string => dive.dive_master)).map((name) => {
-            const file = path.join(folder, `${strDasherize(name)}.png`);
-            return copy(file, dest)
-                .then((filePath: string) => ({ name, filePath }))
-                .catch((err: any): any => {
-                    if (err.code === 'ENOENT') {
-                        console.warn('Missing signature', file);
-                    } else {
-                        Promise.reject(err);
-                    }
-                });
-        }),
+                const file = path.join(folder, `${strDasherize(name)}.png`);
+                return copy(file, dest)
+                    .then((filePath: string) => ({ name, filePath }))
+                    .catch((err: any): any => {
+                        if (err.code === 'ENOENT') {
+                            console.warn('Missing signature', file);
+                        } else {
+                            Promise.reject(err);
+                        }
+                    });
+            }),
     )
         .then((all) =>
             all.filter((f) => !!f).reduce((acc, cur) => {

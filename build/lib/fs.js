@@ -18,3 +18,7 @@ function apply(pattern, fn) {
     return globp(pattern).then((files) => Promise.all(files.map(fn)));
 }
 exports.apply = apply;
+function saveJson(folder, file, data) {
+    return fs.writeFile(path.join(folder, `${file}.json`), JSON.stringify(data, null, 2));
+}
+exports.saveJson = saveJson;

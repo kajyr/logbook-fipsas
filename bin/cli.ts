@@ -1,6 +1,6 @@
 #!/usr/bin/env ts-node
 import * as yargs from 'yargs';
-import convert, {convertEmpty} from '..';
+import convert, { convertEmpty } from '..';
 import { listImporters } from '../lib/importer/index';
 
 const argv = yargs
@@ -45,7 +45,7 @@ const argv = yargs
 
 const { verbose, debug, signatures, empty, dest, template } = argv;
 if (empty) {
-  convertEmpty(dest, debug);
+  convertEmpty(dest, { verbose, debug, signaturesFolder: signatures, template });
 } else if (argv.importers) {
   listImporters();
 } else {

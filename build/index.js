@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const fs = require("fs-extra");
 const path = require("path");
 const tmp = require("tmp");
+const fs_1 = require("./lib/fs");
 const printer_1 = require("./lib/printer");
 const signatures_1 = require("./lib/signatures");
 const importer_1 = require("./lib/importer");
@@ -12,9 +12,6 @@ const logbook_1 = require("./lib/logbook");
 /*
     Atoms
 */
-async function saveJson(file, data) {
-    fs.writeFile(`${file}.json`, JSON.stringify(data, null, 2));
-}
 /*
     Molecules
 */
@@ -22,7 +19,7 @@ async function readFile(file, dest, debug) {
     return importer_1.importer(file)
         .then(async (logbook) => {
         if (debug) {
-            await saveJson(path.join(dest, 'logbook'), logbook);
+            await fs_1.saveJson(dest, 'logbook', logbook);
         }
         return logbook;
     })
@@ -54,6 +51,9 @@ async function convertEmpty(dest, options) {
     const collector = tmpDir.name;
     if (options.verbose) {
         console.log('Collector dir: ', collector);
+    }
+    if (options.debug) {
+        await fs_1.saveJson(collector, 'logbook', logbook_1.EMPTY_LOGBOOK);
     }
     return process(logbook_1.EMPTY_LOGBOOK, dest, collector, options);
 }

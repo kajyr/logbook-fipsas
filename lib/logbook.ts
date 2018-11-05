@@ -15,7 +15,6 @@ export interface IDive {
   dive_master: string;
   diveSuit: string;
   diveTime: number;
-  empty?: boolean;
   emersion_time: number;
   entry_time: string;
   entry: string;
@@ -53,6 +52,8 @@ export interface IDive {
   weights: number;
 }
 
+
+
 export interface IDiveEnriched extends IDive {
   farFinale: string;
   farIniziale: string;
@@ -62,6 +63,18 @@ export interface ILogbook {
   dives: IDive[];
 }
 
-export const EMPTY_LOGBOOK: ILogbook = {
-  dives: [],
+// Empty
+interface IEmptyDive {
+  empty: boolean;
+}
+export interface IEmptyLogbook {
+  dives: IEmptyDive[];
+}
+
+const EMPTY_DIVE: IEmptyDive = {
+  empty: true
+}
+
+export const EMPTY_LOGBOOK: IEmptyLogbook = {
+  dives: [EMPTY_DIVE],
 };

@@ -2,11 +2,11 @@ import * as fs from 'fs-extra';
 import * as Mustache from 'mustache';
 import * as path from 'path';
 import { apply, copy } from './fs';
-import { ILogbook } from './logbook';
+import { ILogbook, IEmptyLogbook } from './logbook';
 
 const buildHtml = (
   templateDir: string,
-  logbook: ILogbook,
+  logbook: ILogbook | IEmptyLogbook,
   images,
   dest: string,
 ) => {
@@ -24,10 +24,9 @@ const copyTemplateFiles = (templateDir: string, dest: string) =>
     apply(path.join(templateDir, '*.css'), (file: string) => copy(file, dest)),
   ]);
 
-const build = (templateDir: string, logbook: ILogbook, dest: string) => {
+const build = (templateDir: string, logbook: ILogbook | IEmptyLogbook, dest: string) => {
   return copyTemplateFiles(templateDir, dest)
     .then((images) => buildHtml(templateDir, logbook, images, dest))
-
     .then(() => dest);
 };
 

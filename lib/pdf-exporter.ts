@@ -36,6 +36,7 @@ async function exporter(folder, dest, verbose, debug) {
         server.close();
     } else {
         console.log('Keeping the server open to debug');
+        console.log(`JSON data available at ${serverUri}/logbook.json`)
     }
 }
 
