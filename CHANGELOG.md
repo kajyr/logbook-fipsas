@@ -1,3 +1,28 @@
+### 1.5.0 (2018-11-05)
+
+##### Build System / Dependencies
+
+*  Packages updated (77154dc7)
+
+##### Chores
+
+*  Added release scripts (ae6974c4)
+*  Renamed template "fipsas" to "fipsas-didattica" (d2ffe479)
+
+##### New Features
+
+*  Template selection defaults to "fipsas-didattica" (05b34d89)
+
+##### Bug Fixes
+
+*  Removed border around pages (67526ce7)
+*  Fixed empty logbook printing (958b92d8)
+*  Improvements on fipsas-didattica (e1ff3879)
+
+##### Code Style Changes
+
+*  Conversione a ts (79b6e894)
+
 #### 1.4.0 (2018-11-05)
 
 ##### Features
