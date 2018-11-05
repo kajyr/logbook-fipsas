@@ -13,7 +13,6 @@ function listen(appa: express.Application, port: number): Promise<any> {
 }
 
 async function exporter(folder, dest, verbose, debug) {
-    // viewed at http://localhost:8080
     app.use(express.static(folder));
     app.get('/', (req, res) => {
         res.sendFile(path.join(folder, 'index.html'));
@@ -21,10 +20,6 @@ async function exporter(folder, dest, verbose, debug) {
 
     const server = await listen(app, SERVER_PORT);
     const serverUri = `http://localhost:${server.address().port}`;
-    if (verbose) {
-        console.log('Exporting server active on', serverUri);
-    }
-
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
     await page.goto(serverUri, { waitUntil: 'networkidle2' });
@@ -35,7 +30,7 @@ async function exporter(folder, dest, verbose, debug) {
     if (!debug) {
         server.close();
     } else {
-        console.log('Keeping the server open to debug');
+        console.log('Keeping the server open to debug:', serverUri);
         console.log(`JSON data available at ${serverUri}/logbook.json`)
     }
 }

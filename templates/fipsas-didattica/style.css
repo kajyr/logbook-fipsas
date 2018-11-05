@@ -41,7 +41,6 @@ section {
   padding: 1mm 0; }
 
 .page {
-  border: 1px solid #e5e5e5;
   height: 210mm;
   padding: 0.5cm;
   display: flex; }
