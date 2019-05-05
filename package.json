@@ -37,7 +37,7 @@
     "@types/xml2js": "^0.4.3",
     "@types/yargs": "^12.0.1",
     "date-fns": "^1.29.0",
-        "tabelle-immersione-fipsas": "^0.1.0",
+    "dive-log-importer": "^1.0.3",
     "express": "^4.16.4",
     "fs-extra": "^7.0.0",
     "glob": "^7.1.3",

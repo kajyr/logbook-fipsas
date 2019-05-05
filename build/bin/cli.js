@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const yargs = require("yargs");
 const __1 = require("..");
-const index_1 = require("../lib/importer/index");
+const dive_log_importer_1 = require("dive-log-importer");
 const argv = yargs
     .usage('$0 file.xml')
     .option('d', {
@@ -48,7 +48,8 @@ if (empty) {
     __1.convertEmpty(dest, { verbose, debug, signaturesFolder: signatures, template });
 }
 else if (argv.importers) {
-    index_1.listImporters();
+    const list = dive_log_importer_1.listImporters();
+    console.log('Importers: ', list);
 }
 else {
     if (argv._.length === 0) {

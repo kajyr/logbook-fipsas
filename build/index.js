@@ -5,7 +5,7 @@ const tmp = require("tmp");
 const fs_1 = require("./lib/fs");
 const printer_1 = require("./lib/printer");
 const signatures_1 = require("./lib/signatures");
-const importer_1 = require("./lib/importer");
+const dive_log_importer_1 = require("dive-log-importer");
 const pdf_exporter_1 = require("./lib/pdf-exporter");
 const postdata_1 = require("./lib/postdata");
 const logbook_1 = require("./lib/logbook");
@@ -16,17 +16,18 @@ const logbook_1 = require("./lib/logbook");
     Molecules
 */
 async function readFile(file, dest, debug) {
-    return importer_1.importer(file)
-        .then(async (logbook) => {
+    return dive_log_importer_1.importer(file).then(async (logbook) => {
         if (debug) {
             await fs_1.saveJson(dest, 'logbook', logbook);
         }
         return logbook;
-    })
-        .then(postdata_1.default);
+    }).then(postdata_1.default);
 }
 async function convert(file, dest, options) {
-    const tmpDir = tmp.dirSync({ unsafeCleanup: !options.debug, keep: options.debug });
+    const tmpDir = tmp.dirSync({
+        unsafeCleanup: !options.debug,
+        keep: options.debug
+    });
     const collector = tmpDir.name;
     if (options.verbose) {
         console.log('Collector dir: ', collector);
@@ -34,20 +35,23 @@ async function convert(file, dest, options) {
     const logbook = await readFile(file, collector, options.debug);
     if (logbook.dives) {
         const availableSignatures = await signatures_1.default(logbook, options.signaturesFolder, collector);
-        logbook.dives = logbook.dives.map((dive) => {
+        logbook.dives = logbook
+            .dives
+            .map((dive) => {
             const diveMasterSignature = availableSignatures[dive.dive_master];
             return !diveMasterSignature
                 ? dive
-                : Object.assign({}, dive, {
-                    diveMasterSignature,
-                });
+                : Object.assign({}, dive, { diveMasterSignature });
         });
     }
     return process(logbook, dest, collector, options);
 }
 async function convertEmpty(dest, options) {
     console.log('Rendering empty template');
-    const tmpDir = tmp.dirSync({ unsafeCleanup: !options.debug, keep: options.debug });
+    const tmpDir = tmp.dirSync({
+        unsafeCleanup: !options.debug,
+        keep: options.debug
+    });
     const collector = tmpDir.name;
     if (options.verbose) {
         console.log('Collector dir: ', collector);

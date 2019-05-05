@@ -1,7 +1,7 @@
 #!/usr/bin/env ts-node
 import * as yargs from 'yargs';
 import convert, { convertEmpty } from '..';
-import { listImporters } from '../lib/importer/index';
+import { listImporters } from 'dive-log-importer';
 
 const argv = yargs
   .usage('$0 file.xml')
@@ -47,7 +47,8 @@ const { verbose, debug, signatures, empty, dest, template } = argv;
 if (empty) {
   convertEmpty(dest, { verbose, debug, signaturesFolder: signatures, template });
 } else if (argv.importers) {
-  listImporters();
+  const list = listImporters();
+  console.log('Importers: ', list);
 } else {
   if (argv._.length === 0) {
     yargs.showHelp();
