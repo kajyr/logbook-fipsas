@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+const fs = require("fs-extra");
 const path = require("path");
 const tmp = require("tmp");
 const fs_1 = require("./lib/fs");
@@ -16,7 +17,7 @@ const logbook_1 = require("./lib/logbook");
     Molecules
 */
 async function readFile(file, dest, debug) {
-    return dive_log_importer_1.importer(file).then(async (logbook) => {
+    return fs.readFile(file, 'utf8').then((xml) => dive_log_importer_1.importer(xml)).then(async (logbook) => {
         if (debug) {
             await fs_1.saveJson(dest, 'logbook', logbook);
         }

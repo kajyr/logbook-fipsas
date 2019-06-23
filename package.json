@@ -24,7 +24,7 @@
     "url": "https://github.com/kajyr/logbook-fipsas/issues"
   },
   "bin": {
-    "logtemplate": "./build/bin/cli.js"
+    "logbook": "./build/bin/cli.js"
   },
   "homepage": "https://github.com/kajyr/logbook-fipsas#readme",
   "dependencies": {
@@ -37,7 +37,7 @@
     "@types/xml2js": "^0.4.3",
     "@types/yargs": "^12.0.1",
     "date-fns": "^1.29.0",
-    "dive-log-importer": "^1.0.3",
+    "dive-log-importer": "^2.0.2",
     "express": "^4.16.4",
     "fs-extra": "^7.0.0",
     "glob": "^7.1.3",

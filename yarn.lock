@@ -1319,6 +1319,11 @@ date-fns@^1.29.0:
   version "1.29.0"
   resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-1.29.0.tgz#12e609cdcb935127311d04d33334e2960a2a54e6"
 
+date-fns@^1.30.1:
+  version "1.30.1"
+  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-1.30.1.tgz#2e71bf0b119153dbb4cc4e88d9ea5acfb50dc05c"
+  integrity sha512-hBSVCvSmWC+QypYObzwGOd9wqdDpOt+0wl0KbU+R+uuZBS1jN8VsD1ss3irQDknRj5NvxiTF6oj/nDRnN/UQNw==
+
 date-time@^0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/date-time/-/date-time-0.1.1.tgz#ed2f6d93d9790ce2fd66d5b5ff3edd5bbcbf3b07"
@@ -1426,10 +1431,13 @@ diff@^3.1.0, diff@^3.2.0:
   version "3.5.0"
   resolved "https://registry.yarnpkg.com/diff/-/diff-3.5.0.tgz#800c0dd1e0a8bfbc95835c202ad220fe317e5a12"
 
-dive-log-importer@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/dive-log-importer/-/dive-log-importer-1.0.3.tgz#976a4af13bc2a70f1c5347d9e9765996e7558562"
-  integrity sha512-TuOQKSrCXvGTSyfBvsAClE6k0QU3p+r9wzisu4MU8L+qbD7praNSPAhJvLUKTbpHAxfg59if1qrx7GFgGl7SEA==
+dive-log-importer@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/dive-log-importer/-/dive-log-importer-2.0.2.tgz#c62adab750b2a970fdc6b56154e6cd41d1ec7019"
+  integrity sha512-P9THmyodc9KoR8fasfuflUgIE5li1iwxXeGGDSZwkV8qD7FQa4MmKGIkmo6C5CkIIi72O56JgEAQhg0hKulPwA==
+  dependencies:
+    date-fns "^1.30.1"
+    xml2js "^0.4.19"
 
 dot-prop@^4.1.0:
   version "4.2.0"
