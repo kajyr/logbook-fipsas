@@ -7,13 +7,6 @@ const signatures = require("./lib/signatures");
 const { importer } = require("dive-log-importer");
 const exporter = require("./lib/pdf-exporter");
 
-/*
-    Atoms
-*/
-
-/*
-    Molecules
-*/
 async function readFile(file, dest, debug) {
   return fs
     .readFile(file, "utf8")

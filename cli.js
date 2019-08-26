@@ -19,7 +19,8 @@ const argv = yargs
   .option("template", {
     default: "fipsas-didattica",
     describe: "Template name",
-    type: "string"
+    type: "string",
+    demandOption: true
   })
   .option("v", {
     alias: "verbose",
