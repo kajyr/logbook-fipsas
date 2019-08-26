@@ -5,6 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "watch": "nodemon cli.js -t pdfkit --dest demo/export.pdf demo/SecondoGrado.xml",
     "test": "nyc ava",
     "postversion": "git push origin && git push origin --tags",
     "changelog": "changelog",
@@ -33,6 +34,8 @@
     "fs-extra": "^8.1.0",
     "glob": "^7.1.4",
     "node-sass": "^4.12.0",
+    "nodemon": "^1.19.1",
+    "pdfkit": "^0.10.0",
     "puppeteer": "^1.19.0",
     "tabelle-immersione-fipsas": "^0.1.0",
     "tmp": "0.1.0",
@@ -55,5 +58,8 @@
     "exclude": [
       "tests/**/*.js"
     ]
+  },
+  "nodemonConfig": {
+    "delay": "250"
   }
 }
