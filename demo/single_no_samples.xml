@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dives SYSTEM "http://www.mac-dive.com/macdive_logbook.dtd">
+
+<dives>
+    <units>Metric</units>
+    <schema>2.2.0</schema>
+    <dive>
+        <date>1999-11-23 09:24:00</date>
+        <identifier>201411236240-</identifier>
+        <diveNumber>15</diveNumber>
+        <rating>0</rating>
+        <repetitiveDive>7</repetitiveDive>
+        <diver>Carlo Panzi</diver>
+        <computer>Aladin Pro</computer>
+        <serial></serial>
+        <maxDepth>22.30</maxDepth>
+        <averageDepth>22.30</averageDepth>
+        <cns>0.00</cns>
+        <decoModel></decoModel>
+        <duration>2580</duration>
+        <gasModel>RealAir</gasModel>
+        <surfaceInterval>1402</surfaceInterval>
+        <sampleInterval>43</sampleInterval>
+        <tempAir>0.00</tempAir>
+        <tempHigh>17.00</tempHigh>
+        <tempLow>17.00</tempLow>
+        <visibility></visibility>
+        <weight></weight>
+        <notes><![CDATA[]]></notes>
+        <diveMaster>Renato Rossi</diveMaster>
+        <diveOperator>Calypso Diving</diveOperator>
+        <skipper></skipper>
+        <boat></boat>
+        <weather></weather>
+        <current></current>
+        <surfaceConditions></surfaceConditions>
+        <entryType></entryType>
+        <site>
+            <country>Spain</country>
+            <location>Isole Medas</location>
+            <name>Dolph Sud</name>
+            <bodyOfWater></bodyOfWater>
+            <waterType></waterType>
+            <difficulty></difficulty>
+            <altitude>0</altitude>
+            <lat>0.00000</lat>
+            <lon>0.00000</lon>
+        </site>
+        <tags></tags>
+        <types></types>
+        <buddies>
+            <buddy>Erica Viani</buddy>
+        </buddies>
+        <gear>
+            <item>
+                <type>Octopus</type>
+                <manufacturer>Cressi</manufacturer>
+                <name>AC10</name>
+                <serial></serial>
+            </item>
+            <item>
+                <type>Computer</type>
+                <manufacturer>Uwatech</manufacturer>
+                <name>Aladin Pro</name>
+                <serial></serial>
+            </item>
+            <item>
+                <type>Fins</type>
+                <manufacturer>Technisub</manufacturer>
+                <name>Stratos (per calzare)</name>
+                <serial></serial>
+            </item>
+        </gear>
+        <gases>
+            <gas>
+                <pressureStart>0.00</pressureStart>
+                <pressureEnd>0.00</pressureEnd>
+                <oxygen>21</oxygen>
+                <helium>0</helium>
+                <double>0</double>
+                <tankSize>15</tankSize>
+                <workingPressure>200</workingPressure>
+                <supplyType>Open Circuit</supplyType>
+                <duration>43</duration>
+                <tankName>15L</tankName>
+            </gas>
+        </gases>
+        <samples>
+            <sample>
+                <time>0.00</time>
+                <depth>22.30</depth>
+                <pressure>0.00</pressure>
+                <temperature>17.00</temperature>
+                <ppo2>0.00</ppo2>
+                <ndt>0</ndt>
+            </sample>
+        </samples>
+        <events></events>
+    </dive>
+</dives>
