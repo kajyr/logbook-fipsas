@@ -1,6 +1,6 @@
 {
     "name": "logbook-templates",
-    "version": "1.5.0",
+    "version": "2.0.0",
     "description": "Un template per DivingLog e MacDive per stampare i [logbook F.I.P.S.A.S.][fipsas] precompilati",
     "main": "index.js",
     "type": "module",
