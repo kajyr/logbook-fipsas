@@ -1,3 +1,22 @@
+## 2.0.0 (2019-10-01)
+
+##### Build System / Dependencies
+
+*  dependencies update (7c4bffaa)
+*  added pdfkit and nodemon watch (3a645e12)
+*  updates (a54e7c7f)
+*  Conversion back to js (7dc3c107)
+*  cleanup package.json (49e69a24)
+
+##### Chores
+
+*  Update to dive-importer v2 (dbe26f3e)
+*  Moved Importer to separate independent package (5c3b2e76)
+
+##### New Features
+
+*  pdfkit template (d19dda40)
+
 ### 1.5.0 (2018-11-05)
 
 ##### Build System / Dependencies
