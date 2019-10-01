@@ -3,3 +3,6 @@ node_modules
 dest/*
 data/*.xml
 .nyc_output/*
+
+demo/*.pdf
+demo/*.json
