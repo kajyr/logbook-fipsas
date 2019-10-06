@@ -1,3 +1,9 @@
+### 2.1.0 (2019-10-06)
+
+##### Chores
+
+*  Old mustache templates cleanup (5b8d8c2e)
+
 ## 2.0.0 (2019-10-01)
 
 ##### Build System / Dependencies
