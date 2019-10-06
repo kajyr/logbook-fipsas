@@ -52,20 +52,17 @@ const { verbose, debug, signatures, empty, dest, template } = argv;
 set('verbose', verbose);
 set('debug', debug);
 
-if (empty) {
-    convertEmpty(dest, {
-        verbose,
-        debug,
-        signaturesFolder: signatures,
-        template
-    });
-} else if (argv.importers) {
+if (argv.importers) {
     const list = listImporters();
     console.log('Importers: ', list);
 } else {
     if (argv._.length === 0) {
-        yargs.showHelp();
-        process.exit();
+        convertEmpty(dest, {
+            verbose,
+            debug,
+            signaturesFolder: signatures,
+            template
+        });
     }
 
     Promise.all(

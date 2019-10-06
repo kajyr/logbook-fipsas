@@ -5,7 +5,8 @@
     "main": "index.js",
     "type": "module",
     "scripts": {
-        "watch": "nodemon cli.js -t pdfkit --debug --dest demo/export.pdf",
+        "watch": "nodemon cli.js -t pdfkit --debug --verbose --dest demo/export.pdf",
+        "empty": "nodemon cli.js -t pdfkit --debug --verbose --dest demo/empty.pdf",
         "test": "ava",
         "postversion": "git push origin && git push origin --tags",
         "changelog": "changelog",
