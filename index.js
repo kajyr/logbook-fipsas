@@ -8,6 +8,21 @@ const { importer } = require('dive-log-importer');
 const exporter = require('./lib/pdf-exporter');
 const pdfkit = require('./lib/pdfkit');
 
+const EMPTY_LOGBOOK = {
+    dives: [
+        {
+            gases: [{ pressureStart: '', pressureEnd: '' }],
+            tags: [],
+            entry: '',
+            date: null,
+            location: {},
+            types: [],
+            samples: [],
+            entry_time: null
+        }
+    ]
+};
+
 async function readFile(file, dest, debug) {
     return fs
         .readFile(file, 'utf8')
@@ -48,7 +63,9 @@ async function convert(file, dest, options) {
 }
 
 async function convertEmpty(dest, options) {
-    console.log('Rendering empty template');
+    if (options.verbose) {
+        console.log('Rendering empty template');
+    }
 
     const tmpDir = tmp.dirSync({
         unsafeCleanup: !options.debug,
