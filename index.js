@@ -1,11 +1,8 @@
 const fs = require('fs-extra');
-const path = require('path');
 const tmp = require('tmp');
 const { saveJson } = require('./lib/fs');
-const print = require('./lib/printer');
 const signatures = require('./lib/signatures');
 const { importer } = require('dive-log-importer');
-const exporter = require('./lib/pdf-exporter');
 const pdfkit = require('./lib/pdfkit');
 
 const EMPTY_LOGBOOK = {
@@ -85,16 +82,9 @@ async function convertEmpty(dest, options) {
 }
 
 async function process(logbook, dest, collector, { verbose, debug, signaturesFolder, template }) {
-    const templateFolder = path.join(__dirname, '..', 'templates', template);
-
-    if (template === 'pdfkit') {
-        pdfkit(logbook, dest);
-        if (debug) {
-            await saveJson(folderFromDest(dest), 'logbook', logbook);
-        }
-    } else {
-        await print(templateFolder, logbook, collector);
-        return exporter(collector, dest, verbose, debug);
+    pdfkit(logbook, dest);
+    if (debug) {
+        await saveJson(folderFromDest(dest), 'logbook', logbook);
     }
 }
 
