@@ -1,3 +1,13 @@
+### 2.1.0 (2019-10-06)
+
+##### Chores
+
+*  Old mustache templates cleanup (114bac09)
+
+##### New Features
+
+*  Empty logbook card (5a7941e2)
+
 ## 2.0.0 (2019-10-01)
 
 ##### Build System / Dependencies
