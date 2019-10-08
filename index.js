@@ -2,6 +2,7 @@ const fs = require('fs-extra');
 const tmp = require('tmp');
 const { saveJson } = require('./lib/fs');
 const signatures = require('./lib/signatures');
+const { enrich } = require('./lib/enrich-dive');
 const { importer } = require('dive-log-importer');
 const pdfkit = require('./lib/pdfkit');
 
@@ -82,9 +83,10 @@ async function convertEmpty(dest, options) {
 }
 
 async function process(logbook, dest, collector, { verbose, debug, signaturesFolder, template }) {
-    pdfkit(logbook, dest);
+    const enriched = enrich(logbook);
+    pdfkit(enriched, dest);
     if (debug) {
-        await saveJson(folderFromDest(dest), 'logbook', logbook);
+        await saveJson(folderFromDest(dest), 'logbook', enriched);
     }
 }
 
