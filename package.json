@@ -39,7 +39,7 @@
         "pdfkit": "^0.10.0",
         "tmp": "0.1.0",
         "xml2js": "^0.4.22",
-        "yargs": "^14.0.0"
+        "yargs": "^14.2.0"
     },
     "devDependencies": {
         "ava": "^2.4.0"
