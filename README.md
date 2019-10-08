@@ -1,15 +1,17 @@
 # Logbook templates
 
+[![Build Status](https://travis-ci.org/kajyr/logbook-templates.svg?branch=master)](https://travis-ci.org/kajyr/logbook-templates)
+
 A template system for you diving log applications.
 
 Suppoted formats:
 
-- [MacDive][macdive] XML Export
-- [DivingLog][divinglog] XML Export
+-   [MacDive][macdive] XML Export
+-   [DivingLog][divinglog] XML Export
 
 Supported templates:
 
-- [logbook F.I.P.S.A.S.][fipsas] Nettuno
+-   [logbook F.I.P.S.A.S.][fipsas] Nettuno
 
 ## Usage
 
