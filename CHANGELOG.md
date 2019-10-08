@@ -1,3 +1,28 @@
+### 2.2.0 (2019-10-08)
+
+##### Build System / Dependencies
+
+*  upgraded dependencies (516be0ca)
+*  travis-ci support (5f0f3268)
+*  More examples (adfe35dd)
+
+##### Chores
+
+*  Old mustache templates cleanup (114bac09)
+
+##### New Features
+
+*  Empty logbook card (5a7941e2)
+
+##### Bug Fixes
+
+*  build scripts (d80d7932)
+*  signature shows version as last element (6c78eb31)
+
+##### Refactors
+
+*  Moved dives logic to an helper (52be15e2)
+
 ### 2.1.0 (2019-10-06)
 
 ##### Chores
