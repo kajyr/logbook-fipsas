@@ -2,7 +2,7 @@ const fs = require('fs-extra');
 const tmp = require('tmp');
 const { saveJson } = require('./lib/fs');
 const signatures = require('./lib/signatures');
-const { enrich } = require('./lib/enrich-dive');
+const enrich = require('./lib/enrichers');
 const { importer } = require('dive-log-importer');
 const pdfkit = require('./lib/pdfkit');
 
