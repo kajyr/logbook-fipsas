@@ -39,7 +39,8 @@
         "yargs": "^14.2.0"
     },
     "devDependencies": {
-        "ava": "^2.4.0"
+        "ava": "^2.4.0",
+        "generate-changelog": "^1.8.0"
     },
     "ava": {
         "files": [
