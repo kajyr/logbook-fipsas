@@ -11,12 +11,9 @@
         "postversion": "git push origin && git push origin --tags",
         "changelog": "changelog",
         "postchangelog": "git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' ",
-        "version:major": "yarn version --major",
-        "version:minor": "yarn version --minor",
-        "version:patch": "yarn version --patch",
-        "release:major": "yarn changelog -M && yarn version:major",
-        "release:minor": "yarn changelog -m && yarn version:minor",
-        "release:patch": "yarn changelog -p && yarn version:patch"
+        "release:major": "yarn changelog -M && yarn version --major",
+        "release:minor": "yarn changelog -m && yarn version --minor",
+        "release:patch": "yarn changelog -p && yarn version --patch"
     },
     "repository": "https://github.com/kajyr/logbook-templates",
     "author": "Carlo 'kajyr' <carlo.panzi@gmail.com> (http://kajyr.github.io/)",
