@@ -1,3 +1,19 @@
+### 2.3.0 (2019-11-12)
+
+##### Build System / Dependencies
+
+*  added missing generate-changelog (bc67935f)
+*  removed stupid scripts (83f2ae54)
+*  update depencencies (4347f582)
+
+##### Chores
+
+*  Extracted dive enrichers to files (174c12ee)
+
+##### New Features
+
+*  Gears listing in ara template, second page (85245354)
+
 ### 2.2.0 (2019-10-08)
 
 ##### Build System / Dependencies
