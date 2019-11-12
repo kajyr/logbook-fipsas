@@ -30,7 +30,7 @@
     "homepage": "https://github.com/kajyr/logbook-fipsas#readme",
     "dependencies": {
         "date-fns": "^2.4.1",
-        "dive-log-importer": "^4.0.0",
+        "dive-log-importer": "^4.1.0",
         "express": "^4.17.1",
         "fs-extra": "^8.1.0",
         "glob": "^7.1.4",
