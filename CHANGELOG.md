@@ -1,3 +1,10 @@
+#### 2.3.1 (2019-11-17)
+
+##### Bug Fixes
+
+*  the borders in vertical stacks of inputs are no longer double (097ec337)
+*  fixed build for empty pages (9924486d)
+
 ### 2.3.0 (2019-11-12)
 
 ##### Build System / Dependencies
