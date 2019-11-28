@@ -20,6 +20,12 @@ const argv = yargs
         demandOption: true,
         choices: ['fipsas-didattica', 'pdfkit']
     })
+    .option('logo', {
+        alias: 'l',
+        default: false,
+        describe: 'Prints the club logo',
+        type: 'boolean'
+    })
     .option('v', {
         alias: 'verbose',
         default: false,
