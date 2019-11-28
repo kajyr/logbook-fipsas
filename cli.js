@@ -47,24 +47,22 @@ const argv = yargs
         type: 'boolean'
     }).argv;
 
-const { verbose, debug, signatures, empty, dest, template } = argv;
+const { verbose, debug, signatures, empty, dest, template, importers } = argv;
 
 set('verbose', verbose);
 set('debug', debug);
 
-if (argv.importers) {
+if (importers) {
     const list = listImporters();
     console.log('Importers: ', list);
-} else {
-    if (argv._.length === 0) {
-        convertEmpty(dest, {
-            verbose,
-            debug,
-            signaturesFolder: signatures,
-            template
-        });
-    }
-
+} else if (empty) {
+    convertEmpty(dest, {
+        verbose,
+        debug,
+        signaturesFolder: signatures,
+        template
+    });
+} else if (argv._.length > 0) {
     Promise.all(
         argv._.map(file =>
             convert(file, dest, {
@@ -75,4 +73,6 @@ if (argv.importers) {
             })
         )
     );
+} else {
+    yargs.showHelp();
 }
