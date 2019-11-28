@@ -44,8 +44,18 @@ const argv = yargs
 
 const { verbose, debug, empty, dest, template, importers, logo } = argv;
 
-set('verbose', verbose);
-set('debug', debug);
+const globals = { verbose, debug, logo, empty, template };
+
+const activeFlags = Object.keys(globals).reduce((acc, key) => {
+    const val = globals[key];
+    set(key, val);
+
+    return val ? acc.concat(typeof val === 'string' ? `${key}: ${val}` : key) : acc;
+}, []);
+
+if (verbose) {
+    console.log('Active flags: ', activeFlags);
+}
 
 if (importers) {
     const list = listImporters();
