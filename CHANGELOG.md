@@ -1,3 +1,21 @@
+### 2.4.0 (2019-11-28)
+
+##### Build System / Dependencies
+
+*  better option flags management (6c7a62a9)
+*  update dependencies (66318f8a)
+
+##### New Features
+
+*  Club logo (a17d40a8)
+*  removed the old (not working) signature feature (5c243ef1)
+
+##### Bug Fixes
+
+*  debug squares should only work in debug mode (5e84344f)
+*  package json type (7bbcdc96)
+*  Fixed checks if no args passed (3d4d6329)
+
 #### 2.3.1 (2019-11-17)
 
 ##### Bug Fixes
