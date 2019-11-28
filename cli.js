@@ -12,11 +12,6 @@ const argv = yargs
         describe: 'Output file name',
         type: 'string'
     })
-    .option('signatures', {
-        default: './firme',
-        describe: 'Folder containing the signatures',
-        type: 'string'
-    })
     .option('template', {
         alias: 't',
         default: 'fipsas-didattica',
@@ -47,7 +42,7 @@ const argv = yargs
         type: 'boolean'
     }).argv;
 
-const { verbose, debug, signatures, empty, dest, template, importers } = argv;
+const { verbose, debug, empty, dest, template, importers, logo } = argv;
 
 set('verbose', verbose);
 set('debug', debug);
@@ -59,8 +54,8 @@ if (importers) {
     convertEmpty(dest, {
         verbose,
         debug,
-        signaturesFolder: signatures,
-        template
+        template,
+        logo
     });
 } else if (argv._.length > 0) {
     Promise.all(
@@ -68,8 +63,8 @@ if (importers) {
             convert(file, dest, {
                 verbose,
                 debug,
-                signaturesFolder: signatures,
-                template
+                template,
+                logo
             })
         )
     );
