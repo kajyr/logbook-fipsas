@@ -12,11 +12,6 @@ const argv = yargs
         describe: 'Output file name',
         type: 'string'
     })
-    .option('signatures', {
-        default: './firme',
-        describe: 'Folder containing the signatures',
-        type: 'string'
-    })
     .option('template', {
         alias: 't',
         default: 'fipsas-didattica',
@@ -24,6 +19,12 @@ const argv = yargs
         type: 'string',
         demandOption: true,
         choices: ['fipsas-didattica', 'pdfkit']
+    })
+    .option('logo', {
+        alias: 'l',
+        default: false,
+        describe: 'Prints the club logo',
+        type: 'boolean'
     })
     .option('v', {
         alias: 'verbose',
@@ -47,32 +48,42 @@ const argv = yargs
         type: 'boolean'
     }).argv;
 
-const { verbose, debug, signatures, empty, dest, template } = argv;
+const { verbose, debug, empty, dest, template, importers, logo } = argv;
 
-set('verbose', verbose);
-set('debug', debug);
+const globals = { verbose, debug, logo, empty, template };
 
-if (argv.importers) {
+const activeFlags = Object.keys(globals).reduce((acc, key) => {
+    const val = globals[key];
+    set(key, val);
+
+    return val ? acc.concat(typeof val === 'string' ? `${key}: ${val}` : key) : acc;
+}, []);
+
+if (verbose) {
+    console.log('Active flags: ', activeFlags);
+}
+
+if (importers) {
     const list = listImporters();
     console.log('Importers: ', list);
-} else {
-    if (argv._.length === 0) {
-        convertEmpty(dest, {
-            verbose,
-            debug,
-            signaturesFolder: signatures,
-            template
-        });
-    }
-
+} else if (empty) {
+    convertEmpty(dest, {
+        verbose,
+        debug,
+        template,
+        logo
+    });
+} else if (argv._.length > 0) {
     Promise.all(
         argv._.map(file =>
             convert(file, dest, {
                 verbose,
                 debug,
-                signaturesFolder: signatures,
-                template
+                template,
+                logo
             })
         )
     );
+} else {
+    yargs.showHelp();
 }

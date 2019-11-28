@@ -1,7 +1,5 @@
 const fs = require('fs-extra');
-const tmp = require('tmp');
 const { saveJson } = require('./lib/fs');
-const signatures = require('./lib/signatures');
 const enrich = require('./lib/enrichers');
 const { importer } = require('dive-log-importer');
 const pdfkit = require('./lib/pdfkit');
@@ -21,16 +19,8 @@ const EMPTY_LOGBOOK = {
     ]
 };
 
-async function readFile(file, dest, debug) {
-    return fs
-        .readFile(file, 'utf8')
-        .then(xml => importer(xml))
-        .then(async logbook => {
-            if (debug) {
-                await saveJson(dest, 'logbook', logbook);
-            }
-            return logbook;
-        });
+async function readFile(file) {
+    return fs.readFile(file, 'utf8').then(xml => importer(xml));
 }
 
 function folderFromDest(dest) {
@@ -38,26 +28,9 @@ function folderFromDest(dest) {
 }
 
 async function convert(file, dest, options) {
-    const tmpDir = tmp.dirSync({
-        unsafeCleanup: !options.debug,
-        keep: options.debug
-    });
-    const collector = tmpDir.name;
+    const logbook = await readFile(file);
 
-    if (options.verbose) {
-        console.log('Collector dir: ', collector);
-    }
-
-    const logbook = await readFile(file, collector, options.debug);
-    if (logbook.dives) {
-        const availableSignatures = await signatures(logbook, options, collector);
-        logbook.dives = logbook.dives.map(dive => {
-            const diveMasterSignature = availableSignatures[dive.dive_master];
-            return !diveMasterSignature ? dive : Object.assign({}, dive, { diveMasterSignature });
-        });
-    }
-
-    return process(logbook, dest, collector, options);
+    return process(logbook, dest, options);
 }
 
 async function convertEmpty(dest, options) {
@@ -65,24 +38,10 @@ async function convertEmpty(dest, options) {
         console.log('Rendering empty template');
     }
 
-    const tmpDir = tmp.dirSync({
-        unsafeCleanup: !options.debug,
-        keep: options.debug
-    });
-    const collector = tmpDir.name;
-
-    if (options.verbose) {
-        console.log('Collector dir: ', collector);
-    }
-
-    if (options.debug) {
-        await saveJson(collector, 'logbook', EMPTY_LOGBOOK);
-    }
-
-    return process(EMPTY_LOGBOOK, dest, collector, options);
+    return process(EMPTY_LOGBOOK, dest, options);
 }
 
-async function process(logbook, dest, collector, { verbose, debug, signaturesFolder, template }) {
+async function process(logbook, dest, { debug }) {
     const enriched = enrich(logbook);
     pdfkit(enriched, dest);
     if (debug) {
