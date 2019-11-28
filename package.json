@@ -3,7 +3,7 @@
     "version": "2.3.1",
     "description": "Un template per DivingLog e MacDive per stampare i [logbook F.I.P.S.A.S.][fipsas] precompilati",
     "main": "index.js",
-    "type": "module",
+    "type": "commonjs",
     "scripts": {
         "build": "node cli.js -t pdfkit --dest demo/export.pdf",
         "build:empty": "node cli.js -t pdfkit --dest demo/export_empty.pdf --empty",
