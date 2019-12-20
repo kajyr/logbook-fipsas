@@ -1,8 +1,11 @@
 const fs = require('fs-extra');
+const path = require('path');
+
 const { saveJson } = require('./lib/fs');
 const enrich = require('./lib/enrichers');
 const { importer } = require('dive-log-importer');
 const pdfkit = require('./lib/pdfkit');
+const { set } = require('./lib/options');
 
 const EMPTY_LOGBOOK = {
     dives: [
@@ -42,8 +45,14 @@ async function convertEmpty(dest, options) {
 }
 
 async function process(logbook, dest, { debug }) {
-    const enriched = enrich(logbook);
-    pdfkit(enriched, dest);
+    const destFolder = path.resolve(path.dirname(dest));
+    const cacheDir = path.join(destFolder, '.cache');
+    await fs.ensureDir(cacheDir);
+    set('cacheDir', cacheDir);
+
+    const enriched = await enrich(logbook);
+
+    pdfkit(enriched, dest, cacheDir);
     if (debug) {
         await saveJson(folderFromDest(dest), 'logbook', enriched);
     }

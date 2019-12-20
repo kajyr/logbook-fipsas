@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 const yargs = require('yargs');
+require('dotenv').config();
 const { convert, convertEmpty } = require('./');
 const { listImporters } = require('dive-log-importer');
 const { set } = require('./lib/options');
