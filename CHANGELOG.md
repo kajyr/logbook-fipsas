@@ -1,3 +1,13 @@
+### 2.5.0 (2019-12-20)
+
+##### Chores
+
+*  Moved files of of the pdfkit folder (ab0303ad)
+
+##### New Features
+
+*  Maps when available printed on the second page (540c2bc0)
+
 ### 2.4.0 (2019-11-28)
 
 ##### Build System / Dependencies
