@@ -3,7 +3,7 @@ const yargs = require('yargs');
 require('dotenv').config();
 const { convert, convertEmpty } = require('./');
 const { listImporters } = require('dive-log-importer');
-const { set } = require('./lib/options');
+const options = require('./lib/options');
 
 const argv = yargs
     .usage('$0 file.xml')
@@ -53,14 +53,12 @@ const { verbose, debug, empty, dest, template, importers, logo } = argv;
 
 const globals = { verbose, debug, logo, empty, template };
 
-const activeFlags = Object.keys(globals).reduce((acc, key) => {
-    const val = globals[key];
-    set(key, val);
-
-    return val ? acc.concat(typeof val === 'string' ? `${key}: ${val}` : key) : acc;
-}, []);
-
 if (verbose) {
+    const activeFlags = Object.keys(globals).reduce((acc, key) => {
+        const val = globals[key];
+        return val ? acc.concat(typeof val === 'string' ? `${key}: ${val}` : key) : acc;
+    }, []);
+
     console.log('Active flags: ', activeFlags);
 }
 
@@ -68,23 +66,9 @@ if (importers) {
     const list = listImporters();
     console.log('Importers: ', list);
 } else if (empty) {
-    convertEmpty(dest, {
-        verbose,
-        debug,
-        template,
-        logo
-    });
+    convertEmpty(dest, globals);
 } else if (argv._.length > 0) {
-    Promise.all(
-        argv._.map(file =>
-            convert(file, dest, {
-                verbose,
-                debug,
-                template,
-                logo
-            })
-        )
-    );
+    Promise.all(argv._.map(file => convert(file, dest, globals)));
 } else {
     yargs.showHelp();
 }
