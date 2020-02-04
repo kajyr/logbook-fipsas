@@ -1,3 +1,18 @@
+### 2.6.0 (2020-02-04)
+
+##### Chores
+
+*  updated examples (05fe552f)
+*  cleanup of the options management (402e595b)
+
+##### New Features
+
+*  used the tankName property for the tanks (ff23f6df)
+
+##### Bug Fixes
+
+*  Fixed url downloader. (b64d3e03)
+
 ### 2.5.0 (2019-12-20)
 
 ##### Chores
