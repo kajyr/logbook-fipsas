@@ -1,3 +1,14 @@
+#### 2.6.1 (2020-02-04)
+
+##### New Features
+
+*  Maps have a better layout outside of the annotations grid (76891785)
+
+##### Bug Fixes
+
+*  Better h-spacing in the footer (3245d372)
+*  spread method supports 0 height blocks (5e0167b0)
+
 ### 2.6.0 (2020-02-04)
 
 ##### Chores
