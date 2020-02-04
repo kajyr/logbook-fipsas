@@ -46,21 +46,54 @@
             <lat>46.74186</lat>
             <lon>11.44431</lon>
         </site>
-        <tags></tags>
+        <tags>
+            <tag>In quota</tag>
+            <tag>Lago ghiacciato</tag>
+        </tags>
         <types>
-            <type>In quota</type>
-            <type>Sotto ai ghiacci</type>
+            <type>Corso PQt</type>
+            <type>Corso PSg</type>
         </types>
         <buddies>
-            <buddy>Mimmo</buddy>
             <buddy>Mauro Furini</buddy>
+            <buddy>Mimmo</buddy>
         </buddies>
         <gear>
+            <item>
+                <type>Regulator</type>
+                <manufacturer>Scubapro</manufacturer>
+                <name>S600</name>
+                <serial></serial>
+            </item>
+            <item>
+                <type>BCD</type>
+                <manufacturer>Dive System</manufacturer>
+                <name>FlyTech</name>
+                <serial></serial>
+            </item>
             <item>
                 <type>Mask</type>
                 <manufacturer>Beuchat</manufacturer>
                 <name>Maxlux S</name>
                 <serial></serial>
+            </item>
+            <item>
+                <type>Other</type>
+                <manufacturer>Aqua Lung</manufacturer>
+                <name>Transmitter</name>
+                <serial>006491</serial>
+            </item>
+            <item>
+                <type>Torch</type>
+                <manufacturer>Dusk Fire</manufacturer>
+                <name>Torcia 2</name>
+                <serial></serial>
+            </item>
+            <item>
+                <type>Regulator</type>
+                <manufacturer>Scubapro</manufacturer>
+                <name>MK25 Evo Main</name>
+                <serial>1741811090</serial>
             </item>
             <item>
                 <type>Fins</type>
@@ -75,51 +108,21 @@
                 <serial></serial>
             </item>
             <item>
-                <type>Regulator</type>
-                <manufacturer>Scubapro</manufacturer>
-                <name>MK25 Evo Main</name>
-                <serial>1741811090</serial>
-            </item>
-            <item>
-                <type>BCD</type>
-                <manufacturer>Dive System</manufacturer>
-                <name>FlyTech</name>
-                <serial></serial>
-            </item>
-            <item>
                 <type>Computer</type>
                 <manufacturer>Shearwater</manufacturer>
                 <name>Teric</name>
                 <serial>A63C5D4A</serial>
             </item>
             <item>
-                <type>Torch</type>
-                <manufacturer>Dusk Fire</manufacturer>
-                <name>Torcia 2</name>
+                <type>Mask</type>
+                <manufacturer>Aqua Lung</manufacturer>
+                <name>Favola (Nera)</name>
                 <serial></serial>
-            </item>
-            <item>
-                <type>Regulator</type>
-                <manufacturer>Scubapro</manufacturer>
-                <name>MK25 Evo Secondary</name>
-                <serial>1840900189</serial>
             </item>
             <item>
                 <type>Undervest</type>
                 <manufacturer>Santi</manufacturer>
                 <name>Sottomuta F190</name>
-                <serial></serial>
-            </item>
-            <item>
-                <type>Camera</type>
-                <manufacturer>GoPro</manufacturer>
-                <name>GoPro Hero 6</name>
-                <serial></serial>
-            </item>
-            <item>
-                <type>Mask</type>
-                <manufacturer>Aqua Lung</manufacturer>
-                <name>Favola (Nera)</name>
                 <serial></serial>
             </item>
             <item>
@@ -129,15 +132,15 @@
                 <serial></serial>
             </item>
             <item>
-                <type>Other</type>
-                <manufacturer>Aqua Lung</manufacturer>
-                <name>Transmitter</name>
-                <serial>006491</serial>
-            </item>
-            <item>
                 <type>Regulator</type>
                 <manufacturer>Scubapro</manufacturer>
-                <name>S600</name>
+                <name>MK25 Evo Secondary</name>
+                <serial>1840900189</serial>
+            </item>
+            <item>
+                <type>Camera</type>
+                <manufacturer>GoPro</manufacturer>
+                <name>GoPro Hero 6</name>
                 <serial></serial>
             </item>
         </gear>
@@ -2113,21 +2116,54 @@
             <lat>46.74186</lat>
             <lon>11.44431</lon>
         </site>
-        <tags></tags>
+        <tags>
+            <tag>In quota</tag>
+            <tag>Lago ghiacciato</tag>
+        </tags>
         <types>
-            <type>In quota</type>
-            <type>Sotto ai ghiacci</type>
+            <type>Corso PQt</type>
+            <type>Corso PSg</type>
         </types>
         <buddies>
-            <buddy>Mimmo</buddy>
             <buddy>Mauro Furini</buddy>
+            <buddy>Mimmo</buddy>
         </buddies>
         <gear>
+            <item>
+                <type>Regulator</type>
+                <manufacturer>Scubapro</manufacturer>
+                <name>S600</name>
+                <serial></serial>
+            </item>
+            <item>
+                <type>BCD</type>
+                <manufacturer>Dive System</manufacturer>
+                <name>FlyTech</name>
+                <serial></serial>
+            </item>
             <item>
                 <type>Mask</type>
                 <manufacturer>Beuchat</manufacturer>
                 <name>Maxlux S</name>
                 <serial></serial>
+            </item>
+            <item>
+                <type>Other</type>
+                <manufacturer>Aqua Lung</manufacturer>
+                <name>Transmitter</name>
+                <serial>006491</serial>
+            </item>
+            <item>
+                <type>Torch</type>
+                <manufacturer>Dusk Fire</manufacturer>
+                <name>Torcia 2</name>
+                <serial></serial>
+            </item>
+            <item>
+                <type>Regulator</type>
+                <manufacturer>Scubapro</manufacturer>
+                <name>MK25 Evo Main</name>
+                <serial>1741811090</serial>
             </item>
             <item>
                 <type>Fins</type>
@@ -2142,45 +2178,15 @@
                 <serial></serial>
             </item>
             <item>
-                <type>Regulator</type>
-                <manufacturer>Scubapro</manufacturer>
-                <name>MK25 Evo Main</name>
-                <serial>1741811090</serial>
-            </item>
-            <item>
-                <type>BCD</type>
-                <manufacturer>Dive System</manufacturer>
-                <name>FlyTech</name>
-                <serial></serial>
-            </item>
-            <item>
                 <type>Computer</type>
                 <manufacturer>Shearwater</manufacturer>
                 <name>Teric</name>
                 <serial>A63C5D4A</serial>
             </item>
             <item>
-                <type>Torch</type>
-                <manufacturer>Dusk Fire</manufacturer>
-                <name>Torcia 2</name>
-                <serial></serial>
-            </item>
-            <item>
-                <type>Regulator</type>
-                <manufacturer>Scubapro</manufacturer>
-                <name>MK25 Evo Secondary</name>
-                <serial>1840900189</serial>
-            </item>
-            <item>
                 <type>Undervest</type>
                 <manufacturer>Santi</manufacturer>
                 <name>Sottomuta F190</name>
-                <serial></serial>
-            </item>
-            <item>
-                <type>Camera</type>
-                <manufacturer>GoPro</manufacturer>
-                <name>GoPro Hero 6</name>
                 <serial></serial>
             </item>
             <item>
@@ -2190,15 +2196,15 @@
                 <serial></serial>
             </item>
             <item>
-                <type>Other</type>
-                <manufacturer>Aqua Lung</manufacturer>
-                <name>Transmitter</name>
-                <serial>006491</serial>
-            </item>
-            <item>
                 <type>Regulator</type>
                 <manufacturer>Scubapro</manufacturer>
-                <name>S600</name>
+                <name>MK25 Evo Secondary</name>
+                <serial>1840900189</serial>
+            </item>
+            <item>
+                <type>Camera</type>
+                <manufacturer>GoPro</manufacturer>
+                <name>GoPro Hero 6</name>
                 <serial></serial>
             </item>
         </gear>
@@ -5327,15 +5333,28 @@
             <lon>0.00000</lon>
         </site>
         <tags>
-            <tag>Nitrox</tag>
-            <tag>corso TDI</tag>
             <tag>tech</tag>
+            <tag>Nitrox</tag>
         </tags>
-        <types></types>
+        <types>
+            <type>Corso TDI</type>
+        </types>
         <buddies>
             <buddy>Silvia Balbo</buddy>
         </buddies>
         <gear>
+            <item>
+                <type>Regulator</type>
+                <manufacturer>Scubapro</manufacturer>
+                <name>S600</name>
+                <serial></serial>
+            </item>
+            <item>
+                <type>BCD</type>
+                <manufacturer>Dive System</manufacturer>
+                <name>X3M Mod</name>
+                <serial></serial>
+            </item>
             <item>
                 <type>Mask</type>
                 <manufacturer>Beuchat</manufacturer>
@@ -5343,15 +5362,9 @@
                 <serial></serial>
             </item>
             <item>
-                <type>Fins</type>
-                <manufacturer>Dive System</manufacturer>
-                <name>Tech Fin</name>
-                <serial></serial>
-            </item>
-            <item>
-                <type>Octopus</type>
-                <manufacturer>Scubapro</manufacturer>
-                <name>R195</name>
+                <type>Torch</type>
+                <manufacturer>Dusk Fire</manufacturer>
+                <name>Torcia 2</name>
                 <serial></serial>
             </item>
             <item>
@@ -5361,40 +5374,28 @@
                 <serial>1741811090</serial>
             </item>
             <item>
+                <type>Fins</type>
+                <manufacturer>Dive System</manufacturer>
+                <name>Tech Fin</name>
+                <serial></serial>
+            </item>
+            <item>
+                <type>Computer</type>
+                <manufacturer>Scubapro</manufacturer>
+                <name>Aladin Sport Matrix</name>
+                <serial>63007881</serial>
+            </item>
+            <item>
+                <type>Octopus</type>
+                <manufacturer>Scubapro</manufacturer>
+                <name>R195</name>
+                <serial></serial>
+            </item>
+            <item>
                 <type>Computer</type>
                 <manufacturer>Shearwater</manufacturer>
                 <name>Teric</name>
                 <serial>A63C5D4A</serial>
-            </item>
-            <item>
-                <type>Torch</type>
-                <manufacturer>Dusk Fire</manufacturer>
-                <name>Torcia 2</name>
-                <serial></serial>
-            </item>
-            <item>
-                <type>SMB</type>
-                <manufacturer>  </manufacturer>
-                <name>Pedagno Tech</name>
-                <serial></serial>
-            </item>
-            <item>
-                <type>Regulator</type>
-                <manufacturer>Scubapro</manufacturer>
-                <name>MK25 Evo Secondary</name>
-                <serial>1840900189</serial>
-            </item>
-            <item>
-                <type>Undervest</type>
-                <manufacturer>Santi</manufacturer>
-                <name>Sottomuta F190</name>
-                <serial></serial>
-            </item>
-            <item>
-                <type>Camera</type>
-                <manufacturer>GoPro</manufacturer>
-                <name>GoPro Hero 6</name>
-                <serial></serial>
             </item>
             <item>
                 <type>Mask</type>
@@ -5405,7 +5406,13 @@
             <item>
                 <type>BCD</type>
                 <manufacturer>Dive System</manufacturer>
-                <name>X3M Mod</name>
+                <name>Sacco per bibo</name>
+                <serial></serial>
+            </item>
+            <item>
+                <type>Undervest</type>
+                <manufacturer>Santi</manufacturer>
+                <name>Sottomuta F190</name>
                 <serial></serial>
             </item>
             <item>
@@ -5415,21 +5422,21 @@
                 <serial></serial>
             </item>
             <item>
-                <type>BCD</type>
-                <manufacturer>Dive System</manufacturer>
-                <name>Sacco per bibo</name>
+                <type>Regulator</type>
+                <manufacturer>Scubapro</manufacturer>
+                <name>MK25 Evo Secondary</name>
+                <serial>1840900189</serial>
+            </item>
+            <item>
+                <type>Camera</type>
+                <manufacturer>GoPro</manufacturer>
+                <name>GoPro Hero 6</name>
                 <serial></serial>
             </item>
             <item>
-                <type>Computer</type>
-                <manufacturer>Scubapro</manufacturer>
-                <name>Aladin Sport Matrix</name>
-                <serial>63007881</serial>
-            </item>
-            <item>
-                <type>Regulator</type>
-                <manufacturer>Scubapro</manufacturer>
-                <name>S600</name>
+                <type>SMB</type>
+                <manufacturer>  </manufacturer>
+                <name>Pedagno Tech</name>
                 <serial></serial>
             </item>
         </gear>
@@ -7838,21 +7845,33 @@
         </buddies>
         <gear>
             <item>
+                <type>SMB</type>
+                <manufacturer>  </manufacturer>
+                <name>Pedagno Tech</name>
+                <serial></serial>
+            </item>
+            <item>
+                <type>Regulator</type>
+                <manufacturer>Scubapro</manufacturer>
+                <name>S600</name>
+                <serial></serial>
+            </item>
+            <item>
+                <type>BCD</type>
+                <manufacturer>Dive System</manufacturer>
+                <name>X3M Mod</name>
+                <serial></serial>
+            </item>
+            <item>
                 <type>Mask</type>
                 <manufacturer>Beuchat</manufacturer>
                 <name>Maxlux S</name>
                 <serial></serial>
             </item>
             <item>
-                <type>Fins</type>
-                <manufacturer>Dive System</manufacturer>
-                <name>Tech Fin</name>
-                <serial></serial>
-            </item>
-            <item>
-                <type>Octopus</type>
-                <manufacturer>Scubapro</manufacturer>
-                <name>R195</name>
+                <type>Torch</type>
+                <manufacturer>Dusk Fire</manufacturer>
+                <name>Torcia 2</name>
                 <serial></serial>
             </item>
             <item>
@@ -7862,40 +7881,28 @@
                 <serial>1741811090</serial>
             </item>
             <item>
+                <type>Fins</type>
+                <manufacturer>Dive System</manufacturer>
+                <name>Tech Fin</name>
+                <serial></serial>
+            </item>
+            <item>
+                <type>Computer</type>
+                <manufacturer>Scubapro</manufacturer>
+                <name>Aladin Sport Matrix</name>
+                <serial>63007881</serial>
+            </item>
+            <item>
+                <type>Octopus</type>
+                <manufacturer>Scubapro</manufacturer>
+                <name>R195</name>
+                <serial></serial>
+            </item>
+            <item>
                 <type>Computer</type>
                 <manufacturer>Shearwater</manufacturer>
                 <name>Teric</name>
                 <serial>A63C5D4A</serial>
-            </item>
-            <item>
-                <type>Torch</type>
-                <manufacturer>Dusk Fire</manufacturer>
-                <name>Torcia 2</name>
-                <serial></serial>
-            </item>
-            <item>
-                <type>SMB</type>
-                <manufacturer>  </manufacturer>
-                <name>Pedagno Tech</name>
-                <serial></serial>
-            </item>
-            <item>
-                <type>Regulator</type>
-                <manufacturer>Scubapro</manufacturer>
-                <name>MK25 Evo Secondary</name>
-                <serial>1840900189</serial>
-            </item>
-            <item>
-                <type>Undervest</type>
-                <manufacturer>Santi</manufacturer>
-                <name>Sottomuta F190</name>
-                <serial></serial>
-            </item>
-            <item>
-                <type>Camera</type>
-                <manufacturer>GoPro</manufacturer>
-                <name>GoPro Hero 6</name>
-                <serial></serial>
             </item>
             <item>
                 <type>Mask</type>
@@ -7906,7 +7913,13 @@
             <item>
                 <type>BCD</type>
                 <manufacturer>Dive System</manufacturer>
-                <name>X3M Mod</name>
+                <name>Sacco per bibo</name>
+                <serial></serial>
+            </item>
+            <item>
+                <type>Undervest</type>
+                <manufacturer>Santi</manufacturer>
+                <name>Sottomuta F190</name>
                 <serial></serial>
             </item>
             <item>
@@ -7916,27 +7929,21 @@
                 <serial></serial>
             </item>
             <item>
-                <type>BCD</type>
-                <manufacturer>Dive System</manufacturer>
-                <name>Sacco per bibo</name>
+                <type>Regulator</type>
+                <manufacturer>Scubapro</manufacturer>
+                <name>MK25 Evo Secondary</name>
+                <serial>1840900189</serial>
+            </item>
+            <item>
+                <type>Camera</type>
+                <manufacturer>GoPro</manufacturer>
+                <name>GoPro Hero 6</name>
                 <serial></serial>
             </item>
             <item>
                 <type>Wetnotes</type>
                 <manufacturer>Scubapro</manufacturer>
                 <name>Wetnotes</name>
-                <serial></serial>
-            </item>
-            <item>
-                <type>Computer</type>
-                <manufacturer>Scubapro</manufacturer>
-                <name>Aladin Sport Matrix</name>
-                <serial>63007881</serial>
-            </item>
-            <item>
-                <type>Regulator</type>
-                <manufacturer>Scubapro</manufacturer>
-                <name>S600</name>
                 <serial></serial>
             </item>
         </gear>
@@ -10771,51 +10778,16 @@ Mi sono dimenticato di scaricare il sacco in risalita, ero concentrato sulla mut
             <lon>8.11806</lon>
         </site>
         <tags>
-            <tag>Nitrox</tag>
-            <tag>corso TDI</tag>
             <tag>tech</tag>
+            <tag>Nitrox</tag>
         </tags>
-        <types></types>
+        <types>
+            <type>Corso TDI</type>
+        </types>
         <buddies>
             <buddy>Milvia</buddy>
         </buddies>
         <gear>
-            <item>
-                <type>Mask</type>
-                <manufacturer>Beuchat</manufacturer>
-                <name>Maxlux S</name>
-                <serial></serial>
-            </item>
-            <item>
-                <type>Fins</type>
-                <manufacturer>Dive System</manufacturer>
-                <name>Tech Fin</name>
-                <serial></serial>
-            </item>
-            <item>
-                <type>Octopus</type>
-                <manufacturer>Scubapro</manufacturer>
-                <name>R195</name>
-                <serial></serial>
-            </item>
-            <item>
-                <type>Regulator</type>
-                <manufacturer>Scubapro</manufacturer>
-                <name>MK25 Evo Main</name>
-                <serial>1741811090</serial>
-            </item>
-            <item>
-                <type>Computer</type>
-                <manufacturer>Shearwater</manufacturer>
-                <name>Teric</name>
-                <serial>A63C5D4A</serial>
-            </item>
-            <item>
-                <type>Torch</type>
-                <manufacturer>Dusk Fire</manufacturer>
-                <name>Torcia 2</name>
-                <serial></serial>
-            </item>
             <item>
                 <type>SMB</type>
                 <manufacturer>  </manufacturer>
@@ -10825,20 +10797,56 @@ Mi sono dimenticato di scaricare il sacco in risalita, ero concentrato sulla mut
             <item>
                 <type>Regulator</type>
                 <manufacturer>Scubapro</manufacturer>
-                <name>MK25 Evo Secondary</name>
-                <serial>1840900189</serial>
-            </item>
-            <item>
-                <type>Undervest</type>
-                <manufacturer>Santi</manufacturer>
-                <name>Sottomuta F190</name>
+                <name>S600</name>
                 <serial></serial>
             </item>
             <item>
-                <type>Camera</type>
-                <manufacturer>GoPro</manufacturer>
-                <name>GoPro Hero 6</name>
+                <type>BCD</type>
+                <manufacturer>Dive System</manufacturer>
+                <name>X3M Mod</name>
                 <serial></serial>
+            </item>
+            <item>
+                <type>Mask</type>
+                <manufacturer>Beuchat</manufacturer>
+                <name>Maxlux S</name>
+                <serial></serial>
+            </item>
+            <item>
+                <type>Torch</type>
+                <manufacturer>Dusk Fire</manufacturer>
+                <name>Torcia 2</name>
+                <serial></serial>
+            </item>
+            <item>
+                <type>Regulator</type>
+                <manufacturer>Scubapro</manufacturer>
+                <name>MK25 Evo Main</name>
+                <serial>1741811090</serial>
+            </item>
+            <item>
+                <type>Fins</type>
+                <manufacturer>Dive System</manufacturer>
+                <name>Tech Fin</name>
+                <serial></serial>
+            </item>
+            <item>
+                <type>Computer</type>
+                <manufacturer>Scubapro</manufacturer>
+                <name>Aladin Sport Matrix</name>
+                <serial>63007881</serial>
+            </item>
+            <item>
+                <type>Octopus</type>
+                <manufacturer>Scubapro</manufacturer>
+                <name>R195</name>
+                <serial></serial>
+            </item>
+            <item>
+                <type>Computer</type>
+                <manufacturer>Shearwater</manufacturer>
+                <name>Teric</name>
+                <serial>A63C5D4A</serial>
             </item>
             <item>
                 <type>Mask</type>
@@ -10849,7 +10857,13 @@ Mi sono dimenticato di scaricare il sacco in risalita, ero concentrato sulla mut
             <item>
                 <type>BCD</type>
                 <manufacturer>Dive System</manufacturer>
-                <name>X3M Mod</name>
+                <name>Sacco per bibo</name>
+                <serial></serial>
+            </item>
+            <item>
+                <type>Undervest</type>
+                <manufacturer>Santi</manufacturer>
+                <name>Sottomuta F190</name>
                 <serial></serial>
             </item>
             <item>
@@ -10859,27 +10873,21 @@ Mi sono dimenticato di scaricare il sacco in risalita, ero concentrato sulla mut
                 <serial></serial>
             </item>
             <item>
-                <type>BCD</type>
-                <manufacturer>Dive System</manufacturer>
-                <name>Sacco per bibo</name>
+                <type>Regulator</type>
+                <manufacturer>Scubapro</manufacturer>
+                <name>MK25 Evo Secondary</name>
+                <serial>1840900189</serial>
+            </item>
+            <item>
+                <type>Camera</type>
+                <manufacturer>GoPro</manufacturer>
+                <name>GoPro Hero 6</name>
                 <serial></serial>
             </item>
             <item>
                 <type>Wetnotes</type>
                 <manufacturer>Scubapro</manufacturer>
                 <name>Wetnotes</name>
-                <serial></serial>
-            </item>
-            <item>
-                <type>Computer</type>
-                <manufacturer>Scubapro</manufacturer>
-                <name>Aladin Sport Matrix</name>
-                <serial>63007881</serial>
-            </item>
-            <item>
-                <type>Regulator</type>
-                <manufacturer>Scubapro</manufacturer>
-                <name>S600</name>
                 <serial></serial>
             </item>
         </gear>
@@ -13764,8 +13772,8 @@ Also: tenere gli spallacci larghi in modo che ci passi un pugno tra lo spallacci
             <lon>8.11806</lon>
         </site>
         <tags>
-            <tag>Nitrox</tag>
             <tag>tech</tag>
+            <tag>Nitrox</tag>
         </tags>
         <types></types>
         <buddies>
@@ -13773,10 +13781,40 @@ Also: tenere gli spallacci larghi in modo che ci passi un pugno tra lo spallacci
         </buddies>
         <gear>
             <item>
+                <type>Regulator</type>
+                <manufacturer>Scubapro</manufacturer>
+                <name>S600</name>
+                <serial></serial>
+            </item>
+            <item>
+                <type>BCD</type>
+                <manufacturer>Dive System</manufacturer>
+                <name>X3M Mod</name>
+                <serial></serial>
+            </item>
+            <item>
                 <type>Mask</type>
                 <manufacturer>Beuchat</manufacturer>
                 <name>Maxlux S</name>
                 <serial></serial>
+            </item>
+            <item>
+                <type>Other</type>
+                <manufacturer>Aqua Lung</manufacturer>
+                <name>Transmitter</name>
+                <serial>006491</serial>
+            </item>
+            <item>
+                <type>Torch</type>
+                <manufacturer>Dusk Fire</manufacturer>
+                <name>Torcia 2</name>
+                <serial></serial>
+            </item>
+            <item>
+                <type>Regulator</type>
+                <manufacturer>Scubapro</manufacturer>
+                <name>MK25 Evo Main</name>
+                <serial>1741811090</serial>
             </item>
             <item>
                 <type>Fins</type>
@@ -13791,12 +13829,6 @@ Also: tenere gli spallacci larghi in modo che ci passi un pugno tra lo spallacci
                 <serial></serial>
             </item>
             <item>
-                <type>Regulator</type>
-                <manufacturer>Scubapro</manufacturer>
-                <name>MK25 Evo Main</name>
-                <serial>1741811090</serial>
-            </item>
-            <item>
                 <type>Computer</type>
                 <manufacturer>Technisub</manufacturer>
                 <name>Computer giallo</name>
@@ -13809,45 +13841,9 @@ Also: tenere gli spallacci larghi in modo che ci passi un pugno tra lo spallacci
                 <serial>A63C5D4A</serial>
             </item>
             <item>
-                <type>Torch</type>
-                <manufacturer>Dusk Fire</manufacturer>
-                <name>Torcia 2</name>
-                <serial></serial>
-            </item>
-            <item>
-                <type>SMB</type>
-                <manufacturer>  </manufacturer>
-                <name>Pedagno Tech</name>
-                <serial></serial>
-            </item>
-            <item>
-                <type>Regulator</type>
-                <manufacturer>Scubapro</manufacturer>
-                <name>MK25 Evo Secondary</name>
-                <serial>1840900189</serial>
-            </item>
-            <item>
-                <type>Undervest</type>
-                <manufacturer>Santi</manufacturer>
-                <name>Sottomuta F190</name>
-                <serial></serial>
-            </item>
-            <item>
-                <type>BCD</type>
-                <manufacturer>Dive System</manufacturer>
-                <name>X3M Mod</name>
-                <serial></serial>
-            </item>
-            <item>
                 <type>Mask</type>
                 <manufacturer>Aqua Lung</manufacturer>
                 <name>Favola (Nera)</name>
-                <serial></serial>
-            </item>
-            <item>
-                <type>Drysuit</type>
-                <manufacturer>Santi</manufacturer>
-                <name>E-Motion</name>
                 <serial></serial>
             </item>
             <item>
@@ -13857,15 +13853,27 @@ Also: tenere gli spallacci larghi in modo che ci passi un pugno tra lo spallacci
                 <serial></serial>
             </item>
             <item>
-                <type>Other</type>
-                <manufacturer>Aqua Lung</manufacturer>
-                <name>Transmitter</name>
-                <serial>006491</serial>
+                <type>Undervest</type>
+                <manufacturer>Santi</manufacturer>
+                <name>Sottomuta F190</name>
+                <serial></serial>
+            </item>
+            <item>
+                <type>Drysuit</type>
+                <manufacturer>Santi</manufacturer>
+                <name>E-Motion</name>
+                <serial></serial>
             </item>
             <item>
                 <type>Regulator</type>
                 <manufacturer>Scubapro</manufacturer>
-                <name>S600</name>
+                <name>MK25 Evo Secondary</name>
+                <serial>1840900189</serial>
+            </item>
+            <item>
+                <type>SMB</type>
+                <manufacturer>  </manufacturer>
+                <name>Pedagno Tech</name>
                 <serial></serial>
             </item>
         </gear>
@@ -16309,12 +16317,6 @@ In Y-40 avevano affondato un modellino a grandezza naturale del LEM dell’Apoll
         </buddies>
         <gear>
             <item>
-                <type>Mask</type>
-                <manufacturer>Aqua Lung</manufacturer>
-                <name>Favola (Nera)</name>
-                <serial></serial>
-            </item>
-            <item>
                 <type>Computer</type>
                 <manufacturer>Shearwater</manufacturer>
                 <name>Teric</name>
@@ -16324,6 +16326,12 @@ In Y-40 avevano affondato un modellino a grandezza naturale del LEM dell’Apoll
                 <type>Mask</type>
                 <manufacturer>Beuchat</manufacturer>
                 <name>Maxlux S</name>
+                <serial></serial>
+            </item>
+            <item>
+                <type>Mask</type>
+                <manufacturer>Aqua Lung</manufacturer>
+                <name>Favola (Nera)</name>
                 <serial></serial>
             </item>
         </gear>
@@ -18888,10 +18896,40 @@ Esercizio di sparare il pedagno al ritorno ma ho soffiato troppa poca aria per c
         </buddies>
         <gear>
             <item>
+                <type>Regulator</type>
+                <manufacturer>Scubapro</manufacturer>
+                <name>S600</name>
+                <serial></serial>
+            </item>
+            <item>
+                <type>BCD</type>
+                <manufacturer>Dive System</manufacturer>
+                <name>FlyTech</name>
+                <serial></serial>
+            </item>
+            <item>
                 <type>Mask</type>
                 <manufacturer>Beuchat</manufacturer>
                 <name>Maxlux S</name>
                 <serial></serial>
+            </item>
+            <item>
+                <type>Other</type>
+                <manufacturer>Aqua Lung</manufacturer>
+                <name>Transmitter</name>
+                <serial>006491</serial>
+            </item>
+            <item>
+                <type>Torch</type>
+                <manufacturer>Dusk Fire</manufacturer>
+                <name>Torcia 2</name>
+                <serial></serial>
+            </item>
+            <item>
+                <type>Regulator</type>
+                <manufacturer>Scubapro</manufacturer>
+                <name>MK25 Evo Main</name>
+                <serial>1741811090</serial>
             </item>
             <item>
                 <type>Fins</type>
@@ -18906,46 +18944,10 @@ Esercizio di sparare il pedagno al ritorno ma ho soffiato troppa poca aria per c
                 <serial></serial>
             </item>
             <item>
-                <type>Regulator</type>
-                <manufacturer>Scubapro</manufacturer>
-                <name>MK25 Evo Main</name>
-                <serial>1741811090</serial>
-            </item>
-            <item>
-                <type>BCD</type>
-                <manufacturer>Dive System</manufacturer>
-                <name>FlyTech</name>
-                <serial></serial>
-            </item>
-            <item>
                 <type>Computer</type>
                 <manufacturer>Shearwater</manufacturer>
                 <name>Teric</name>
                 <serial>A63C5D4A</serial>
-            </item>
-            <item>
-                <type>Torch</type>
-                <manufacturer>Dusk Fire</manufacturer>
-                <name>Torcia 2</name>
-                <serial></serial>
-            </item>
-            <item>
-                <type>SMB</type>
-                <manufacturer>  </manufacturer>
-                <name>Pedagno Tech</name>
-                <serial></serial>
-            </item>
-            <item>
-                <type>Regulator</type>
-                <manufacturer>Scubapro</manufacturer>
-                <name>MK25 Evo Secondary</name>
-                <serial>1840900189</serial>
-            </item>
-            <item>
-                <type>Wetsuit</type>
-                <manufacturer>Scubapro</manufacturer>
-                <name>Muta 5mm</name>
-                <serial></serial>
             </item>
             <item>
                 <type>Mask</type>
@@ -18960,15 +18962,21 @@ Esercizio di sparare il pedagno al ritorno ma ho soffiato troppa poca aria per c
                 <serial></serial>
             </item>
             <item>
-                <type>Other</type>
-                <manufacturer>Aqua Lung</manufacturer>
-                <name>Transmitter</name>
-                <serial>006491</serial>
+                <type>Wetsuit</type>
+                <manufacturer>Scubapro</manufacturer>
+                <name>Muta 5mm</name>
+                <serial></serial>
             </item>
             <item>
                 <type>Regulator</type>
                 <manufacturer>Scubapro</manufacturer>
-                <name>S600</name>
+                <name>MK25 Evo Secondary</name>
+                <serial>1840900189</serial>
+            </item>
+            <item>
+                <type>SMB</type>
+                <manufacturer>  </manufacturer>
+                <name>Pedagno Tech</name>
                 <serial></serial>
             </item>
         </gear>
@@ -21235,10 +21243,40 @@ Guidava Jacopo C]]></notes>
         </buddies>
         <gear>
             <item>
+                <type>Regulator</type>
+                <manufacturer>Scubapro</manufacturer>
+                <name>S600</name>
+                <serial></serial>
+            </item>
+            <item>
+                <type>BCD</type>
+                <manufacturer>Dive System</manufacturer>
+                <name>FlyTech</name>
+                <serial></serial>
+            </item>
+            <item>
                 <type>Mask</type>
                 <manufacturer>Beuchat</manufacturer>
                 <name>Maxlux S</name>
                 <serial></serial>
+            </item>
+            <item>
+                <type>Other</type>
+                <manufacturer>Aqua Lung</manufacturer>
+                <name>Transmitter</name>
+                <serial>006491</serial>
+            </item>
+            <item>
+                <type>Torch</type>
+                <manufacturer>Dusk Fire</manufacturer>
+                <name>Torcia 2</name>
+                <serial></serial>
+            </item>
+            <item>
+                <type>Regulator</type>
+                <manufacturer>Scubapro</manufacturer>
+                <name>MK25 Evo Main</name>
+                <serial>1741811090</serial>
             </item>
             <item>
                 <type>Fins</type>
@@ -21253,46 +21291,10 @@ Guidava Jacopo C]]></notes>
                 <serial></serial>
             </item>
             <item>
-                <type>Regulator</type>
-                <manufacturer>Scubapro</manufacturer>
-                <name>MK25 Evo Main</name>
-                <serial>1741811090</serial>
-            </item>
-            <item>
-                <type>BCD</type>
-                <manufacturer>Dive System</manufacturer>
-                <name>FlyTech</name>
-                <serial></serial>
-            </item>
-            <item>
                 <type>Computer</type>
                 <manufacturer>Shearwater</manufacturer>
                 <name>Teric</name>
                 <serial>A63C5D4A</serial>
-            </item>
-            <item>
-                <type>Torch</type>
-                <manufacturer>Dusk Fire</manufacturer>
-                <name>Torcia 2</name>
-                <serial></serial>
-            </item>
-            <item>
-                <type>SMB</type>
-                <manufacturer>  </manufacturer>
-                <name>Pedagno Tech</name>
-                <serial></serial>
-            </item>
-            <item>
-                <type>Regulator</type>
-                <manufacturer>Scubapro</manufacturer>
-                <name>MK25 Evo Secondary</name>
-                <serial>1840900189</serial>
-            </item>
-            <item>
-                <type>Wetsuit</type>
-                <manufacturer>Scubapro</manufacturer>
-                <name>Muta 5mm</name>
-                <serial></serial>
             </item>
             <item>
                 <type>Mask</type>
@@ -21307,15 +21309,21 @@ Guidava Jacopo C]]></notes>
                 <serial></serial>
             </item>
             <item>
-                <type>Other</type>
-                <manufacturer>Aqua Lung</manufacturer>
-                <name>Transmitter</name>
-                <serial>006491</serial>
+                <type>Wetsuit</type>
+                <manufacturer>Scubapro</manufacturer>
+                <name>Muta 5mm</name>
+                <serial></serial>
             </item>
             <item>
                 <type>Regulator</type>
                 <manufacturer>Scubapro</manufacturer>
-                <name>S600</name>
+                <name>MK25 Evo Secondary</name>
+                <serial>1840900189</serial>
+            </item>
+            <item>
+                <type>SMB</type>
+                <manufacturer>  </manufacturer>
+                <name>Pedagno Tech</name>
                 <serial></serial>
             </item>
         </gear>
@@ -22706,10 +22714,40 @@ Pianificato 28 minuti a 15 metri
         </buddies>
         <gear>
             <item>
+                <type>Regulator</type>
+                <manufacturer>Scubapro</manufacturer>
+                <name>S600</name>
+                <serial></serial>
+            </item>
+            <item>
+                <type>BCD</type>
+                <manufacturer>Dive System</manufacturer>
+                <name>FlyTech</name>
+                <serial></serial>
+            </item>
+            <item>
                 <type>Mask</type>
                 <manufacturer>Beuchat</manufacturer>
                 <name>Maxlux S</name>
                 <serial></serial>
+            </item>
+            <item>
+                <type>Other</type>
+                <manufacturer>Aqua Lung</manufacturer>
+                <name>Transmitter</name>
+                <serial>006491</serial>
+            </item>
+            <item>
+                <type>Torch</type>
+                <manufacturer>Dusk Fire</manufacturer>
+                <name>Torcia 2</name>
+                <serial></serial>
+            </item>
+            <item>
+                <type>Regulator</type>
+                <manufacturer>Scubapro</manufacturer>
+                <name>MK25 Evo Main</name>
+                <serial>1741811090</serial>
             </item>
             <item>
                 <type>Fins</type>
@@ -22724,46 +22762,10 @@ Pianificato 28 minuti a 15 metri
                 <serial></serial>
             </item>
             <item>
-                <type>Regulator</type>
-                <manufacturer>Scubapro</manufacturer>
-                <name>MK25 Evo Main</name>
-                <serial>1741811090</serial>
-            </item>
-            <item>
-                <type>BCD</type>
-                <manufacturer>Dive System</manufacturer>
-                <name>FlyTech</name>
-                <serial></serial>
-            </item>
-            <item>
                 <type>Computer</type>
                 <manufacturer>Shearwater</manufacturer>
                 <name>Teric</name>
                 <serial>A63C5D4A</serial>
-            </item>
-            <item>
-                <type>Torch</type>
-                <manufacturer>Dusk Fire</manufacturer>
-                <name>Torcia 2</name>
-                <serial></serial>
-            </item>
-            <item>
-                <type>SMB</type>
-                <manufacturer>  </manufacturer>
-                <name>Pedagno Tech</name>
-                <serial></serial>
-            </item>
-            <item>
-                <type>Regulator</type>
-                <manufacturer>Scubapro</manufacturer>
-                <name>MK25 Evo Secondary</name>
-                <serial>1840900189</serial>
-            </item>
-            <item>
-                <type>Wetsuit</type>
-                <manufacturer>Scubapro</manufacturer>
-                <name>Muta 5mm</name>
-                <serial></serial>
             </item>
             <item>
                 <type>Mask</type>
@@ -22778,15 +22780,21 @@ Pianificato 28 minuti a 15 metri
                 <serial></serial>
             </item>
             <item>
-                <type>Other</type>
-                <manufacturer>Aqua Lung</manufacturer>
-                <name>Transmitter</name>
-                <serial>006491</serial>
+                <type>Wetsuit</type>
+                <manufacturer>Scubapro</manufacturer>
+                <name>Muta 5mm</name>
+                <serial></serial>
             </item>
             <item>
                 <type>Regulator</type>
                 <manufacturer>Scubapro</manufacturer>
-                <name>S600</name>
+                <name>MK25 Evo Secondary</name>
+                <serial>1840900189</serial>
+            </item>
+            <item>
+                <type>SMB</type>
+                <manufacturer>  </manufacturer>
+                <name>Pedagno Tech</name>
                 <serial></serial>
             </item>
         </gear>
