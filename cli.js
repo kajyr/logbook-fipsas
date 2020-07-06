@@ -55,7 +55,7 @@ if (verbose) {
 }
 
 if (empty) {
-    convertEmpty(dest, globals, spinner);
+    convertEmpty(dest, globals);
 } else if (argv._.length > 0) {
     Promise.all(argv._.map((file) => convert(file, dest, globals)));
 } else {

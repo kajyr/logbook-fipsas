@@ -6,7 +6,7 @@
     "type": "commonjs",
     "scripts": {
         "build": "node cli.js -t pdfkit --dest demo/export.pdf",
-        "build:empty": "node cli.js -lt pdfkit --dest demo/export_empty.pdf --empty",
+        "build:empty": "node cli.js -vlt pdfkit --dest demo/export_empty.pdf --empty",
         "watch": "nodemon cli.js -lvt pdfkit --debug --dest demo/export.pdf",
         "test": "ava",
         "postversion": "git push origin && git push origin --tags",
