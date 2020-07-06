@@ -1,9 +1,7 @@
 #!/usr/bin/env node
 const yargs = require('yargs');
-require('dotenv').config();
 const { convert, convertEmpty } = require('./');
 const { listImporters } = require('dive-log-importer');
-const options = require('./lib/options');
 
 const argv = yargs
     .usage('$0 file.xml')
@@ -11,7 +9,7 @@ const argv = yargs
         alias: 'dest',
         default: './export.pdf',
         describe: 'Output file name',
-        type: 'string'
+        type: 'string',
     })
     .option('template', {
         alias: 't',
@@ -19,34 +17,34 @@ const argv = yargs
         describe: 'Template name',
         type: 'string',
         demandOption: true,
-        choices: ['fipsas-didattica', 'pdfkit']
+        choices: ['fipsas-didattica', 'pdfkit'],
     })
     .option('logo', {
         alias: 'l',
         default: false,
         describe: 'Prints the club logo',
-        type: 'boolean'
+        type: 'boolean',
     })
     .option('v', {
         alias: 'verbose',
         default: false,
         describe: 'Verbose mode',
-        type: 'boolean'
+        type: 'boolean',
     })
     .option('debug', {
         default: false,
         describe: 'Debug mode',
-        type: 'boolean'
+        type: 'boolean',
     })
     .option('empty', {
         default: false,
         describe: 'Prints an empty sheet (Does not load any xml file)',
-        type: 'boolean'
+        type: 'boolean',
     })
     .option('importers', {
         default: false,
         describe: 'Print the list of available importers',
-        type: 'boolean'
+        type: 'boolean',
     }).argv;
 
 const { verbose, debug, empty, dest, template, importers, logo } = argv;
@@ -68,7 +66,7 @@ if (importers) {
 } else if (empty) {
     convertEmpty(dest, globals);
 } else if (argv._.length > 0) {
-    Promise.all(argv._.map(file => convert(file, dest, globals)));
+    Promise.all(argv._.map((file) => convert(file, dest, globals)));
 } else {
     yargs.showHelp();
 }

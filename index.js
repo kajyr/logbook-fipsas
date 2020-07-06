@@ -17,9 +17,9 @@ const EMPTY_LOGBOOK = {
             location: {},
             types: [],
             samples: [],
-            entry_time: null
-        }
-    ]
+            entry_time: null,
+        },
+    ],
 };
 
 async function convert(file, dest, globals) {
@@ -38,7 +38,7 @@ async function convertEmpty(dest, globals) {
 }
 
 async function process(logbook, dest, globals) {
-    Object.keys(globals).forEach(key => {
+    Object.keys(globals).forEach((key) => {
         options[key] = globals[key];
     });
 
@@ -47,9 +47,9 @@ async function process(logbook, dest, globals) {
     await fs.ensureDir(cacheDir);
     options.cacheDir = cacheDir;
 
-    const enriched = await enrich(logbook);
+    const enriched = await enrich(logbook, options);
 
-    pdfkit(enriched, dest, cacheDir);
+    pdfkit(enriched, dest, cacheDir, options);
 
     if (options.debug) {
         const jsonDebugFile = path.join(destFolder, `logbook.json`);
@@ -59,5 +59,5 @@ async function process(logbook, dest, globals) {
 
 module.exports = {
     convert,
-    convertEmpty
+    convertEmpty,
 };
