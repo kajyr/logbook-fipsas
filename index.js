@@ -49,7 +49,7 @@ async function process(logbook, dest, globals) {
 
     const enriched = await enrich(logbook, options);
 
-    pdfkit(enriched, dest, cacheDir, options);
+    pdfkit(enriched, dest, options);
 
     if (options.debug) {
         const jsonDebugFile = path.join(destFolder, `logbook.json`);
