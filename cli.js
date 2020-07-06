@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 const yargs = require('yargs');
 const { convert, convertEmpty } = require('./');
+const options = require('./lib/options');
 
 const argv = yargs
     .usage('$0 file.xml')
@@ -43,11 +44,14 @@ const argv = yargs
 
 const { verbose, debug, empty, dest, template, logo } = argv;
 
-const globals = { verbose, debug, logo, empty, template };
+const globals = ['verbose', 'debug', 'logo', 'empty', 'template'];
+globals.forEach((key) => {
+    options[key] = argv[key];
+});
 
 if (verbose) {
-    const activeFlags = Object.keys(globals).reduce((acc, key) => {
-        const val = globals[key];
+    const activeFlags = globals.reduce((acc, key) => {
+        const val = argv[key];
         return val ? acc.concat(typeof val === 'string' ? `${key}: ${val}` : key) : acc;
     }, []);
 
@@ -55,9 +59,9 @@ if (verbose) {
 }
 
 if (empty) {
-    convertEmpty(dest, globals);
+    convertEmpty(dest, options);
 } else if (argv._.length > 0) {
-    Promise.all(argv._.map((file) => convert(file, dest, globals)));
+    Promise.all(argv._.map((file) => convert(file, dest, options)));
 } else {
     yargs.showHelp();
 }
