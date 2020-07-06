@@ -1,3 +1,27 @@
+#### 2.6.2 (2020-07-06)
+
+##### Build System / Dependencies
+
+*  updated dependencies (2bb53528)
+
+##### Chores
+
+*  Ignored DS_Store files (85f85b70)
+*  fix demo xml (a4533471)
+
+##### Bug Fixes
+
+*  wrong imports (371f0a33)
+*  empty dives does not have maps (f6a1c6af)
+*  Maps enricher does not break is no maps api key is provided. (e2da2aa3)
+*  Removed log (23ffb215)
+
+##### Refactors
+
+*  a little cleaner options management (60eb8b6c)
+*  used home-config instead of dotenv (90326d26)
+*  Removed unused listImporters option (8b80679f)
+
 #### 2.6.1 (2020-02-04)
 
 ##### New Features
