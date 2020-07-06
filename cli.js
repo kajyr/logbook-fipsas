@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 const yargs = require('yargs');
 const { convert, convertEmpty } = require('./');
-const { listImporters } = require('dive-log-importer');
 
 const argv = yargs
     .usage('$0 file.xml')
@@ -40,14 +39,9 @@ const argv = yargs
         default: false,
         describe: 'Prints an empty sheet (Does not load any xml file)',
         type: 'boolean',
-    })
-    .option('importers', {
-        default: false,
-        describe: 'Print the list of available importers',
-        type: 'boolean',
     }).argv;
 
-const { verbose, debug, empty, dest, template, importers, logo } = argv;
+const { verbose, debug, empty, dest, template, logo } = argv;
 
 const globals = { verbose, debug, logo, empty, template };
 
@@ -60,11 +54,8 @@ if (verbose) {
     console.log('Active flags: ', activeFlags);
 }
 
-if (importers) {
-    const list = listImporters();
-    console.log('Importers: ', list);
-} else if (empty) {
-    convertEmpty(dest, globals);
+if (empty) {
+    convertEmpty(dest, globals, spinner);
 } else if (argv._.length > 0) {
     Promise.all(argv._.map((file) => convert(file, dest, globals)));
 } else {
