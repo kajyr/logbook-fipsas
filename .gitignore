@@ -8,3 +8,4 @@ demo/*.pdf
 demo/*.json
 .cache/
 .env
+.DS_Store
